@@ -2,13 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { Button } from "./components/Button/button";
+import { Alert } from "./components/Alert/alert";
+import './styles/index.scss'
 
 function App() {
   return (
-    <div className="App">
+    < div className="App" >
       <header className="App-header">
-        <Button size='lg' btnType='link' href='http://www.baidu.com'>打下</Button>
+        <Alert ></Alert>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -22,7 +23,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </ div>
   );
 }
 

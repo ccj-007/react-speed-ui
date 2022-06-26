@@ -34,12 +34,15 @@
 .btn-primary {
   @include button-style($primary, $primary, $white)
 }
+.btn-success {
+  @include button-style($success, $success, $white)
+}
 .btn-danger {
   @include button-style($danger, $danger, $white)
 }
 
-.btn-default {
-  @include button-style($white, $gray-400, $body-color, $white, $primary, $primary)
+.btn-warning {
+  @include button-style($warning, $warning, $white)
 }
 
 .btn-link {

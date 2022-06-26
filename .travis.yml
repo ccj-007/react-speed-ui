@@ -1,0 +1,20 @@
+language: node_js 
+node_js:
+  - "stable"
+cache:
+  directories:
+  - node_modules
+env:
+  - CI=true
+script:
+  - npm run build-storybook
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $UI-KEY,
+
+  github_token: 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
+  local_dir: storybook-static 
+  on:
+    branch: main // 基于main分支进行部署
+
