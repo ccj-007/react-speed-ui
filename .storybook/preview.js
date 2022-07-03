@@ -8,4 +8,11 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      method: '',
+      order: ['Introduction', 'Button', 'Alert'],
+      locales: '',
+    },
+  },
 }
