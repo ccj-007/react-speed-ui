@@ -2,8 +2,10 @@ import React, { useContext, useState, FunctionComponentElement } from 'react'
 import classNames from 'classnames'
 import { MenuContext } from './menu'
 import { IMenuItemProps } from './menuItem'
-// import Icon from '../Icon/icon'
-// import Transition from '../Transition/transition'
+import Icon from '../Icon/icon'
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import Transition from '../Transition/transition'
+
 export interface SubMenuProps {
   index?: string;
   title: string;
@@ -27,6 +29,7 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
   }
   let timer: any
   const handleMouse = (e: React.MouseEvent, toggle: boolean) => {
+    console.log('mouse', toggle)
     clearTimeout(timer)
     e.preventDefault()
     timer = setTimeout(() => {
@@ -55,22 +58,22 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children, className }) 
       }
     })
     return (
-      // <Transition
-      //   in={menuOpen}
-      //   timeout={300}
-      //   animation="zoom-in-top"
-      // >
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
-      // </Transition>
+      <Transition
+        in={menuOpen}
+        timeout={300}
+        animation="zoom-in-top"
+      >
+        <ul className={subMenuClasses}>
+          {menuOpen && childrenComponent}
+        </ul>
+      </Transition>
     )
   }
   return (
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
-        {/* <Icon icon="angle-down" className="arrow-icon" /> */}
+        <Icon icon={solid("angle-down")} className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>

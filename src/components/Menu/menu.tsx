@@ -25,6 +25,14 @@ interface IMenuContext {
 
 export let MenuContext = React.createContext<IMenuContext>({ index: '0' })
 
+/**
+ * 标签栏
+ * ### 引用方法
+ * 
+ * ~~~js
+ * import { Menu } from 'speed-ui'
+ * ~~~
+ */
 const Menu: React.FC<IMenuProps> = (props) => {
   let { defaultIndex, disabled, onSelect, className, style, mode, children, defaultOpenSubMenus } = props
   const [currentActive, setActive] = React.useState(defaultIndex)
@@ -58,7 +66,6 @@ const Menu: React.FC<IMenuProps> = (props) => {
     index: currentActive ? currentActive : '0',
     onSelect: handleClick,
   }
-
 
   return (
     <ul className={classes} style={style} data-testid="test-menu">
