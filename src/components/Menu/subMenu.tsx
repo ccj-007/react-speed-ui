@@ -3,9 +3,8 @@ import classNames from 'classnames'
 import { MenuContext } from './menu'
 import { IMenuItemProps } from './menuItem'
 import Icon from '../Icon/icon'
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import Transition from '../Transition/transition'
-
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 export interface SubMenuProps {
   index?: string;
   title: string;

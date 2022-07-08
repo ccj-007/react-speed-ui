@@ -2,9 +2,11 @@ import React from 'react'
 import classNames from 'classnames'
 import { IMenuItemProps } from './menuItem'
 
-interface IMenuProps {
+export interface IMenuProps {
   defaultIndex?: string,
+  /* 设置input 禁用 */
   disabled?: boolean,
+  /* 设置input 方向 */
   mode?: 'horizontal' | 'vertical',
   onSelect?: (selIndex: string) => void,
   className?: string,
@@ -33,7 +35,7 @@ export let MenuContext = React.createContext<IMenuContext>({ index: '0' })
  * import { Menu } from 'speed-ui'
  * ~~~
  */
-const Menu: React.FC<IMenuProps> = (props) => {
+export const Menu: React.FC<IMenuProps> = (props) => {
   let { defaultIndex, disabled, onSelect, className, style, mode, children, defaultOpenSubMenus } = props
   const [currentActive, setActive] = React.useState(defaultIndex)
 
@@ -80,4 +82,3 @@ Menu.defaultProps = {
   mode: 'horizontal',
   defaultOpenSubMenus: [],
 }
-export default Menu

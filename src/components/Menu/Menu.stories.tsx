@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions'
-import Menu from './menu'
+import { Menu } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
 
