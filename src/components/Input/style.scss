@@ -1,5 +1,30 @@
-@each $key, $val in $theme-colors {
-  .icon-#{$key} {
-    color: $val;
-  }
+.speed-input {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  outline-style: none;
+}
+
+.speed-input:hover {
+  border: 1px solid #31c27c;
+}
+
+
+.input-prefix {
+  display: inline-block;
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.input-suffix {
+  display: inline-block;
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 0 4px 4px 0;
+}
+
+.disabled {
+  background: #f6f6f6;
+  cursor:not-allowed;
 }

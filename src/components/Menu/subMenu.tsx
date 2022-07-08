@@ -2,7 +2,7 @@ import React, { useContext, useState, FunctionComponentElement } from 'react'
 import classNames from 'classnames'
 import { MenuContext } from './menu'
 import { IMenuItemProps } from './menuItem'
-import Icon from '../Icon/icon'
+import { Icon } from '../Icon/icon'
 import Transition from '../Transition/transition'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 export interface SubMenuProps {

@@ -7,7 +7,6 @@ export const AlertWithButton: React.FC<AlertProps> = (props) => {
   let { alertType, title, content } = props
   let [isOpen, setIsOpen] = React.useState<boolean>(false)
 
-
   return (
     <div style={{ padding: '20px' }}>
       <Button btnType={alertType} onClick={() => setIsOpen(true)}>{alertType} alert</Button>

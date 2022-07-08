@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions'
-import Icon from './icon'
+import { Icon } from './icon'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 export const defaultIcon = () => (

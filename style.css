@@ -1,44 +1,29 @@
-.alert-success {
-  background: green;
-  color: #fff;
+.speed-input {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  outline-style: none;
 }
 
-.alert-default {
-  background: #fff;
+.speed-input:hover {
+  border: 1px solid #31c27c;
 }
 
-.alert-danger {
-  background: red;
-  color: #fff;
+.input-prefix {
+  display: inline-block;
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 4px 0 0 4px;
 }
 
-.alert-warning {
-  background: red;
-  color: #fff;
+.input-suffix {
+  display: inline-block;
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 0 4px 4px 0;
 }
 
-.alert {
-  position: fixed;
-  left: 50%;
-  top: 2%;
-  border-radius: 10px;
-  padding: 20px 40px;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  color: #000;
-  border: 1px solid #000;
-  transition: all .5s linear;
-}
-
-.alert-close {
-  position: absolute;
-  right: 10px;
-  cursor: pointer;
-  top: 0;
-}
-
-.alert-maintitle {
-  font-weight: bold;
+.disabled {
+  background: #f6f6f6;
+  cursor: not-allowed;
 }
