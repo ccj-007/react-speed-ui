@@ -1,7 +1,10 @@
-import React, { InputHTMLAttributes } from 'react'
+import React, { ChangeEvent, InputHTMLAttributes } from 'react'
 import classNames from 'classnames'
 
+type InputSize = 'lg' | 'sm'
+
 export interface InputProps {
+  size: InputSize,
   disabled: boolean,
   /* 是否是密码输入框 */
   isPasswordInput: boolean,
@@ -12,19 +15,35 @@ export interface InputProps {
   prefix: string,
   /* 后缀 */
   suffix: string,
+  //输入change事件,直接获取val
+  onChangeVal: Function,
+  //初始值input
+  value: any,
   className: string,
   children: React.ReactNode;
   style: React.CSSProperties
 }
+export type InputExternalProps = Omit<InputProps, 'size'>
 
-export type allInputProps = Partial<InputProps> & InputHTMLAttributes<HTMLElement>
+export type allInputProps = Partial<InputProps> & InputHTMLAttributes<HTMLInputElement>
 
+/**
+ * ### 引用方法
+ * 
+ * ~~~js
+ * import { Input } from 'react-speed-ui'
+ * ~~~
+ */
 export const Input: React.FC<allInputProps> = (props) => {
-  let { disabled, isPasswordInput, isNumberInput, placeholder, prefix, suffix, className, ...restProps } = props
+  let { disabled, isPasswordInput, isNumberInput, placeholder, prefix, suffix, className, onChangeVal, value, ...restProps } = props
   let [inputType, setInputType] = React.useState<string>('text')
-  console.log(isPasswordInput);
+  let [inputVal, setInputVal] = React.useState<any>(value)
 
   React.useEffect(() => {
+    //控制value
+    value ? setInputVal(value) : setInputVal('')
+
+    //控制type
     if (isPasswordInput) {
       setInputType('password')
     } else if (isNumberInput) {
@@ -32,15 +51,16 @@ export const Input: React.FC<allInputProps> = (props) => {
     } else {
       setInputType('text')
     }
-  }, [isPasswordInput])
+  }, [isPasswordInput, value])
 
   const classes = classNames('speed-input', className, {
     'disabled': disabled
   })
+
   return (
     <>
       {prefix ? <div className='input-prefix'>{prefix}</div> : ''}
-      <input disabled={disabled} type={inputType} className={classes} {...restProps} placeholder={placeholder} />
+      <input disabled={disabled} type={inputType} className={classes} {...restProps} placeholder={placeholder} value={inputVal} />
       {suffix ? <div className='input-suffix'>{suffix}</div> : ''}
     </>
   )
@@ -53,4 +73,5 @@ Input.defaultProps = {
   placeholder: '',
   prefix: '',
   suffix: '',
+  value: ''
 }

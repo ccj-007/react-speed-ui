@@ -10,14 +10,15 @@ const defaultInputTpl = (args: any) => (
   <>
     <h6>普通的input</h6>
     <div>
-      <Input placeholder={args.placeholder} ></Input>
+      <Input placeholder={args.placeholder} onChange={args.onChangeVal}></Input>
     </div>
   </>
 )
 
 export const defaultInput: any = defaultInputTpl.bind({});
 defaultInput.args = {
-  placeholder: '请输入你的内容'
+  placeholder: '请输入你的内容',
+  onChange: (val: any) => console.log("input的值", val)
 };
 
 const disabledInputTpl = (args: any) => (
