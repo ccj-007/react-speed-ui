@@ -6,6 +6,8 @@ function useDebounce(value: any, delay = 300) {
     const handler = window.setTimeout(() => {
       setDebouncedValue(value)
     }, delay)
+
+    /*会在上一次清除  */
     return () => {
       clearTimeout(handler)
     }

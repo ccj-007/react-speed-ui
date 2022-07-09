@@ -33,9 +33,9 @@ const defaultAutoCompleteTpl = (args: any) => {
 
   const renderOptions = (item: any) => {
     return (
-      <h2>
+      <div>
         {item.value}
-      </h2>
+      </div>
     )
   }
 

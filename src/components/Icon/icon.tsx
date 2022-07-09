@@ -25,6 +25,7 @@ export const Icon: React.FC<IconProps> = (props) => {
   const classes = classNames('viking-icon', className, {
     [`icon-${theme}`]: theme
   })
+
   return (
     <FontAwesomeIcon className={classes} icon={icon} {...restProps} />
   )
