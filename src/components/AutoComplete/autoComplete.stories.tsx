@@ -3,7 +3,7 @@ import { AutoComplete } from './autoComplete'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'AutoComplete',
+  title: '数据录入/AutoComplete',
   component: AutoComplete,
 };
 

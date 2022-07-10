@@ -3,7 +3,7 @@ import { Progress } from './progress'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'Progress',
+  title: '数据展示/Progress',
   component: Progress,
 };
 

@@ -172,8 +172,6 @@ export const Upload: React.FC<UploadProps> = (props) => {
   }
   return (
     <div className='viking-upload-component'>
-
-
       <div className="viking-upload-input"
         style={{ display: 'inline-block' }}
         onClick={handleClick}>

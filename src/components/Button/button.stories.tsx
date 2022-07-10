@@ -20,7 +20,7 @@ export const buttonWithType = () => (
   </>
 )
 export default {
-  title: 'Button',
+  title: '通用/Button',
   component: Button,
 };
 

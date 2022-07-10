@@ -31,6 +31,6 @@ export const verticalMenu = () => (
 )
 
 export default {
-  title: 'Menu',
+  title: '数据展示/Menu',
   component: Menu,
 };

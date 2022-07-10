@@ -3,7 +3,7 @@ import { Upload, UploadFile } from './upload'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'Upload',
+  title: '数据录入/Upload',
   component: Upload,
 };
 const defaultFileList: UploadFile[] = [

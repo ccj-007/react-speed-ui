@@ -15,6 +15,6 @@ export const defaultIcon = () => (
 )
 
 export default {
-  title: 'Icon',
+  title: '通用/Icon',
   component: Icon,
 };

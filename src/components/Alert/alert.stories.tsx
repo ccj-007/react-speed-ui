@@ -1,7 +1,6 @@
 import React from 'react';
 import { Alert, AlertProps } from './alert'
 import { Button } from '../Button/button'
-import { action } from '@storybook/addon-actions'
 
 export const AlertWithButton: React.FC<AlertProps> = (props) => {
   let { alertType, title, content } = props
@@ -27,6 +26,6 @@ export const AlertWithColor = () => {
 }
 
 export default {
-  title: 'Alert',
+  title: '反馈/Alert',
   component: Alert,
 };
