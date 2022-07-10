@@ -1,15 +1,16 @@
 // config
-@import "variables";
+@import "./variables.scss";
 
 //layout
-@import "reboot";
+@import "./reboot.scss";
 
 //mixin
-@import "mixin";
+@import "./mixin.scss";
 
 // animation
-@import "animation";
-// button
+@import "./animation.scss";
+
+@import "./common.scss";
 
 @import "../components/Button/style";
 
@@ -22,3 +23,8 @@
 @import "../components/Input/style";
 
 @import "../components/AutoComplete/style";
+
+@import "../components/Upload/style";
+
+@import "../components/Progress/style";
+
