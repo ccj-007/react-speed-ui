@@ -1,6 +1,23 @@
-ul, li {
-  padding: 0;
-  margin: 0;
-  list-style: none;
+ul,
+li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
+.sfc {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sfv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.sf {
+	display: flex;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "./Layout";
+import { Layout } from "./index";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -11,9 +11,11 @@ export default {
 const ATplTempalte = (args: any) => {
 	return (
 		<>
-			<Header></Header>
-			<Content></Content>
-			<Footer></Footer>
+			<Layout>
+				<Header></Header>
+				<Content></Content>
+				<Footer></Footer>
+			</Layout>
 		</>
 	);
 };
