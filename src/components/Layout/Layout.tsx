@@ -1,118 +1,127 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 
-// export interface ComponentProps {
-// 	children?: React.ReactNode;
-// }
-// export type LayoutProps = {
-// 	Header: typeof Header;
-// 	Content: typeof Content;
-// 	Footer: typeof Footer;
-// 	Sider: typeof Sider;
-// };
-
-// const BasicLayout: FC<ComponentProps> = (props) => {
-// 	const { children } = props;
-// 	return <div className="sfv">{children}</div>;
-// };
-
-// const Header: FC<any> = (props) => {
-// 	const {} = props;
-// 	return <div className="speed-header sfc">Header</div>;
-// };
-// const Content: FC<any> = (props) => {
-// 	const {} = props;
-// 	return <div className="speed-content sfc">Content</div>;
-// };
-// const Footer: FC<any> = (props) => {
-// 	const {} = props;
-// 	return <div className="speed-footer sfc">Footer</div>;
-// };
-
-// const Sider: FC<any> = (props) => {
-// 	const {} = props;
-// 	return <div className="speed-sider sfc">Sider</div>;
-// };
-
-// const Layout = BasicLayout as unknown as LayoutProps;
-// Layout.Header = Header;
-// Layout.Content = Content;
-// Layout.Footer = Footer;
-// Layout.Sider = Sider;
-
-// export default Layout;
-
 export interface GeneratorProps {
-	suffixCls: string;
-	tagName: "header" | "footer" | "main" | "section";
+  suffixCls: string;
+  displayName: string
+  tagName: "header" | "footer" | "main" | "section";
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
-	prefixCls?: string;
+  prefixCls?: string;
 }
 interface BasicPropsWithTagName extends BasicProps {
-	tagName: "header" | "footer" | "main" | "section";
+  tagName: "header" | "footer" | "main" | "section";
 }
 
-function generator({ suffixCls, tagName }: GeneratorProps) {
-	return (BasicComponent: any) => {
-		const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => {
-			return (
-				<BasicComponent
-					ref={ref}
-					prefixCls={suffixCls}
-					tagName={tagName}
-					{...props}
-				/>
-			);
-		});
-	};
+function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
+  return (BasicComponent: any) => {
+    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => {
+
+      return (
+        <BasicComponent
+          ref={ref}
+          prefixCls={suffixCls}
+          tagName={tagName}
+          {...props}
+        />
+      );
+    });
+    //做调试处理
+    if (process.env.NODE_ENV !== 'production') {
+      Adapter.displayName = displayName;
+    }
+
+    return Adapter;
+  };
+
 }
 
 const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>(
-	(props, ref) => {
-		const { prefixCls, className, children, tagName, ...others } = props;
-		const classString = classNames(prefixCls, className);
-		return React.createElement(
-			tagName,
-			{ className: classString, ...others, ref },
-			children
-		);
-	}
+  (props, ref) => {
+    const { prefixCls, className, children, tagName, ...others } = props;
+    const classString = classNames(prefixCls, className);
+
+
+    return React.createElement(
+      tagName,
+      { className: classString, ...others, ref },
+      children
+    );
+  }
 );
 
-const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>(
-	(props, ref) => {
-		const { prefixCls, className, children, tagName: Tag, ...others } = props;
-		const classString = classNames(prefixCls, className);
 
-		return (
-			<Tag ref={ref} className={classString} {...others}>
-				{children}
-			</Tag>
-		);
-	}
+const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>(
+  (props, ref) => {
+    const { prefixCls, className, children, tagName: Tag, ...others } = props;
+    const hasDOM = (content: string) => {
+      return children && children instanceof Array && children.some(item => item.type.render.displayName === content)
+    }
+    setTimeout(() => {
+      let content: HTMLDivElement | null = document.querySelector('.speed-content')
+      let layout: HTMLDivElement | null = document.querySelector('.speed-layout')
+      let sider: HTMLDivElement | null = document.querySelector('.speed-sider')
+      if (hasDOM('Content') && hasDOM('Sider')) {
+        if (content && layout && sider) {
+          content.style.width = '70%'
+          sider.style.width = '30%'
+          layout.style.display = 'flex'
+        }
+      }
+      if (hasDOM('Header') && hasDOM('Footer') && hasDOM('Content')) {
+        if (sider && layout && content) {
+          sider.style.float = 'left'
+          sider.style.height = '100vh'
+          layout.style.display = 'inline-block'
+          layout.style.width = '70%'
+        }
+      }
+    }, 0);
+
+
+    const classString = classNames(
+      prefixCls,
+      className,
+    );
+
+    return (
+      <Tag ref={ref} className={classString} {...others}>
+        {children}
+      </Tag>
+    );
+  }
 );
 
 const Layout = generator({
-	suffixCls: "layout",
-	tagName: "section",
+  suffixCls: "speed-layout",
+  tagName: "section",
+  displayName: 'Layout',
 })(BasicLayout);
 
 const Header = generator({
-	suffixCls: "layout-header",
-	tagName: "header",
+  suffixCls: "speed-header",
+  tagName: "header",
+  displayName: 'Header',
 })(Basic);
 
 const Footer = generator({
-	suffixCls: "layout-footer",
-	tagName: "footer",
+  suffixCls: "speed-footer",
+  tagName: "footer",
+  displayName: 'Footer',
 })(Basic);
 
 const Content = generator({
-	suffixCls: "layout-content",
-	tagName: "main",
+  suffixCls: "speed-content",
+  tagName: "main",
+  displayName: 'Content',
 })(Basic);
 
-export { Header, Footer, Content };
+const Sider = generator({
+  suffixCls: "speed-sider",
+  tagName: "main",
+  displayName: 'Sider',
+})(Basic);
+
+export { Header, Footer, Content, Sider };
 
 export default Layout;

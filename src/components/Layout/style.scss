@@ -1,19 +1,27 @@
 .speed-header {
-	width: 100%;
-	background: $gray-600;
-	height: 15vh;
+  width: 100%;
+  background: $gray-600;
+  height: 15vh;
 }
+
 .speed-content {
-	width: 100%;
-	height: 70vh;
-	background: $gray-300;
+  width: 100%;
+  height: 70vh;
+  background: $gray-300;
 }
+
 .speed-footer {
-	width: 100%;
-	height: 15vh;
-	background: $gray-600;
+  width: 100%;
+  height: 15vh;
+  background: $gray-600;
 }
+
 .speed-sider {
-	width: 30%;
-	background: $gray-100;
+  width: 30%;
+  height: 70vh;
+  background: $gray-400;
+}
+
+.speed-layout {
+  width: 100%;
 }
