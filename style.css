@@ -1,18 +1,11 @@
-.speed-row {
-  width: 600px;
-  display: flex;
+.speed-menu {
+  position: absolute;
+  top: 60px;
+  background: #fff;
+  width: 150px;
+  border: 1px solid #eee;
 }
 
-.speed-example-row {
-  width: 600px;
-  height: 100px;
-}
-
-.speed-example-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  border: 1px solid #fff;
-  color: #fff;
+.speed-warp {
+  position: relative;
 }

@@ -1,0 +1,47 @@
+.speed-menu {
+  position: absolute;
+  background: #fff;
+  z-index: 99;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d;
+  border-radius: 5px;
+}
+
+.speed-subMenu {
+  height: 30px;
+  width: 120px ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.speed-subMenu:hover {
+  background: #eee !important;
+}
+
+.speed-dropdown-r {
+  top: 0 ;
+  right: -130px ;
+}
+
+.speed-dropdown-l {
+  top: 0 ;
+  left: -130px ;
+}
+
+.speed-dropdown-t {
+  top: -110px ;
+  right: 0 ;
+}
+
+.speed-dropdown-b {
+  top: 50px ;
+  right: 0 ;
+}
+
+.speed-dropdown-warp {
+  position: relative;
+  width: 120px ;
+  height: 40px;
+}
