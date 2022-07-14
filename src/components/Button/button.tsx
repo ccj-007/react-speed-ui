@@ -1,5 +1,11 @@
-import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
+import React, {
+	FC,
+	ButtonHTMLAttributes,
+	AnchorHTMLAttributes,
+	useContext,
+} from "react";
 import classNames from "classnames";
+import { ConfigContext } from "../Config-Provider";
 
 //先明确需求，定义类型
 export type ButtonSize = "lg" | "sm";
@@ -34,9 +40,13 @@ const Button: FC<ButtonProps> = (props) => {
 	const { className, disabled, size, btnType, children, href, ...restProps } =
 		props;
 
+	const configInfo = useContext(ConfigContext);
+	console.log("configInfo", configInfo);
+
 	const classes = classNames("btn", className, {
 		[`btn-${btnType}`]: btnType,
 		[`btn-${size}`]: size,
+		[`${configInfo.prefixCls}-dark`]: configInfo.isDark,
 		disabled: btnType === "link" && disabled,
 	});
 
