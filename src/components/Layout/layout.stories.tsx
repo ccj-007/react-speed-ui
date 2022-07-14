@@ -1,14 +1,14 @@
 import React from "react";
 import Layout from "./index";
-
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 const { Header, Content, Footer, Sider } = Layout;
 
 export default {
   title: "布局/Layout",
   component: Layout,
-};
+} as ComponentMeta<typeof Layout>
 
-const LayoutITpl = () => {
+const LayoutITpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
       <Layout>
@@ -19,7 +19,7 @@ const LayoutITpl = () => {
     </>
   );
 };
-const LayoutIITpl = () => {
+const LayoutIITpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
       <Header>Header</Header>
@@ -31,7 +31,7 @@ const LayoutIITpl = () => {
     </>
   );
 };
-const LayoutIIITpl = () => {
+const LayoutIIITpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
       <Header>Header</Header>
@@ -44,7 +44,7 @@ const LayoutIIITpl = () => {
   );
 };
 
-const LayoutIVTpl = () => {
+const LayoutIVTpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
       <Sider>Sider</Sider>

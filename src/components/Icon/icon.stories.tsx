@@ -1,9 +1,14 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions'
 import { Icon } from './icon'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-export const defaultIcon = () => (
+export default {
+  title: '通用/Icon',
+  component: Icon,
+} as ComponentMeta<typeof Icon>
+
+export const defaultIcon: ComponentStory<typeof Icon> = () => (
   <>
     <Icon icon={solid('angle-down')} size='5x' color='#0d6efd'></Icon>
     <Icon icon={solid('angle-up')} size='5x' color='#6610f2'></Icon>
@@ -14,7 +19,4 @@ export const defaultIcon = () => (
   </>
 )
 
-export default {
-  title: '通用/Icon',
-  component: Icon,
-};
+

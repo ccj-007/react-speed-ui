@@ -1,11 +1,11 @@
 import React from "react";
 import Dropdown from "./Dropdown";
 import Button from '../Button/button'
-
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 export default {
   title: "导航/Dropdown",
   component: Dropdown,
-};
+} as ComponentMeta<typeof Dropdown>
 
 const menu =
   [{
@@ -32,7 +32,7 @@ const menu =
   }]
 
 
-const defaultDropdownTpl = (args: any) => {
+const defaultDropdownTpl: ComponentStory<typeof Dropdown> = (args) => {
   return (
     <>
       <Dropdown menu={menu} placement={'l'} onClickChange={(item) => console.log(item)
@@ -51,7 +51,7 @@ const defaultDropdownTpl = (args: any) => {
     </>
   );
 };
-export const defaultDropdown: any = defaultDropdownTpl.bind({});
+export const defaultDropdown = defaultDropdownTpl.bind({});
 defaultDropdown.args = {
   percent: 59,
 };

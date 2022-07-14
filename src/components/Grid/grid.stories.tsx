@@ -1,6 +1,7 @@
 import React from "react";
 import Row from "./Row";
 import Col from "./Col";
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 const defaultGridTpl = (args: any) => {
   const style: React.CSSProperties = { background: '#0092ff', width: '100%', height: '100%', textAlign: 'center', lineHeight: '100px' };
