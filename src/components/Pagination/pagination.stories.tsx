@@ -1,20 +1,40 @@
 import React from "react";
 import Pagination from "./Pagination";
-import { action } from "@storybook/addon-actions";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
 	title: "导航/Pagination",
 	component: Pagination,
-};
+} as ComponentMeta<typeof Pagination>;
 
-const defaultPaginationTpl = (args: any) => {
+const defaultPaginationTpl: ComponentStory<typeof Pagination> = (args) => {
 	return (
 		<>
-			<Pagination defaultCurrent={1} total={50}></Pagination>
+			<Pagination {...args}></Pagination>
+			<Pagination defaultCurrent={3} total={80}></Pagination>
 		</>
 	);
 };
-export const defaultPagination: any = defaultPaginationTpl.bind({});
+
+const disabledPaginationTpl: ComponentStory<typeof Pagination> = (args) => {
+	return (
+		<>
+			<Pagination {...args}></Pagination>
+		</>
+	);
+};
+
+export const defaultPagination = defaultPaginationTpl.bind({});
 defaultPagination.args = {
-	percent: 59,
+	disabled: false,
+	defaultCurrent: 1,
+	total: 50,
+	onChange: (page, pageSize) => {
+		console.log("当前页码---", page, "每页多少条----", pageSize);
+	},
+};
+
+export const disabledPagination = disabledPaginationTpl.bind({});
+disabledPagination.args = {
+	disabled: true,
 };
