@@ -7,7 +7,7 @@ export interface PaginationProps {
 	/** 当前页码 */
 	current?: number;
 	/**默认当前页码 */
-	defaultCurrent: number;
+	defaultCurrent?: number;
 	/**默认每页条数 */
 	defaultPageSize?: number;
 	/**禁止 */
@@ -15,15 +15,15 @@ export interface PaginationProps {
 	/**每页条数 */
 	pageSize?: number;
 	/**总数据量 */
-	total: number;
+	total?: number;
 	/** 跳页的回调 */
 	onChange?: (page: number, pageSize: number) => void;
 	/**每页条数变化时的回调 */
 	onShowSizeChange?: (curPageSize: number) => void;
 	/**是否展示跳转页面 */
-	editJumpPage: boolean;
+	editJumpPage?: boolean;
 	/**是否展示修改每页条数 */
-	editPageSize: boolean;
+	editPageSize?: boolean;
 }
 
 const Pagination: FC<PaginationProps> = (props) => {
