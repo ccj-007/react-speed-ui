@@ -1,6 +1,6 @@
 .speed-pagination {
 	display: flex;
-
+  align-items: center;
 	&-page {
 		width: 30px;
 		height: 30px;
@@ -28,4 +28,20 @@
 		color: #cfcfcf;
 		border: none;
 	}
+
+  &-input {
+    width: 30px;
+		height: 30px;
+		margin: 5px 5px;
+		background: #fff;
+  }
+
+  &-text {
+    font-size: 14px;
+  }
+
+  &-total {
+    margin: 0 5px;
+    color: $blue;
+  }
 }
