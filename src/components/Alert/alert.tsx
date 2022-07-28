@@ -2,14 +2,14 @@ import React from "react";
 import classNames from "classnames";
 
 export type AlertBaseProps = {
-	isOpen: boolean;
-	alertType: "success" | "primary" | "danger" | "warning";
-	title: string;
-	content: string;
-	className: string;
-	children: React.ReactNode;
-	closeAlert: Function;
-	openAlert: Function;
+  isOpen: boolean;
+  alertType: "success" | "primary" | "danger" | "warning";
+  title: string;
+  content: string;
+  className: string;
+  children: React.ReactNode;
+  closeAlert: Function;
+  openAlert: Function;
 };
 export type AlertProps = Partial<AlertBaseProps>;
 
@@ -22,56 +22,56 @@ export type AlertProps = Partial<AlertBaseProps>;
  * ~~~
  */
 const Alert: React.FC<AlertProps> = (props) => {
-	const {
-		isOpen,
-		alertType,
-		title,
-		content,
-		className,
-		children,
-		closeAlert,
-		openAlert,
-	} = props;
+  const {
+    isOpen,
+    alertType,
+    title,
+    content,
+    className,
+    children,
+    closeAlert,
+    openAlert,
+  } = props;
 
-	const classes = classNames("alert", className, {
-		[`alert-${alertType}`]: alertType,
-		["slide-in-blurred-top"]: isOpen,
-	});
+  const classes = classNames("alert", className, {
+    [`alert-${alertType}`]: alertType,
+    ["slide-in-blurred-top"]: isOpen,
+  });
 
-	React.useEffect(() => {
-		if (isOpen) {
-			setTimeout(() => {
-				closeAlert && closeAlert();
-			}, 1000);
-		}
-	}, [isOpen]);
+  React.useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        closeAlert && closeAlert();
+      }, 1000);
+    }
+  }, [isOpen]);
 
-	return (
-		<>
-			{isOpen ? (
-				<div data-testid="alert" className={classes}>
-					<div className="alert-maintitle">{title}</div>
-					<div>{children || content}</div>
-					<div
-						onClick={() => closeAlert && closeAlert()}
-						className="alert-close"
-					>
-						X
-					</div>
-				</div>
-			) : (
-				""
-			)}
-		</>
-	);
+  return (
+    <>
+      {isOpen ? (
+        <div className={classes}>
+          <div className="alert-maintitle" data-testid='alert-title'>{title}</div>
+          <div data-testid='alert-content'>{children || content}</div>
+          <div
+            onClick={() => closeAlert && closeAlert()}
+            className="alert-close"
+          >
+            X
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+    </>
+  );
 };
 
 Alert.defaultProps = {
-	isOpen: false,
-	alertType: "primary",
-	title: "我是乌龟",
-	content: "⚡我是雷电，我的速度飞快 ！！",
-	className: "",
+  isOpen: false,
+  alertType: "primary",
+  title: "我是乌龟",
+  content: "⚡我是雷电，我的速度飞快 ！！",
+  className: "",
 };
 
 export default Alert;
