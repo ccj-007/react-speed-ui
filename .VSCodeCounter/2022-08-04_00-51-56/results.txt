@@ -1,0 +1,136 @@
+Date : 2022-08-04 00:51:56
+Directory : e:\open-source\react-speed-ui\src\components
+Total : 86 files,  3160 codes, 129 comments, 443 blanks, all 3732 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| TypeScript React |         63 |      2,451 |        126 |        368 |      2,945 |
+| SCSS             |         17 |        670 |          3 |         59 |        732 |
+| Markdown React   |          1 |         34 |          0 |         16 |         50 |
+| XML              |          5 |          5 |          0 |          0 |          5 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                         |         86 |      3,160 |        129 |        443 |      3,732 |
+| Alert                                                                                     |          6 |        168 |         25 |         29 |        222 |
+| Alert\__tests__                                                                           |          1 |         14 |          3 |          3 |         20 |
+| AutoComplete                                                                              |          5 |        231 |          8 |         26 |        265 |
+| AutoComplete\__tests__                                                                    |          1 |          3 |          0 |          3 |          6 |
+| BreadCrumb                                                                                |          4 |        116 |         12 |         19 |        147 |
+| Button                                                                                    |          5 |        231 |         17 |         29 |        277 |
+| Button\__tests__                                                                          |          1 |         48 |          3 |          5 |         56 |
+| Config-Provider                                                                           |          3 |        144 |          9 |         24 |        177 |
+| Divider                                                                                   |          4 |        169 |          0 |         21 |        190 |
+| Dropdown                                                                                  |          4 |        205 |          0 |         26 |        231 |
+| Grid                                                                                      |          5 |        117 |          0 |         27 |        144 |
+| Icon                                                                                      |          4 |         42 |          9 |         10 |         61 |
+| Input                                                                                     |          4 |        168 |         15 |         26 |        209 |
+| Layout                                                                                    |          4 |        203 |          1 |         40 |        244 |
+| Menu                                                                                      |          6 |        318 |         15 |         25 |        358 |
+| Pagination                                                                                |          4 |        214 |         14 |         35 |        263 |
+| Progress                                                                                  |          4 |         86 |          0 |          8 |         94 |
+| Template                                                                                  |          4 |         32 |          0 |         10 |         42 |
+| Transition                                                                                |          2 |         34 |          0 |          4 |         38 |
+| Typography                                                                                |          6 |        230 |          0 |         29 |        259 |
+| Upload                                                                                    |          6 |        413 |          4 |         39 |        456 |
+| Welcome                                                                                   |          6 |         39 |          0 |         16 |         55 |
+| Welcome\assets                                                                            |          5 |          5 |          0 |          0 |          5 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                  | language         | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| e:\open-source\react-speed-ui\src\components\Alert\__tests__\alert.test.tsx               | TypeScript React |         14 |          3 |          3 |         20 |
+| e:\open-source\react-speed-ui\src\components\Alert\alert.stories.tsx                      | TypeScript React |         53 |          0 |          4 |         57 |
+| e:\open-source\react-speed-ui\src\components\Alert\alert.test.tsx                         | TypeScript React |          1 |         14 |          6 |         21 |
+| e:\open-source\react-speed-ui\src\components\Alert\alert.tsx                              | TypeScript React |         62 |          8 |          8 |         78 |
+| e:\open-source\react-speed-ui\src\components\Alert\index.tsx                              | TypeScript React |          2 |          0 |          0 |          2 |
+| e:\open-source\react-speed-ui\src\components\Alert\style.scss                             | SCSS             |         36 |          0 |          8 |         44 |
+| e:\open-source\react-speed-ui\src\components\AutoComplete\__tests__\autoComplete.test.tsx | TypeScript React |          3 |          0 |          3 |          6 |
+| e:\open-source\react-speed-ui\src\components\AutoComplete\autoComplete.stories.tsx        | TypeScript React |         47 |          4 |          6 |         57 |
+| e:\open-source\react-speed-ui\src\components\AutoComplete\autoComplete.tsx                | TypeScript React |        144 |          4 |         14 |        162 |
+| e:\open-source\react-speed-ui\src\components\AutoComplete\index.tsx                       | TypeScript React |          2 |          0 |          2 |          4 |
+| e:\open-source\react-speed-ui\src\components\AutoComplete\style.scss                      | SCSS             |         35 |          0 |          1 |         36 |
+| e:\open-source\react-speed-ui\src\components\BreadCrumb\breadCrumb.stories.tsx            | TypeScript React |         12 |          0 |          5 |         17 |
+| e:\open-source\react-speed-ui\src\components\BreadCrumb\breadCrumb.tsx                    | TypeScript React |         24 |         12 |          8 |         44 |
+| e:\open-source\react-speed-ui\src\components\BreadCrumb\index.tsx                         | TypeScript React |          2 |          0 |          1 |          3 |
+| e:\open-source\react-speed-ui\src\components\BreadCrumb\style.scss                        | SCSS             |         78 |          0 |          5 |         83 |
+| e:\open-source\react-speed-ui\src\components\Button\__tests__\button.test.tsx             | TypeScript React |         48 |          3 |          5 |         56 |
+| e:\open-source\react-speed-ui\src\components\Button\button.stories.tsx                    | TypeScript React |         38 |          0 |          7 |         45 |
+| e:\open-source\react-speed-ui\src\components\Button\button.tsx                            | TypeScript React |         65 |         14 |         11 |         90 |
+| e:\open-source\react-speed-ui\src\components\Button\index.tsx                             | TypeScript React |          2 |          0 |          1 |          3 |
+| e:\open-source\react-speed-ui\src\components\Button\style.scss                            | SCSS             |         78 |          0 |          5 |         83 |
+| e:\open-source\react-speed-ui\src\components\Config-Provider\configProvider.stories.tsx   | TypeScript React |         70 |          0 |         10 |         80 |
+| e:\open-source\react-speed-ui\src\components\Config-Provider\index.tsx                    | TypeScript React |         74 |          9 |         13 |         96 |
+| e:\open-source\react-speed-ui\src\components\Config-Provider\style.scss                   | SCSS             |          0 |          0 |          1 |          1 |
+| e:\open-source\react-speed-ui\src\components\Divider\Divider.tsx                          | TypeScript React |         54 |          0 |          9 |         63 |
+| e:\open-source\react-speed-ui\src\components\Divider\divider.stories.tsx                  | TypeScript React |         62 |          0 |          4 |         66 |
+| e:\open-source\react-speed-ui\src\components\Divider\index.tsx                            | TypeScript React |          2 |          0 |          2 |          4 |
+| e:\open-source\react-speed-ui\src\components\Divider\style.scss                           | SCSS             |         51 |          0 |          6 |         57 |
+| e:\open-source\react-speed-ui\src\components\Dropdown\Dropdown.tsx                        | TypeScript React |        101 |          0 |         14 |        115 |
+| e:\open-source\react-speed-ui\src\components\Dropdown\dropdown.stories.tsx                | TypeScript React |         62 |          0 |          3 |         65 |
+| e:\open-source\react-speed-ui\src\components\Dropdown\index.tsx                           | TypeScript React |          2 |          0 |          2 |          4 |
+| e:\open-source\react-speed-ui\src\components\Dropdown\style.scss                          | SCSS             |         40 |          0 |          7 |         47 |
+| e:\open-source\react-speed-ui\src\components\Grid\Col.tsx                                 | TypeScript React |         24 |          0 |          8 |         32 |
+| e:\open-source\react-speed-ui\src\components\Grid\Row.tsx                                 | TypeScript React |         20 |          0 |          6 |         26 |
+| e:\open-source\react-speed-ui\src\components\Grid\grid.stories.tsx                        | TypeScript React |         54 |          0 |          7 |         61 |
+| e:\open-source\react-speed-ui\src\components\Grid\index.tsx                               | TypeScript React |          3 |          0 |          2 |          5 |
+| e:\open-source\react-speed-ui\src\components\Grid\style.scss                              | SCSS             |         16 |          0 |          4 |         20 |
+| e:\open-source\react-speed-ui\src\components\Icon\icon.stories.tsx                        | TypeScript React |         18 |          0 |          5 |         23 |
+| e:\open-source\react-speed-ui\src\components\Icon\icon.tsx                                | TypeScript React |         17 |          9 |          4 |         30 |
+| e:\open-source\react-speed-ui\src\components\Icon\index.tsx                               | TypeScript React |          2 |          0 |          1 |          3 |
+| e:\open-source\react-speed-ui\src\components\Icon\style.scss                              | SCSS             |          5 |          0 |          0 |          5 |
+| e:\open-source\react-speed-ui\src\components\Input\index.tsx                              | TypeScript React |          2 |          0 |          1 |          3 |
+| e:\open-source\react-speed-ui\src\components\Input\input.stories.tsx                      | TypeScript React |         68 |          0 |          9 |         77 |
+| e:\open-source\react-speed-ui\src\components\Input\input.tsx                              | TypeScript React |         73 |         15 |         11 |         99 |
+| e:\open-source\react-speed-ui\src\components\Input\style.scss                             | SCSS             |         25 |          0 |          5 |         30 |
+| e:\open-source\react-speed-ui\src\components\Layout\Layout.tsx                            | TypeScript React |        106 |          1 |         21 |        128 |
+| e:\open-source\react-speed-ui\src\components\Layout\index.tsx                             | TypeScript React |         15 |          0 |          6 |         21 |
+| e:\open-source\react-speed-ui\src\components\Layout\layout.stories.tsx                    | TypeScript React |         59 |          0 |          9 |         68 |
+| e:\open-source\react-speed-ui\src\components\Layout\style.scss                            | SCSS             |         23 |          0 |          4 |         27 |
+| e:\open-source\react-speed-ui\src\components\Menu\Menu.stories.tsx                        | TypeScript React |         33 |          0 |          6 |         39 |
+| e:\open-source\react-speed-ui\src\components\Menu\index.tsx                               | TypeScript React |          2 |          0 |          1 |          3 |
+| e:\open-source\react-speed-ui\src\components\Menu\menu.tsx                                | TypeScript React |         77 |         12 |         10 |         99 |
+| e:\open-source\react-speed-ui\src\components\Menu\menuItem.tsx                            | TypeScript React |         30 |          0 |          5 |         35 |
+| e:\open-source\react-speed-ui\src\components\Menu\style.scss                              | SCSS             |         95 |          3 |          0 |         98 |
+| e:\open-source\react-speed-ui\src\components\Menu\subMenu.tsx                             | TypeScript React |         81 |          0 |          3 |         84 |
+| e:\open-source\react-speed-ui\src\components\Pagination\Pagination.tsx                    | TypeScript React |        133 |         14 |         20 |        167 |
+| e:\open-source\react-speed-ui\src\components\Pagination\index.tsx                         | TypeScript React |          2 |          0 |          2 |          4 |
+| e:\open-source\react-speed-ui\src\components\Pagination\pagination.stories.tsx            | TypeScript React |         38 |          0 |          6 |         44 |
+| e:\open-source\react-speed-ui\src\components\Pagination\style.scss                        | SCSS             |         41 |          0 |          7 |         48 |
+| e:\open-source\react-speed-ui\src\components\Progress\index.tsx                           | TypeScript React |          2 |          0 |          2 |          4 |
+| e:\open-source\react-speed-ui\src\components\Progress\progress.stories.tsx                | TypeScript React |         19 |          0 |          2 |         21 |
+| e:\open-source\react-speed-ui\src\components\Progress\progress.tsx                        | TypeScript React |         33 |          0 |          4 |         37 |
+| e:\open-source\react-speed-ui\src\components\Progress\style.scss                          | SCSS             |         32 |          0 |          0 |         32 |
+| e:\open-source\react-speed-ui\src\components\Template\Atpl.tsx                            | TypeScript React |         11 |          0 |          4 |         15 |
+| e:\open-source\react-speed-ui\src\components\Template\a.stories.tsx                       | TypeScript React |         19 |          0 |          3 |         22 |
+| e:\open-source\react-speed-ui\src\components\Template\index.tsx                           | TypeScript React |          2 |          0 |          2 |          4 |
+| e:\open-source\react-speed-ui\src\components\Template\style.scss                          | SCSS             |          0 |          0 |          1 |          1 |
+| e:\open-source\react-speed-ui\src\components\Transition\index.tsx                         | TypeScript React |          2 |          0 |          1 |          3 |
+| e:\open-source\react-speed-ui\src\components\Transition\transition.tsx                    | TypeScript React |         32 |          0 |          3 |         35 |
+| e:\open-source\react-speed-ui\src\components\Typography\Text.tsx                          | TypeScript React |         73 |          0 |          7 |         80 |
+| e:\open-source\react-speed-ui\src\components\Typography\Title.tsx                         | TypeScript React |         37 |          0 |          5 |         42 |
+| e:\open-source\react-speed-ui\src\components\Typography\Typography.tsx                    | TypeScript React |         13 |          0 |          5 |         18 |
+| e:\open-source\react-speed-ui\src\components\Typography\index.tsx                         | TypeScript React |         11 |          0 |          3 |         14 |
+| e:\open-source\react-speed-ui\src\components\Typography\style.scss                        | SCSS             |         39 |          0 |          2 |         41 |
+| e:\open-source\react-speed-ui\src\components\Typography\typography.stories.tsx            | TypeScript React |         57 |          0 |          7 |         64 |
+| e:\open-source\react-speed-ui\src\components\Upload\dragger.tsx                           | TypeScript React |         36 |          0 |          2 |         38 |
+| e:\open-source\react-speed-ui\src\components\Upload\index.tsx                             | TypeScript React |          2 |          0 |          2 |          4 |
+| e:\open-source\react-speed-ui\src\components\Upload\style.scss                            | SCSS             |         76 |          0 |          3 |         79 |
+| e:\open-source\react-speed-ui\src\components\Upload\upload.stories.tsx                    | TypeScript React |         50 |          0 |          6 |         56 |
+| e:\open-source\react-speed-ui\src\components\Upload\upload.tsx                            | TypeScript React |        197 |          4 |         19 |        220 |
+| e:\open-source\react-speed-ui\src\components\Upload\uploadList.tsx                        | TypeScript React |         52 |          0 |          7 |         59 |
+| e:\open-source\react-speed-ui\src\components\Welcome\Introduction.stories.mdx             | Markdown React   |         34 |          0 |         16 |         50 |
+| e:\open-source\react-speed-ui\src\components\Welcome\assets\code-brackets.svg             | XML              |          1 |          0 |          0 |          1 |
+| e:\open-source\react-speed-ui\src\components\Welcome\assets\colors.svg                    | XML              |          1 |          0 |          0 |          1 |
+| e:\open-source\react-speed-ui\src\components\Welcome\assets\flow.svg                      | XML              |          1 |          0 |          0 |          1 |
+| e:\open-source\react-speed-ui\src\components\Welcome\assets\plugin.svg                    | XML              |          1 |          0 |          0 |          1 |
+| e:\open-source\react-speed-ui\src\components\Welcome\assets\stackalt.svg                  | XML              |          1 |          0 |          0 |          1 |
+| Total                                                                                     |                  |      3,160 |        129 |        443 |      3,732 |
++-------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
