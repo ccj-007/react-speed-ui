@@ -1,22 +1,26 @@
-//theme
+/**
+ * global theme toggle
+ */
 @import "./color-theme";
-
 @import "./mixins";
 
-// config
+/**
+ * common
+ */
 @import "./variables.scss";
-
-//layout
 @import "./reboot.scss";
-
-//mixin
 @import "./mixin.scss";
-
-// animation
 @import "./animation.scss";
-
 @import "./common.scss";
 
+/**
+ * custom components
+ */
+@import "./light.scss";
+
+/**
+ * components
+ */
 @import "../components/Button/style";
 
 @import "../components/Alert/style";

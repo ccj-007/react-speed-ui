@@ -1,5 +1,5 @@
 import React from "react";
-import ConfigProvider, { ThemeType } from "./index";
+import ConfigProvider, { ThemeOptionsType, GlobalThemeType } from "./index";
 import Button from "../Button";
 
 export default {
@@ -7,12 +7,27 @@ export default {
 	component: ConfigProvider,
 };
 
+const themeOptions = {
+	theme: "default",
+	button: {
+		primary: "#c2d8fa",
+		success: "#52c41a",
+		warning: "#f3eaa8",
+		danger: "#f3a2aa",
+	},
+} as ThemeOptionsType;
 const defaultConfigProviderTpl = () => {
 	const [isDark, setDark] = React.useState(false);
-	const [isTheme, setTheme] = React.useState<ThemeType>("light");
+	const [isTheme, setTheme] = React.useState<GlobalThemeType>("light");
+	const [themeData, setThemeData] =
+		React.useState<ThemeOptionsType>(themeOptions);
 
-	const changeTheme = (theme: ThemeType) => {
+	const changeTheme = (theme: GlobalThemeType) => {
 		setTheme(theme);
+	};
+
+	const changeComponentsTheme = (name: "default" | "custom") => {
+		setThemeData({ ...themeData, theme: name });
 	};
 	return (
 		<>
@@ -25,8 +40,26 @@ const defaultConfigProviderTpl = () => {
 			<br />
 
 			<h5>2. 组件库的全局主题配置</h5>
-			<ConfigProvider themeName={isTheme}>
-				<Button onClick={() => changeTheme("blue")}>切换深蓝主题</Button>
+			<ConfigProvider globalThemeName={isTheme} themeOptions={themeData}>
+				<Button onClick={() => changeComponentsTheme("default")}>
+					默认主题
+				</Button>
+				&nbsp; &nbsp;
+				<Button onClick={() => changeComponentsTheme("custom")}>
+					轻量主题
+				</Button>
+				&nbsp; &nbsp;
+				<Button btnType="warning">测试主题</Button>
+				<Button btnType="success">测试主题</Button>
+				<Button btnType="danger">测试主题</Button>
+			</ConfigProvider>
+			<br />
+
+			<h5>3. 网站的全局主题配置</h5>
+			<ConfigProvider globalThemeName={isTheme}>
+				<Button onClick={() => changeTheme("blue")}> 深蓝主题</Button>
+				&nbsp; &nbsp;
+				<Button onClick={() => changeTheme("dark")}>暗夜主题</Button>
 				&nbsp; &nbsp;
 				<Button onClick={() => changeTheme("light")}>切换默认主题</Button>
 			</ConfigProvider>

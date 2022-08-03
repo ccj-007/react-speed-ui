@@ -46,9 +46,21 @@ const Button: FC<ButtonProps> = (props) => {
 	const classes = classNames("btn", className, {
 		[`btn-${btnType}`]: btnType,
 		[`btn-${size}`]: size,
-		[`${configInfo.prefixCls}-dark`]: configInfo.isDark,
+		[`${configInfo.prefixCls}-dark`]: configInfo.isDark, //暗黑主题
 		disabled: btnType === "link" && disabled,
 	});
+
+	//自定义组件主题配置
+	let themeStyles = {};
+	if (
+		configInfo.themeOptions.theme === "custom" &&
+		btnType &&
+		btnType !== "link"
+	) {
+		themeStyles = {
+			backgroundColor: configInfo.themeOptions.button[btnType],
+		};
+	}
 
 	if (btnType === "link" && href) {
 		return (
@@ -58,7 +70,12 @@ const Button: FC<ButtonProps> = (props) => {
 		);
 	} else {
 		return (
-			<button className={classes} disabled={disabled} {...restProps}>
+			<button
+				style={themeStyles}
+				className={classes}
+				disabled={disabled}
+				{...restProps}
+			>
 				{children}
 			</button>
 		);
