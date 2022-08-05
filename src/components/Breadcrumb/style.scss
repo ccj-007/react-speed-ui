@@ -1,15 +1,13 @@
 .speed-breadcrumb {
-  display: flex;
-  &-warp {
-    
-  }
+	display: flex;
+	&-warp {
+	}
 }
 
-
 .speed-breadcrumbItem {
-  display: flex;
-  &-disabled {
-    color: #aaa;
-    cursor: not-allowed
-  }
+	display: flex;
+	&-disabled {
+		color: #aaa;
+		cursor: not-allowed;
+	}
 }

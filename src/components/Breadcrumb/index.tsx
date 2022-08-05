@@ -1,2 +1,4 @@
-import breadcrumb from "./breadcrumb";
-export default breadcrumb;
+import Breadcrumb from "./breadcrumb";
+import BreadcrumbItem from "./breadcrumbItem";
+
+export { Breadcrumb, BreadcrumbItem };

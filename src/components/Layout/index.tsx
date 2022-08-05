@@ -4,10 +4,10 @@ export type { BasicProps as LayoutProps } from "./Layout";
 type InternalLayoutType = typeof InternalLayout;
 
 interface LayoutType extends InternalLayoutType {
-  Header: typeof Header;
-  Footer: typeof Footer;
-  Content: typeof Content;
-  Sider: typeof Sider;
+	Header: typeof Header;
+	Footer: typeof Footer;
+	Content: typeof Content;
+	Sider: typeof Sider;
 }
 
 const Layout = InternalLayout as LayoutType;

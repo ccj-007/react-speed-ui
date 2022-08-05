@@ -41,7 +41,6 @@ const Button: FC<ButtonProps> = (props) => {
 		props;
 
 	const configInfo = useContext(ConfigContext);
-	console.log("configInfo", configInfo);
 
 	const classes = classNames("btn", className, {
 		[`btn-${btnType}`]: btnType,
