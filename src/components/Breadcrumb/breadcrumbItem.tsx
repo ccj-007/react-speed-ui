@@ -1,4 +1,4 @@
-import React, { FC, useContext, ReactChild } from "react";
+import React, { FC, useContext } from "react";
 import classNames from "classnames";
 import { ConfigContext } from "../Config-Provider/configProvider";
 

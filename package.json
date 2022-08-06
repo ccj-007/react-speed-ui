@@ -30,10 +30,10 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"start": "react-app-rewired start",
+		"build": "react-app-rewired build",
+		"test": "react-app-rewired test",
 		"lib": "rollup --config rollup.config.build.js",
-		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"storybook": "start-storybook -p 6012 -s public",
 		"build-storybook": "build-storybook -s public"
@@ -71,8 +71,6 @@
 		"@babel/core": "^7.18.10",
 		"@babel/preset-env": "^7.18.10",
 		"@babel/preset-react": "^7.18.6",
-		"@rollup/plugin-commonjs": "^22.0.2",
-		"@rollup/plugin-node-resolve": "^13.3.0",
 		"@storybook/addon-actions": "^6.5.9",
 		"@storybook/addon-essentials": "^6.5.9",
 		"@storybook/addon-interactions": "^6.5.9",
@@ -84,13 +82,11 @@
 		"@storybook/react": "^6.5.9",
 		"@storybook/testing-library": "^0.0.13",
 		"babel-plugin-named-exports-order": "^0.0.2",
+		"compression-webpack-plugin": "^10.0.0",
 		"css-loader": "^6.7.1",
+		"customize-cra": "^1.0.0",
 		"prop-types": "^15.8.1",
-		"rollup": "^2.77.2",
-		"rollup-plugin-babel": "^4.4.0",
-		"rollup-plugin-postcss": "^4.0.2",
-		"rollup-plugin-terser": "^7.0.2",
-		"rollup-plugin-typescript2": "^0.32.1",
+		"react-app-rewired": "^2.2.1",
 		"style-loader": "^3.3.1",
 		"webpack": "^5.73.0"
 	}

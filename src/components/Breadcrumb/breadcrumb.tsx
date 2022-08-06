@@ -24,8 +24,7 @@ interface BreadcrumbProps {
  * ~~~
  */
 const Breadcrumb: FC<BreadcrumbProps> = (props) => {
-	const { itemRender, params, routes, allSeparator, children, className } =
-		props;
+	const { allSeparator, children, className } = props;
 	const configInfo = useContext(ConfigContext);
 
 	const renderChildren = () => {

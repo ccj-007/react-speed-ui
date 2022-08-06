@@ -3,16 +3,11 @@ import React, {
 	useContext,
 	useState,
 	useEffect,
-	HTMLInputTypeAttribute,
 	useRef,
-	RefObject,
-	InputHTMLAttributes,
 	ChangeEvent,
 } from "react";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import ConfigProvider, {
-	ConfigContext,
-} from "../Config-Provider/configProvider";
+import { ConfigContext } from "../Config-Provider/configProvider";
 import Icon from "../Icon/index";
 
 export interface PaginationProps {
