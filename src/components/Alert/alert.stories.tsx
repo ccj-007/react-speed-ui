@@ -1,7 +1,6 @@
 import React from "react";
 import Alert, { AlertProps } from "./alert";
 import Button from "../Button/button";
-import { ComponentStory, ComponentMeta } from '@storybook/react'
 export const AlertWithButton: React.FC<AlertProps> = (props) => {
   let { alertType, title, content } = props;
   let [isOpen, setIsOpen] = React.useState<boolean>(false);
