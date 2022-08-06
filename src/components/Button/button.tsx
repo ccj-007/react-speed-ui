@@ -5,7 +5,7 @@ import React, {
 	useContext,
 } from "react";
 import classNames from "classnames";
-import { ConfigContext } from "../Config-Provider";
+import { ConfigContext } from "../Config-Provider/configProvider";
 
 //先明确需求，定义类型
 export type ButtonSize = "lg" | "sm";

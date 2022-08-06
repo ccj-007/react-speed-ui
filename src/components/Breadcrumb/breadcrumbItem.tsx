@@ -1,6 +1,6 @@
 import React, { FC, useContext, ReactChild } from "react";
 import classNames from "classnames";
-import { ConfigContext } from "../Config-Provider";
+import { ConfigContext } from "../Config-Provider/configProvider";
 
 interface BreadcrumbItemProps {
 	children?: React.ReactNode;
@@ -37,6 +37,7 @@ const BreadcrumbItem: FC<BreadcrumbItemProps> = (props) => {
 	const renderChlidrens = () => {
 		return React.Children.map(children, (child: any) => {
 			if (child.type === "a" && disabled) {
+				//@ts-ignore
 				return React.cloneElement(children, {
 					href: "javascript:;",
 					className: `${configInfo.prefixCls}-breadcrumbItem-disabled`,

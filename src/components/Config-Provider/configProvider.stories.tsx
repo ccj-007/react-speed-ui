@@ -1,5 +1,8 @@
 import React from "react";
-import ConfigProvider, { ThemeOptionsType, GlobalThemeType } from "./index";
+import ConfigProvider, {
+	ThemeOptionsType,
+	GlobalThemeType,
+} from "./configProvider";
 import Button from "../Button";
 
 export default {
