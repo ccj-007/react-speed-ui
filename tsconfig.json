@@ -16,15 +16,20 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "jsx": "preserve",
     // 类型声明文件的配置
     "emitDeclarationOnly": true,
     "declaration": true,
-    "declarationDir": "./types",
-    "rootDir": "./src"
+    "declarationDir": "types",
+    "rootDir": "src"
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "src/components/**/__tests__/**",
+    "src/components/**/*.stories.tsx",
+    "src/components/**/*.stories.mdx"
   ]
 }

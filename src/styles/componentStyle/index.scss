@@ -1,34 +1,32 @@
 /**
  * components
  */
- @import "../../components/Button/style";
+ @import "button";
 
- @import "../../components/Alert/style";
+ @import "alert";
  
- @import "../../components/Menu/style";
+ @import "menu";
  
- @import "../../components/Icon/style";
+ @import "input";
  
- @import "../../components/Input/style";
+ @import "autoComplete";
  
- @import "../../components/AutoComplete/style";
+ @import "upload";
  
- @import "../../components/Upload/style";
+ @import "progress";
  
- @import "../../components/Progress/style";
+ @import "typography";
  
- @import "../../components/Typography/style";
+ @import "divider";
  
- @import "../../components/Divider/style";
+ @import "layout";
  
- @import "../../components/Layout/style";
+ @import "grid";
  
- @import "../../components/Grid/style";
+ @import "dropdown";
  
- @import "../../components/Dropdown/style";
+ @import "pagination";
  
- @import "../../components/Pagination/style";
- 
- @import "../../components/Breadcrumb/style";
+ @import "breadcrumb";
  
  

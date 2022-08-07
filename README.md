@@ -1,11 +1,35 @@
-# react-speed-ui
+<p align="center">
+<img src="https://cdn.lijinke.cn/logo.png" width="100"/>
+</p>
+
+<h1 align="center">
+react-speed-ui
+</h1>
+
+<h4 align="center">
+ 极速组件库 : 速度不差、体积小巧、追求新技术的组件库
+</h4>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-speed-ui" title="npm">
+    <img src="https://img.shields.io/npm/dm/react-speed-ui.svg?style=for-the-badge" alt="npm"/>
+  </a>
+   <a href="https://badge.fury.io/js/react-speed-ui" title="npm">
+    <img src="https://img.shields.io/npm/v/react-speed-ui.svg?style=for-the-badge" alt="npm version"/>
+  </a>
+  <a href="https://isitmaintained.com/project/react-speed-ui/react-speed-ui">
+    <img src="https://img.shields.io/github/issues/ccj-007/react-speed-ui.svg?style=for-the-badge"/>
+  </a>
+  <a href="https://github.com/react-speed-ui/react-speed-ui">
+    <img src="https://img.shields.io/github/stars/ccj-007/react-speed-ui.svg?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
-### 特色：
+## 特色：
 
 ---
-
 - **30多个组件开箱即用**📟
 - **轻量**📎 
 - **TS支持**💎
@@ -13,24 +37,40 @@
 - **命名隔离**🔞
 - **卡通风**🔫
 - **单元测试**📧
-- **按需加载**🎉
+- **支持按需加载css、js**🎉
 - **storybook文档支持**👍
-- **gulp打包cjs、esm**
 ---
 
-### 使用场景： 
+## 使用场景： 
 
 1. 用于快速搭建**个人应用**📨
 2. 有时候写个**DEMO**，对样式和组件有要求，那么再适合不过了
 
----
+## 如何安装
 
-### 快速开始
-```sh
-  npm i react-speed-ui
+> 使用 npm 
 ```
+npm i react-speed-ui -S
+```
+
+> 使用 yarn
+```
+yarn add react-speed-ui
+```
+
+> SDK引入
+<link rel="stylesheet" href="./node_modules/react-speed-ui/dist/css/speed.min.css">
+<script type="text/javascript" src="./node_modules/react-speed-ui/dist/lib/speed.js"></script>
+
+> 使用 CDN (目前暂不支持)
+
+
+## 快速使用
+> 1. 全量引入
+
 ```js
   import { Button } from 'react-speed-ui'
+  import 'react-speed-ui/dist/css/speed.min.css'
 
   const App: React.FC = () => (
     <>
@@ -40,3 +80,14 @@
 
   export default App;
 ```
+
+
+> 2. 按需引入
+
+```js
+import { Button } from 'react-speed-ui'
+import 'react-speed-ui/dist/css/components/button.css'
+```
+
+> 3. 使用 babel-plugin-import （暂不支持）
+
