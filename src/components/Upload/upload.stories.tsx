@@ -1,10 +1,17 @@
 import React from "react";
-import Upload, { UploadFile } from "./upload";
+import Upload, { UploadFile } from "./Upload";
 import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 export default {
   title: "数据录入/Upload",
   component: Upload,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 上传文件",
+      },
+    },
+  },
 } as ComponentMeta<typeof Upload>
 const defaultFileList: UploadFile[] = [
   {

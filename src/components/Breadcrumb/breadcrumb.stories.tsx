@@ -6,6 +6,13 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 export default {
   title: "导航/BreadCrumb",
   component: Breadcrumb,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 显示当前页面在系统层级结构中的位置，并能向上返回",
+      },
+    },
+  },
 } as ComponentMeta<typeof Breadcrumb>;
 
 const defaultBreadCrumbTpl: ComponentStory<typeof Breadcrumb> = (args: any) => {

@@ -5,6 +5,13 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 export default {
   title: "导航/Pagination",
   component: Pagination,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 多页列表的分页器",
+      },
+    },
+  },
 } as ComponentMeta<typeof Pagination>;
 
 const defaultPaginationTpl: ComponentStory<typeof Pagination> = (args) => {

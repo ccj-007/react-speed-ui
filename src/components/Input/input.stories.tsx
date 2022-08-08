@@ -1,9 +1,16 @@
 import React from "react";
-import Input from "./input";
+import Input from "./Input";
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 export default {
   title: "数据录入/Input",
   component: Input,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 通过鼠标或键盘输入内容，是最基础的表单域的包装。",
+      },
+    },
+  },
 } as ComponentMeta<typeof Input>
 
 const defaultInputTpl: ComponentStory<typeof Input> = (args: any) => (

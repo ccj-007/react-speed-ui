@@ -1,17 +1,19 @@
 import React from "react";
 import classNames from "classnames";
-import { IMenuItemProps } from "./menuItem";
+import { IMenuItemProps } from "./MenuItem";
 
 export interface IMenuProps {
   defaultIndex?: string;
-  /* 设置input 禁用 */
+  /** 设置input 禁用 */
   disabled?: boolean;
-  /* 设置input 方向 */
+  /** 设置input 方向 */
   mode?: "horizontal" | "vertical";
+  /** 选中下拉列表项的回调 */
   onSelect?: (selIndex: string) => void;
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  /** 二级下拉列表 */
   defaultOpenSubMenus?: string[];
 }
 
@@ -28,15 +30,10 @@ interface IMenuContext {
 export let MenuContext = React.createContext<IMenuContext>({ index: "0" });
 
 /**
- * 标签栏
- * ### 引用方法
- *
- * ~~~js
- * import { Menu } from 'speed-ui'
- * ~~~
+ * Menu  菜单组件
  */
 const Menu: React.FC<IMenuProps> = (props) => {
-  let {
+    let {
     defaultIndex,
     onSelect,
     className,

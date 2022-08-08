@@ -1,10 +1,17 @@
 import React from "react";
 import Dropdown from "./Dropdown";
-import Button from "../Button/button";
+import Button from "../Button/Button";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 export default {
   title: "导航/Dropdown",
   component: Dropdown,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 向下弹出的列表",
+      },
+    },
+  },
 } as ComponentMeta<typeof Dropdown>;
 
 const menu = [

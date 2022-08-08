@@ -1,6 +1,6 @@
 import React, { FC, useContext } from "react";
 import classNames from "classnames";
-import { ConfigContext } from "../Config-Provider/configProvider";
+import { ConfigContext } from "../Config-Provider/ConfigProvider";
 
 interface BreadcrumbItemProps {
   children?: React.ReactNode;

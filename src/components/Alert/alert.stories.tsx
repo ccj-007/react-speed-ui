@@ -1,6 +1,6 @@
 import React from "react";
 import Alert, { AlertProps } from "./Alert";
-import Button from "../Button/button";
+import Button from "../Button/Button";
 
 export default {
   title: "反馈/Alert",

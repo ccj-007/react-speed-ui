@@ -1,2 +1,2 @@
-import Menu from "./menu";
+import Menu from "./Menu";
 export default Menu;

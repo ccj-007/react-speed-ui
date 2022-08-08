@@ -12,10 +12,7 @@ export interface IconProps extends FontAwesomeIconProps {
 }
 
 /**
- * ```js
- * import { Icon } from 'speed-ui'
- * import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
- * ```
+ *  Icon  图标组件
  */
 export const Icon: React.FC<IconProps> = (props) => {
   // icon-primary

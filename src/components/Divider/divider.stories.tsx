@@ -4,6 +4,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 export default {
   title: "布局/Divider",
   component: Divider,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 用于段落的划分界限",
+      },
+    },
+  },
 } as ComponentMeta<typeof Divider>
 
 const defaultDividerTpl: ComponentStory<typeof Divider> = (args) => {

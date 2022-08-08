@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ConfigContext } from "../Config-Provider/configProvider";
+import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 
 export type AlertBaseProps = {

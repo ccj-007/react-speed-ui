@@ -2,12 +2,17 @@ import React, { FC } from "react";
 import { GutterContext } from './Row'
 
 interface ColProps {
+  /** 份数 */
   span?: number
+  /** 偏移 */
   offset?: number
   children?: React.ReactNode
   className?: string
 }
 
+/**
+ * Row  格栅竖向组件
+ */
 const Col: FC<ColProps> = (props) => {
   let { span, offset, children, className } = props
 

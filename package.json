@@ -5,6 +5,7 @@
   "main": "dist/lib/components/index.js",
   "module": "dist/esm/components/index.js",
   "private": false,
+  "homepage": "http://ccj-007.github.io/react-speed-ui",
   "files": [
     "dist"
   ],
@@ -45,6 +46,7 @@
     "storybook": "start-storybook -p 6012 -s public",
     "build-storybook": "build-storybook -s public",
     "build:types": "tsc --emitDeclarationOnly",
+    "deploy-storybook": "gh-pages -d storybook-static",
     "clean": "rimraf types lib esm dist",
     "gulp": "npm run clean && gulp"
   },
@@ -65,7 +67,6 @@
       }
     ]
   },
-  "homepage": "./",
   "browserslist": {
     "production": [
       ">0.2%",
@@ -106,6 +107,7 @@
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.7.1",
     "customize-cra": "^1.0.0",
+    "gh-pages": "^4.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",

@@ -9,12 +9,12 @@ import React, {
   useRef,
 } from "react";
 import classNames from "classnames";
-import Input, { InputExternalProps } from "../Input/input";
+import Input, { InputExternalProps } from "../Input/Input";
 import { Icon } from "../Icon/icon";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import useDebounce from "../../hooks/useDebounce";
 import useClickOutside from "../../hooks/useClickOutside";
-import { ConfigContext } from "../Config-Provider/configProvider";
+import { ConfigContext } from "../Config-Provider/ConfigProvider";
 
 interface AutoItemType {
   value: string;

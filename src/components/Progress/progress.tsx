@@ -1,36 +1,43 @@
 import React, { FC } from "react";
 import { ThemeProps } from "../Icon/icon";
 export interface ProgressProps {
-	percent: number;
-	strokeHeight?: number;
-	showText?: boolean;
-	styles?: React.CSSProperties;
-	theme?: ThemeProps;
+  /** 进度百分比 */
+  percent: number;
+  /** 高度 */
+  strokeHeight?: number;
+  /** 展示文本 */
+  showText?: boolean;
+  styles?: React.CSSProperties;
+  /** 主题 */
+  theme?: ThemeProps;
 }
 
+/**
+ * Progress  进度条组件
+ */
 const Progress: FC<ProgressProps> = (props) => {
-	const { percent, strokeHeight, showText, styles, theme } = props;
-	return (
-		<div className="viking-progress-bar" style={styles}>
-			<div
-				className="viking-progress-bar-outer"
-				style={{ height: `${strokeHeight}px` }}
-			>
-				<div
-					className={`viking-progress-bar-inner color-${theme}`}
-					style={{ width: `${percent}%` }}
-				>
-					{showText && <span className="inner-text">{`${percent}%`}</span>}
-				</div>
-			</div>
-		</div>
-	);
+  const { percent, strokeHeight, showText, styles, theme } = props;
+  return (
+    <div className="viking-progress-bar" style={styles}>
+      <div
+        className="viking-progress-bar-outer"
+        style={{ height: `${strokeHeight}px` }}
+      >
+        <div
+          className={`viking-progress-bar-inner color-${theme}`}
+          style={{ width: `${percent}%` }}
+        >
+          {showText && <span className="inner-text">{`${percent}%`}</span>}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 Progress.defaultProps = {
-	strokeHeight: 15,
-	showText: true,
-	theme: "primary",
+  strokeHeight: 15,
+  showText: true,
+  theme: "primary",
 };
 
 export default Progress;

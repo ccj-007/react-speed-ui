@@ -1,8 +1,9 @@
 import React, { FC, useContext } from "react";
 import classNames from "classnames";
-import { ConfigContext } from "../Config-Provider/configProvider";
+import { ConfigContext } from "../Config-Provider/ConfigProvider";
 
 interface BreadcrumbProps {
+  /** 样式隔离 */
   prefixCls: string;
   children?: React.ReactNode;
   className?: string;
@@ -22,11 +23,7 @@ interface BreadcrumbProps {
 }
 
 /**
- * 显示当前页面在系统层级结构中的位置，并能向上返回。
- *
- * ~~~js
- * import { BreadCrumb } from 'speed-ui'
- * ~~~
+ * Breadcrumb 面包屑组件
  */
 const Breadcrumb: FC<BreadcrumbProps> = (props) => {
   const {

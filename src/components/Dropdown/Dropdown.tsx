@@ -8,16 +8,24 @@ export type DropmenuType = {
 };
 
 export interface DropdownProps {
+  /** 菜单 */
   menu: DropmenuType[];
+  /** 禁用 */
   disabled?: boolean;
   className?: string;
   childClassName?: string;
+  /** 打开方式 */
   trigger?: "click" | "hover";
+  /** 弹出方向 */
   placement?: PlacementType;
+  /** 点击事件的回调 */
   onClickChange?: (subMenu: any) => void;
   children?: React.ReactNode;
 }
 
+/**
+ * Dropdown  下拉列表组件
+ */
 const Dropdown: FC<DropdownProps> = (props) => {
   let {
     menu = [{ key: "1", label: "" }],

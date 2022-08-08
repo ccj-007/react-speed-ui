@@ -8,6 +8,13 @@ const { Title, Text } = Typography;
 export default {
   title: "通用/Typography",
   component: Typography,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 文本包裹器",
+      },
+    },
+  },
 }
 
 const titleTpl = (args: TitleProps) => {
