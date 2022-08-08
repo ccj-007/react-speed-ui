@@ -3,11 +3,16 @@ import classNames from "classnames";
 import { ConfigContext } from "../Config-Provider/configProvider";
 
 interface BreadcrumbProps {
+	prefixCls: string;
 	children?: React.ReactNode;
 	className?: string;
 	/**自定义链接函数，和 react-router 配置使用 */
-	//@ts-ignore
-	itemRender?: (route, params, routes, paths) => React.ReactNode;
+	itemRender?: (
+		route: any,
+		params: any,
+		routes: any,
+		paths: any
+	) => React.ReactNode;
 	/**路由的参数 */
 	params?: Object;
 	/**router 的路由栈信息 */
@@ -24,8 +29,14 @@ interface BreadcrumbProps {
  * ~~~
  */
 const Breadcrumb: FC<BreadcrumbProps> = (props) => {
-	const { allSeparator, children, className } = props;
-	const configInfo = useContext(ConfigContext);
+	const {
+		allSeparator,
+		children,
+		className,
+		prefixCls: customizePrefixCls,
+	} = props;
+	const { getPrefixCls } = useContext(ConfigContext);
+	const prefixCls = getPrefixCls("breadcrumb", customizePrefixCls);
 
 	const renderChildren = () => {
 		return React.Children.map(children, (child: any, index) => {
@@ -37,7 +48,7 @@ const Breadcrumb: FC<BreadcrumbProps> = (props) => {
 		});
 	};
 
-	const classes = classNames(`${configInfo.prefixCls}-breadcrumb`, className);
+	const classes = classNames(prefixCls, className);
 
 	return <div className={classes}>{renderChildren()}</div>;
 };

@@ -1,44 +1,44 @@
-@import '../commonStyle/variables.scss';
+@import "../commonStyle/variables.scss";
 
-.alert-success {
-  background: $success;
-}
+.speed-alert {
+	box-shadow: $btn-box-shadow;
+	position: fixed;
+	z-index: 99;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 5%;
+	border-radius: 10px;
+	padding: 20px 40px;
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+	color: $white;
+	border: 1px solid #000;
 
-.alert-primary {
-  background: $primary;
-}
+	&-success {
+		background: $success;
+	}
 
-.alert-danger {
-  background: $danger;
-}
+	&-primary {
+		background: $primary;
+	}
 
-.alert-warning {
-  background: $warning;
-}
+	&-danger {
+		background: $danger;
+	}
 
-.alert {
-  box-shadow: $btn-box-shadow;
-  position: fixed;
-  z-index: 99;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 5%;
-  border-radius: 10px;
-  padding: 20px 40px;
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  color: $white;
-  border: 1px solid #000;
-}
+	&-warning {
+		background: $warning;
+	}
 
-.alert-close {
-  position: absolute;
-  right: 10px;
-  cursor: pointer;
-  top: 0;
-}
+	&-close {
+		position: absolute;
+		right: 10px;
+		cursor: pointer;
+		top: 0;
+	}
 
-.alert-maintitle {
-  font-weight: bold;
+	&-maintitle {
+		font-weight: bold;
+	}
 }

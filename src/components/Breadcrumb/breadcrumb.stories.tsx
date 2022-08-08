@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import Breadcrumb from "./breadcrumb";
-import BreadcrumbItem from "./breadcrumbItem";
+import Breadcrumb from "./Breadcrumb";
+import BreadcrumbItem from "./BreadcrumbItem";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 export default {
 	title: "导航/BreadCrumb",
