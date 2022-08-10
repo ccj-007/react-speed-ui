@@ -1,6 +1,6 @@
 import React, { FC, useState, DragEvent } from 'react'
 import classNames from 'classnames'
-import { Icon } from '../Icon/icon'
+import Icon from '../Icon/Icon'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 interface DraggerProps {
   onFile: (files: FileList) => void;

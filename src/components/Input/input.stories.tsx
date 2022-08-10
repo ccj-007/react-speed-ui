@@ -2,82 +2,82 @@ import React from "react";
 import Input from "./Input";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 export default {
-	title: "数据录入/Input",
-	component: Input,
-	parameters: {
-		docs: {
-			description: {
-				component: "### 通过鼠标或键盘输入内容，是最基础的表单域的包装。",
-			},
-		},
-	},
+  title: "数据录入/Input",
+  component: Input,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 通过鼠标或键盘输入内容，是最基础的表单域的包装。",
+      },
+    },
+  },
 } as ComponentMeta<typeof Input>;
 
 const defaultInputTpl: ComponentStory<typeof Input> = (args: any) => (
-	<>
-		<h6>普通的input</h6>
-		<div>
-			<Input placeholder={args.placeholder} onChange={args.onChangeVal}></Input>
-		</div>
-	</>
+  <>
+    <h6>普通的input</h6>
+    <div>
+      <Input placeholder={args.placeholder} onChange={args.onChangeVal}></Input>
+    </div>
+  </>
 );
 
 const disabledInputTpl: ComponentStory<typeof Input> = (args: any) => (
-	<>
-		<h6>禁用的input</h6>
-		<div>
-			<Input {...args}></Input>
-		</div>
-	</>
+  <>
+    <h6>禁用的input</h6>
+    <div>
+      <Input {...args}></Input>
+    </div>
+  </>
 );
 
 const typeInputTpl: ComponentStory<typeof Input> = (args) => (
-	<>
-		<h6>密码输入框</h6>
-		<div>
-			<Input isPasswordInput={args.isPasswordInput}></Input>
-		</div>
-		<br></br>
-		<h6>数字输入框</h6>
-		<div>
-			<Input isNumberInput={args.isNumberInput}></Input>
-		</div>
-	</>
+  <>
+    <h6>密码输入框</h6>
+    <div>
+      <Input isPasswordInput={args.isPasswordInput}></Input>
+    </div>
+    <br></br>
+    <h6>数字输入框</h6>
+    <div>
+      <Input isNumberInput={args.isNumberInput}></Input>
+    </div>
+  </>
 );
 
 const fixInputTpl: ComponentStory<typeof Input> = (args) => (
-	<>
-		<h6>前缀</h6>
-		<div>
-			<Input prefix={args.prefix}></Input>
-		</div>
-		<br></br>
-		<h6>后缀</h6>
-		<div>
-			<Input suffix={args.suffix}></Input>
-		</div>
-	</>
+  <>
+    <h6>前缀</h6>
+    <div>
+      <Input prefix={args.prefix}></Input>
+    </div>
+    <br></br>
+    <h6>后缀</h6>
+    <div>
+      <Input suffix={args.suffix}></Input>
+    </div>
+  </>
 );
 
 export const defaultInput = defaultInputTpl.bind({});
 defaultInput.args = {
-	placeholder: "请输入你的内容",
-	onChange: (val: any) => console.log("input的值", val),
+  placeholder: "请输入你的内容",
+  onChange: (val: any) => console.log("input的值", val),
 };
 
 export const disabledInput = disabledInputTpl.bind({});
 disabledInput.args = {
-	disabled: true,
+  disabled: true,
 };
 
 export const typeInput = typeInputTpl.bind({});
 typeInput.args = {
-	isPasswordInput: true,
-	isNumberInput: true,
+  isPasswordInput: true,
+  isNumberInput: true,
 };
 
 export const fixInput = fixInputTpl.bind({});
 fixInput.args = {
-	prefix: "https://",
-	suffix: ".com",
+  prefix: "https://",
+  suffix: ".com",
 };

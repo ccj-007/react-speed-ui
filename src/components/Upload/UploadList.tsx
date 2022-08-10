@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "../Icon/icon";
+import Icon from "../Icon/Icon";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { UploadFile } from "./Upload";
 import Progress from "../Progress/Progress";

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from './icon'
+import { Icon } from './Icon'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 

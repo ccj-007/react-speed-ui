@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ThemeProps } from "../Icon/icon";
+import { ThemeProps } from "../Icon/Icon";
 export interface ProgressProps {
   /** 进度百分比 */
   percent: number;

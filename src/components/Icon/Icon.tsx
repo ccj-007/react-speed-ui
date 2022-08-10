@@ -14,7 +14,7 @@ export interface IconProps extends FontAwesomeIconProps {
 /**
  *  Icon  图标组件
  */
-export const Icon: React.FC<IconProps> = (props) => {
+const Icon: React.FC<IconProps> = (props) => {
   // icon-primary
   const { className, theme, icon, ...restProps } = props
   const classes = classNames('viking-icon', className, {
@@ -25,3 +25,5 @@ export const Icon: React.FC<IconProps> = (props) => {
     <FontAwesomeIcon className={classes} icon={icon} {...restProps} />
   )
 }
+
+export default Icon
