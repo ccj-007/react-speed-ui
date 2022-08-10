@@ -4,7 +4,6 @@ import { MenuContext } from "./Menu";
 import { IMenuItemProps } from "./MenuItem";
 import Icon from "../Icon/Icon"
 import Transition from "../Transition/Transition";
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 export interface SubMenuProps {
   index?: string;
   title: string;
