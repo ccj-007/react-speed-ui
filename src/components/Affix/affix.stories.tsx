@@ -1,25 +1,39 @@
 import React from "react";
 import Affix from "./Affix";
 import Button from "../Button/Button";
-import { action } from "@storybook/addon-actions";
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import PageHeader from "../PageHeader";
 
 export default {
-  title: "导航/Affix",
-  component: Affix,
-} as ComponentMeta<typeof Affix>
+	title: "导航/Affix",
+	component: Affix,
+	parameters: {
+		docs: {
+			description: {
+				component: "### 将页面元素钉在可视范围",
+			},
+		},
+	},
+} as ComponentMeta<typeof Affix>;
 
-const AffixTemplate: ComponentStory<typeof Affix> = (args) => {
-  return (
-    <div style={{ height: '1800px' }}>
-      <Affix offsetBottom={20}>
-        <Button>
-          Affix Button
-        </Button>
-      </Affix>
-    </div>
-  );
+const defaultAffixTpl: ComponentStory<typeof Affix> = (args) => {
+	const onChange = (affixed) => {
+		console.log("affixed", affixed);
+	};
+	return (
+		<div style={{ height: "1800px" }}>
+			<div style={{ marginTop: "200px" }}></div>
+			<PageHeader title="向上固定图钉" />
+			<Affix offsetTop={20} onChange={onChange}>
+				<Button>Affix top</Button>
+			</Affix>
+			<div style={{ marginTop: "200px" }}></div>
+			<PageHeader title="向下固定图钉" />
+			<Affix offsetBottom={40}>
+				<Button>Affix bottom</Button>
+			</Affix>
+		</div>
+	);
 };
-export const AffixTpl = AffixTemplate.bind({});
-AffixTpl.args = {
-};
+export const defaultAffix = defaultAffixTpl.bind({});
+defaultAffix.args = {};

@@ -1,0 +1,17 @@
+@import "../commonStyle/variables.scss";
+
+.speed-pageHeader {
+	color: #2f2f2f;
+	font-size: 20px;
+	font-weight: 600;
+
+	&-subtitle {
+		color: #727272;
+		font-size: 15px;
+		margin-left: 10px;
+	}
+
+	&-warp {
+		margin: 10px;
+	}
+}

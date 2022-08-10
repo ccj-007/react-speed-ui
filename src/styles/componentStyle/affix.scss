@@ -1,0 +1,13 @@
+@import "../commonStyle/variables.scss";
+
+.speed-affix {
+	position: sticky !important;
+
+	&-top {
+		top: 0;
+	}
+
+	&-bottom {
+		bottom: 0;
+	}
+}
