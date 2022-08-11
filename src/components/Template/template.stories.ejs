@@ -1,0 +1,28 @@
+import React from "react";
+import <%= name %> from "./<%= name %>";
+    import { ComponentStory, ComponentMeta } from "@storybook/react";
+    import PageHeader from "../PageHeader";
+
+    export default {
+    title: "模板/<%= name %>",
+      component: <%= name %>,
+        parameters: {
+        docs: {
+        description: {
+        component: "### 组件模板",
+        },
+        },
+        },
+        } as ComponentMeta < typeof <%=name %>>;
+
+          const default<%= name %>Tpl: ComponentStory < typeof <%=name %>> = () => {
+              return (
+              <>
+                <PageHeader title='基本使用' />
+                <%= name %> storybook
+              </>
+              )
+              }
+
+              export const default<%= name %> = default<%= name %>Tpl.bind({});
+                  default<%= name %>.args = { };
