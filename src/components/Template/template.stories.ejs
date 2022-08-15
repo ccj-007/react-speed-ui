@@ -1,5 +1,6 @@
 import React from "react";
 import <%= name %> from "./<%= name %>";
+import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
@@ -15,7 +16,10 @@ component: "### 组件模板",
 },
 } as ComponentMeta < typeof <%=name %>>;
 
-  const default<%= name %>Tpl: ComponentStory < typeof <%=name %>> = () => {
+  /**
+  * 展示面板
+  */
+  const default<%= name %>Tpl: ComponentStory < typeof <%=name %>> = (args) => {
     return (
     <>
       <PageHeader title='基本使用' />
@@ -25,5 +29,9 @@ component: "### 组件模板",
     )
     }
 
+
+    /**
+    * 参数面板
+    */
     export const default<%= name %> = default<%= name %>Tpl.bind({});
     default<%= name %>.args = { };

@@ -1,22 +1,34 @@
-@include zoom-animation('top', scaleY(0), scaleY(1), center top);
-@include zoom-animation('left', scale(.45, .45), scale(1, 1), top left);
-@include zoom-animation('right', scale(.45, .45), scale(1, 1), top right);
-@include zoom-animation('bottom', scaleY(0), scaleY(1),  center bottom);
+@include zoom-animation("top", scaleY(0), scaleY(1), center top);
+@include zoom-animation("left", scale(0.45, 0.45), scale(1, 1), top left);
+@include zoom-animation("right", scale(0.45, 0.45), scale(1, 1), top right);
+@include zoom-animation("bottom", scaleY(0), scaleY(1), center bottom);
 .slide-in-blurred-top {
-	animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	animation: slide-in-blurred-top 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 @keyframes slide-in-blurred-top {
-  0% {
-    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
-    transform-origin: 50% 0%;
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) scaleY(1) scaleX(1);
-    transform-origin: 50% 50%;
-    filter: blur(0);
-    opacity: 1;
-  }
+	0% {
+		transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+		transform-origin: 50% 0%;
+		filter: blur(40px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0) scaleY(1) scaleX(1);
+		transform-origin: 50% 50%;
+		filter: blur(0);
+		opacity: 1;
+	}
+}
+
+@keyframes small-to-big {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.3);
+	}
+	100% {
+		transform: scale(1);
+	}
 }

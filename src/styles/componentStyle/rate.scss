@@ -1,23 +1,51 @@
 @font-face {
-	font-family: "iconfont";
-	src: url("//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.eot?t=1566010168352"); /* IE9 */
-	src: url("//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.eot?t=1566010168352#iefix")
-			format("embedded-opentype"),
-		/* IE6-IE8 */
-			url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAO8AAsAAAAAB8wAAANtAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqDNIJ9ATYCJAMMCwgABCAFhG0HNxvEBhHVm8nIfg64m8syMyNFxW0wtS7DY92cvgnL6DIzc8fD9/u1c99/q9ogiSaG7tNFk2iiUsImoJECnZIJxUvYIbtsLnOxvAjgjkYn4KX6A2BzridVoyLUSO783qMvJMVRmqf/OVzaFJ+/bbnMMTnqBRgHFNjYAyTgO5AD8nvArgbd1HYCdbNkEPbMbBBAIbP6BeIxNNgXUOR0cktxqArlmqlZvCBVTZO0w3P4+/G/HhQkpYI1dP/BNAAYfJm+68C0aZqHj8CfzgJhFgXWAJm4qLWdg3FsDVTXZMT27LIspKmC/6chT1eUN/qPl4gyq7AJllCTXBTfZRJ863BR7vodlPOJCfDOYIenhLiWiCwQq2lo7GXtXuTCGlrZ8doWMaxnIG1dwIHU9YkgXU2saHUzUM2L472FosPq67rYsBoWpGtmYYQbr4VwQ0vroni0BDveuFg4z4lWs6Ld881NHEgVHFU/JNKVeOCAoKdo85wYhnQt8J/jOHbk1DAqzrHlstFe1up+zlPUemr38AkbE3umYxxrpTiHMMs4Y8dufMb+jMmIoPBKGdrYLtmONaadMI8KqqzdVy69287EOs7MId5uTS5KbsSX5ZvOlmnE/+81/zWWK24UbKzj/EPx6T8bv9IEjAr+TsEauwLl0Sm0seT3iGAAz03Br/j0IXrWcTEO2Wig+TpKlaptTGlDYUZuwRSys0U7gTvxgikbl6W01jFJ4X7h+nchKWkjZiZiJJTP6Mg0HapFzXD0meQbF/ABMH2HY4UAJs5gfyH63/7G4dsSwZte5x8FdQafyUUa6JmeEQHNAVTvyh78JT6xKutCS19klefyTEfhmmBJIEeU+zel0Hc3XDEilxKqRgMcFTMpFKrmkBm7BiUNG1BWtQl1q8xnNwzEgSLXsCIbIHSNQtL2AYWuXWTG3kLJ2Dco6waEutNgXrJhAYyojBm1oAPzh2jXhRyjqKj4hv5dNGeFIe6FXGMQ+qYrJq+4IE8xon78IEJAvM4wwW5YygobrwmtNEFkG9uW6j7U2HU+KMaMWtAB8wfRrgv59UWVfv6G/l00t1TUWF/INTYPeo2OgLzKFlLFrdxSP34gQoB4ncEEFix2bAVbfaeEVhphQGQbtUwtosqa5RXz+20AACrWWBgkBEggArKnpYrmi6c9HAAAAAA=")
-			format("woff2"),
-		url("//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.woff?t=1566010168352")
-			format("woff"),
-		url("//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.ttf?t=1566010168352")
-			format("truetype"),
-		/* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-			url("//at.alicdn.com/t/font_1356455_c5d3d3ohlbq.svg?t=1566010168352#iconfont")
-			format("svg"); /* iOS 4.1- */
+	font-family: "iconfont"; /* Project id  */
+	src: url("iconfont.ttf?t=1660551500912") format("truetype");
 }
 
 .iconfont {
 	font-family: "iconfont" !important;
 	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star:before {
+	content: "\e6ae";
+}
+
+.icon-star-active:before {
+	content: "\e6ae";
+}
+
+.icon-Star:before {
+	content: "\ebe1";
+}
+
+.icon-Star-active:before {
+	content: "\ebe1";
+}
+
+.icon-money:before {
+	content: "\e635";
+}
+
+.icon-money-active:before {
+	content: "\e635";
+}
+
+.icon-ok-circle:before {
+	content: "\e622";
+}
+
+.icon-ok-circle-active:before {
+	content: "\e622";
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 36px;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -29,37 +57,27 @@
 
 .iconstar:before {
 	content: "\e73c";
+	color: yellow;
 }
 
 .speed-rate {
-	-webkit-appearance: none;
-	border: none;
-	outline: none;
-	cursor: pointer;
-}
+	display: flex;
+	align-items: center;
+	&-item {
+		margin-right: 10px;
+	}
 
-.rate-content {
-	$main: #ffa822; // 高亮颜色
-	$basic: #999; // 默认颜色
+	&-item:hover {
+		transform: scale(1.1);
+		transition: all 0.5s linear;
+	}
 
-	// 单个星星
-	.speed-rate[name="rate"] {
-		font-family: "iconfont"; // 之前引入的iconfont字体
-		font-size: 30px;
-		padding-right: 10px;
+	&-animation {
+		animation: small-to-big 1s;
+		animation-iteration-count: 1;
+	}
 
-		// 默认显示的星星
-		&::after {
-			content: "\e645";
-			color: $basic;
-			transition: color 0.4s ease; // 加点颜色过渡效果
-		}
-
-		// 高亮的星星
-		&:checked,
-		&:checked ~ .speed-rate[name="rate"] {
-			content: "\e73c";
-			color: $main;
-		}
+	&-text {
+		margin-left: 10px;
 	}
 }
