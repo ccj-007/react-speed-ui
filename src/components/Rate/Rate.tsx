@@ -1,7 +1,6 @@
 import React, { FC, useContext, useState, ReactNode } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
-import { css, jsx } from "@emotion/react";
 
 export interface RateProps {
 	/** 样式命名隔离 */
@@ -124,6 +123,7 @@ const Rate: FC<RateProps> = (props) => {
 						style={{
 							color: startList[index].isStar ? color : "",
 							fontSize: size,
+							...itemStyle,
 						}}
 						onClick={() => handleStarClick(index)}
 					></div>

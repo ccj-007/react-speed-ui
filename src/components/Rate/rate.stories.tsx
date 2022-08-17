@@ -7,7 +7,7 @@ export default {
 	title: "模板/Rate",
 	component: Rate,
 	parameters: {
-		docs: {	
+		docs: {
 			description: {
 				component: "### 评分组件",
 			},
@@ -45,7 +45,6 @@ const disabledRateTpl: ComponentStory<typeof Rate> = (args) => {
 
 const textRateTpl: ComponentStory<typeof Rate> = (args) => {
 	let { count } = args;
-
 	const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 	const [startCount, setStartCount] = useState(3);
 	const handleVal = (index) => {
