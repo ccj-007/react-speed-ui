@@ -1,0 +1,17 @@
+@import "../commonStyle/variables.scss";
+
+.speed-radio {
+  display: inline-block ;
+  &-label { 
+    margin: 0 10px;
+  }
+
+  &-input { 
+    vertical-align: middle;
+  }
+}
+
+.speed-radio-group-column {
+  display: flex;
+  flex-direction: column;
+}

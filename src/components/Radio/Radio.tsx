@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState, ReactNode } from "react";
+import React, { FC, useContext, ReactNode } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 
@@ -11,27 +11,44 @@ export interface RadioProps {
   style?: React.CSSProperties;
   /** 组件类名 */
   className?: string;
+  /** value */
+  value?: any;
+  /** 默认选中 */
+  defaultSelect?: number;
+  /** 默认选中与radio的value值一致(注意用于互斥场景) */
+  isExclude?: boolean;
+  /** 默认选中 */
+  disabled?: boolean;
+  /** 改变时的回调 */
+  onChange?: (value: any) => void
 }
 
 /**
- * Radio 组件模板
+ * Radio 单选框
  */
 const Radio: FC<RadioProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style } = props;
-  const [state, setState] = useState(null);
-
+  const { children, className, prefixCls: customizePrefixCls, value, onChange, defaultSelect, disabled, isExclude } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls("radio", customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {});
+  const handleClick = (event: any) => {
+    event.stopPropagation()
+    onChange && onChange(value)
+  }
+
   return (
-    <div className={cls} style={style}>
-      <div>Radio</div>
-      <div>{children}</div>
+    <div onClick={handleClick} className={cls}>
+      {
+        isExclude ? <input type="radio" id={`speed-radio-${value}`} className={`${prefixCls}-input`} checked={isExclude && value === defaultSelect} disabled={disabled} /> : <input type="radio" id={`speed-radio-${value}`} className={`${prefixCls}-input`} disabled={disabled} />
+      }
+      <label htmlFor={`speed-radio-${value}`} className={`${prefixCls}-label`}>{children}</label>
     </div>
   );
 };
 
-Radio.defaultProps = {};
+Radio.defaultProps = {
+  disabled: false
+};
 
 export default Radio;
