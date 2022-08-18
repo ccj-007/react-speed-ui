@@ -1,14 +1,12 @@
-import InternalForm from "./Form";
-import Item from "./FormItem";
+import originForm from "./Form";
+import FormItem from "./FormItem";
 
-type InternalFormType = typeof InternalForm;
+export type FormProps = {
+	Item: typeof FormItem;
+};
 
-interface FormInterface extends InternalFormType {
-	Item: typeof Item;
-}
-
-const Form = InternalForm as FormInterface;
-
-Form.Item = Item;
+const Form = originForm as any;
+Form.Item = FormItem;
 
 export default Form;
+

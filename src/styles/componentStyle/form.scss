@@ -1,0 +1,17 @@
+@import "../commonStyle/variables.scss";
+
+.speed-formItem {
+
+  &-input {
+    display: block;
+  }
+
+  &-button {
+    display: inline-block;
+    background: $blue;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    margin:  5px;
+  }
+}

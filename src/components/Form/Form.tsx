@@ -1,37 +1,43 @@
-import React, { FC, useContext, useState, ReactNode } from "react";
+import React, { FC, useContext, ReactNode, createContext } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 
 export interface FormProps {
-	/** 样式命名隔离 */
-	prefixCls?: string;
-	/** 组件子节点 */
-	children?: ReactNode;
-	/** 容器内联样式 */
-	style?: React.CSSProperties;
-	/** 组件类名 */
-	className?: string;
+  /** 样式命名隔离 */
+  prefixCls?: string;
+  /** 组件子节点 */
+  children?: ReactNode;
+  /** 容器内联样式 */
+  style?: React.CSSProperties;
+  /** 组件类名 */
+  className?: string;
+  /* 提交表单且数据验证成功后回调事件 */
+  onFinish?: () => void;
+  /* 提交表单且数据验证失败后回调事件 */
+  onFinishFailed?: () => void
 }
 
+export let FormContext = createContext<FormProps>({});
+
 /**
- * Form 组件模板
+ * Form 表单组件
  */
-const InternalForm: FC<FormProps> = (props) => {
-	const { children, className, prefixCls: customizePrefixCls, style } = props;
-	const [state, setState] = useState(null);
+const Form: FC<FormProps> = (props) => {
+  const { children, className, prefixCls: customizePrefixCls, style, onFinish, onFinishFailed, ...restProps } = props;
 
-	const { getPrefixCls } = useContext(ConfigContext);
-	let prefixCls = getPrefixCls("form", customizePrefixCls);
+  const { getPrefixCls } = useContext(ConfigContext);
+  let prefixCls = getPrefixCls("form", customizePrefixCls);
 
-	const cls = classNames(prefixCls, className, {});
-	return (
-		<div className={cls} style={style}>
-			<div>InternalForm</div>
-			<div>{children}</div>
-		</div>
-	);
+  const cls = classNames(prefixCls, className, {});
+  return (
+    <FormContext.Provider value={{ onFinish, onFinishFailed }}>
+      <form className={cls} style={style} {...restProps}>
+        {children}
+      </form>
+    </FormContext.Provider>
+  );
 };
 
-InternalForm.defaultProps = {};
+Form.defaultProps = {};
 
-export default InternalForm;
+export default Form;
