@@ -1,11 +1,10 @@
 import React from "react";
 import Radio from "./index";
-import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "模板/Radio",
+  title: "数据录入/Radio",
   component: Radio,
   parameters: {
     docs: {

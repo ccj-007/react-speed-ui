@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "模板/Switch",
+  title: "数据录入/Switch",
   component: Switch,
   parameters: {
     docs: {
@@ -23,8 +23,12 @@ const defaultSwitchTpl: ComponentStory<typeof Switch> = (args) => {
   return (
     <>
       <PageHeader title="基本使用" />
-      Switch storybook
+      <Switch onClick={action('sadasd')}></Switch>
+
+      <PageHeader title="大小尺寸" />
       <Switch></Switch>
+      <br></br>
+      <Switch size='small'></Switch>
     </>
   );
 };
