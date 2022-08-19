@@ -4,27 +4,31 @@
   position: relative;
   width: 44px;
   height: 22px;
-  background: $blue;
+  background: $gray-500;
   border-radius: 20px;
   display: flex;
   align-items: center;
 
   &-bg-active {
-    background: $gray-500;
+    background: $blue;
   }
 
   &-circle {
     position: absolute;
     width: 18px;
     height: 18px;
-    right: 2px;
+    left: 2px;
     background: $gray-100;
     border-radius: 15px;
     transition: all .3s linear;
   }
 
+  &-circle:hover {
+    cursor: pointer;
+  }
+
   &-circle-active {
-    transform: translateX(-22px);
+    transform: translateX(22px);
     transition: all .5s linear;
   }
 }
@@ -33,27 +37,27 @@
   position: relative;
   width: 30px;
   height: 16px;
-  background: $blue;
+  background:  $gray-500;
   border-radius: 8px;
   display: flex;
   align-items: center;
 
   &-bg-active {
-    background: $gray-500;
+    background: $blue;
   }
 
   &-circle {
     position: absolute;
     width: 14px;
     height: 14px;
-    right: 1px;
+    left: 1px;
     background: $gray-100;
     border-radius: 7px;
     transition: all .2s linear;
   }
 
   &-circle-active {
-    transform: translateX(-12.5px);
+    transform: translateX(12.5px);
     transition: all .2s linear;
   }
 }

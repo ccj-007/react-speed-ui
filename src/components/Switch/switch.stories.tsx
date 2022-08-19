@@ -1,6 +1,5 @@
 import React from "react";
 import Switch from "./Switch";
-import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
@@ -10,7 +9,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "### 组件模板",
+        component: "### 切换器",
       },
     },
   },
@@ -20,15 +19,23 @@ export default {
  * 展示面板
  */
 const defaultSwitchTpl: ComponentStory<typeof Switch> = (args) => {
+
   return (
     <>
       <PageHeader title="基本使用" />
-      <Switch onClick={action('sadasd')}></Switch>
+      <Switch onClick={args.onClick} ></Switch>
 
       <PageHeader title="大小尺寸" />
       <Switch></Switch>
       <br></br>
-      <Switch size='small'></Switch>
+
+      <Switch size={args.size} checked={true}></Switch>
+
+      <PageHeader title="默认开启" />
+      <Switch size={args.size} checked={true}></Switch>
+
+      <PageHeader title="禁用" />
+      <Switch disabled checked={false}></Switch>
     </>
   );
 };
@@ -37,4 +44,7 @@ const defaultSwitchTpl: ComponentStory<typeof Switch> = (args) => {
  * 参数面板
  */
 export const defaultSwitch = defaultSwitchTpl.bind({});
-defaultSwitch.args = {};
+defaultSwitch.args = {
+  onClick: () => { console.log("clicked") },
+  size: 'small'
+};

@@ -1,7 +1,8 @@
+/** @jsxImportSource @emotion/react */
 import React, { FC, useContext, useState, ReactNode } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
-
+import { css } from '@emotion/react'
 export interface SwitchProps {
   /** 样式命名隔离 */
   prefixCls?: string;
@@ -62,10 +63,16 @@ const Switch: FC<SwitchProps> = (props) => {
     onClick && onClick()
     setToggle(!toggle)
   }
+
   return (
-    <div className={handleWarpCls()} style={style}>
-      <div className={handleCls()} onClick={handleSwitch}></div>
-    </div>
+    <div className={handleWarpCls()} style={style} css={css`
+    cursor: ${disabled ? "not-allowed !important" : ''};
+`}>
+      <div className={handleCls()} onClick={handleSwitch}
+        css={css`
+      cursor: ${disabled ? "not-allowed !important" : ''};
+  `}></div>
+    </div >
   );
 };
 
