@@ -1,37 +1,36 @@
 import React from "react";
 import <%= name %> from "./<%= name %>";
-import { action } from "@storybook/addon-actions";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import PageHeader from "../PageHeader";
+    import { action } from "@storybook/addon-actions";
+    import { ComponentStory, ComponentMeta } from "@storybook/react";
+    import PageHeader from "../PageHeader";
 
-export default {
-title: "模板/<%= name %>",
-component: <%= name %>,
-parameters: {
-docs: {
-description: {
-component: "### 组件模板",
-},
-},
-},
-} as ComponentMeta < typeof <%=name %>>;
+    export default {
+    title: "模板/<%= name %>",
+      component: <%= name %>,
+        parameters: {
+        docs: {
+        description: {
+        component: "### 组件模板",
+        },
+        },
+        },
+        } as ComponentMeta < typeof <%=name %>>;
 
-  /**
-  * 展示面板
-  */
-  const default<%= name %>Tpl: ComponentStory < typeof <%=name %>> = (args) => {
-    return (
-    <>
-      <PageHeader title='基本使用' />
-      <%= name %> storybook
-      <<%= name %>></<%= name %>>
-    </>
-    )
-    }
+          /**
+          * 展示面板
+          */
+          const default<%= name %>Tpl: ComponentStory < typeof <%=name %>> = (args) => {
+              return (
+              <>
+                <PageHeader title='基本使用' />
+                <<%= name %>></<%= name %>>
+              </>
+              )
+              }
 
 
-    /**
-    * 参数面板
-    */
-    export const default<%= name %> = default<%= name %>Tpl.bind({});
-    default<%= name %>.args = { };
+              /**
+              * 参数面板
+              */
+              export const default<%= name %> = default<%= name %>Tpl.bind({});
+                  default<%= name %>.args = { };
