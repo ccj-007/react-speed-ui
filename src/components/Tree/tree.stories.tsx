@@ -1,6 +1,5 @@
 import React from "react";
 import Tree from "./Tree";
-import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 import type { DataNode } from './type';
@@ -74,7 +73,25 @@ const defaultTreeTpl: ComponentStory<typeof Tree> = (args) => {
   return (
     <>
       <PageHeader title="基本使用" />
-      <Tree treeData={treeData}></Tree>
+      <Tree treeData={treeData} defaultExpandAll></Tree>
+    </>
+  );
+};
+
+const expandDisabledTreeTpl: ComponentStory<typeof Tree> = (args) => {
+  return (
+    <>
+      <PageHeader title="默认展开并禁用" />
+      <Tree treeData={treeData} defaultExpandAll disabled></Tree>
+    </>
+  );
+};
+
+const checkTreeTpl: ComponentStory<typeof Tree> = (args) => {
+  return (
+    <>
+      <PageHeader title="多选框树形控件" />
+      <Tree treeData={treeData} defaultExpandAll showCheckBox></Tree>
     </>
   );
 };
@@ -84,3 +101,10 @@ const defaultTreeTpl: ComponentStory<typeof Tree> = (args) => {
  */
 export const defaultTree = defaultTreeTpl.bind({});
 defaultTree.args = {};
+
+export const expandDisabledTree = expandDisabledTreeTpl.bind({});
+defaultTree.args = {};
+
+export const checkTree = checkTreeTpl.bind({});
+defaultTree.args = {};
+

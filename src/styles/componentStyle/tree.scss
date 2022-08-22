@@ -1,10 +1,30 @@
 @import "../commonStyle/variables.scss";
 
 .speed-tree {
-  
+  width: 200px;
+  background: $gray-100;
   &-icon {
     margin-right: 10px;
     position: relative;
     top: 2px;
   }
+  &-item:hover {
+    background: $blue;
+    color: #fff;
+    cursor: pointer;
+  }  
+
+
+  &-disabled {
+    color: $gray-500;
+    cursor: not-allowed;
+  }
+
+  &-check {
+    position: relative;
+    top: 3px;
+    margin-right: 10px;
+  }
 }
+
+
