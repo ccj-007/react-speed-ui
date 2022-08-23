@@ -28,15 +28,15 @@ react-speed-ui
 
 ## 特色：
 
-- 30多个组件开箱即用📟
--  轻量📎 
+- 30多个轻量组件开箱即用📟
 - TS支持💎
 - 主题切换💱 
 - 命名隔离🔞
 - 卡通风🔫
 - 单元测试📧
 - 支持按需加载css、js🎉
-- storybook文档支持👍
+- 最新版storybook文档支持👍
+- 支持国际化👍
 - 命令行直接生成**组件开发模板**
 
 ## 使用场景： 
@@ -57,8 +57,10 @@ yarn add react-speed-ui
 ```
 
 > SDK引入
+```js
 <link rel="stylesheet" href="./node_modules/react-speed-ui/dist/css/speed.min.css">
 <script type="text/javascript" src="./node_modules/react-speed-ui/dist/lib/speed.js"></script>
+```
 
 > 使用 CDN (目前暂不支持)
 

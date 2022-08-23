@@ -1,0 +1,18 @@
+@import "../commonStyle/variables.scss";
+
+.speed-notification {
+  position: fixed;
+  z-index: 999;
+  width: 200px;
+  height: 100px;
+  background: #fff;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  box-shadow: '0 0 20px -5px';
+  &-tc {
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
+
+

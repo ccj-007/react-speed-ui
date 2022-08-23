@@ -6,7 +6,6 @@ import { DataNode } from "./type";
 import Icon from "../Icon";
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { css } from '@emotion/react'
-import Input from "../Input";
 
 export interface TreeProps {
   /** 样式命名隔离 */
