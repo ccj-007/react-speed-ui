@@ -14,6 +14,7 @@ const lowerName = componentName.toLowerCase()
 
 const templatePath = path.join(__dirname, 'components', 'Template')   //模板路径
 const toPath = path.join(__dirname, 'components', componentName)   //生成路径
+const stylePath = path.join(__dirname, 'styles', 'componentStyle')   //生成路径
 
 console.log(`当前正在生成${process.argv[2]}组件模板.....`);
 
@@ -49,9 +50,22 @@ function copyDir (srcDir, desDir) {
           if (name === 'index.ejs') {
             return `index.ts`
           }
+          if (name === 'style.scss') {
+            return `${lowerName}.scss`
+          }
         }
         const srcFile = path.resolve(srcDir, file.name);
-        const desFile = path.resolve(desDir, handleOutputFilename(file.name));
+
+        let desFile  //输出的路径
+        let desName = handleOutputFilename(file.name)   //输出的文件名
+
+        //如果是样式路径
+        if (desName.includes('scss')) {
+          desFile = path.resolve(stylePath, desName);
+        } else {
+          //如果是文件路径
+          desFile = path.resolve(desDir, desName);
+        }
         fs.copyFileSync(srcFile, desFile);
 
         //传入ejs渲染

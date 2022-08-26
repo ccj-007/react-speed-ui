@@ -48,7 +48,6 @@ const Notification: FC<NotificationProps> = (props) => {
   const [notices, setNotices] = useState<NotificationDataType[]>([]);
   const first = useRef<boolean>(true);
 
-
   const timer = useRef<any>(null);
 
   const { getPrefixCls } = useContext(ConfigContext);
@@ -79,7 +78,6 @@ const Notification: FC<NotificationProps> = (props) => {
 
   React.useEffect(() => {
     console.log(notices);
-
   }, [notices])
   const cls = classNames(prefixCls, className, {
     [`${prefixCls}-tc`]: position === 'tc',
