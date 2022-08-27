@@ -33,7 +33,15 @@ function compileScripts (babelEnv, destDir) {
   process.env.BABEL_ENV = babelEnv;
   return gulp
     .src(scripts)
-    .pipe(babel()) // 使用gulp-babel处理
+    .pipe(babel({
+      "presets": [
+        [
+          "@babel/preset-react",
+          { "runtime": "automatic", "importSource": "@emotion/react" }
+        ]
+      ],
+      "plugins": ["@emotion/babel-plugin"]
+    })) // 使用gulp-babel处理
     .pipe(gulp.dest(destDir));
 }
 
@@ -130,7 +138,13 @@ function compileSDK (babelEnv, destDir) {
   process.env.BABEL_ENV = babelEnv;
   return gulp.src(paths.sdkSrc)
     .pipe(babel({
-      presets: ['@babel/env'],
+      "presets": [
+        [
+          "@babel/preset-react",
+          { "runtime": "automatic", "importSource": "@emotion/react" }
+        ]
+      ],
+      "plugins": ["@emotion/babel-plugin"]
     }))
     .pipe(concat('speed.min.js'))
     .pipe(uglify())

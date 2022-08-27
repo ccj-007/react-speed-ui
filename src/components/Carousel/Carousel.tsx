@@ -48,7 +48,7 @@ const Carousel: FC<CarouselProps> = (props) => {
   const [imgId, setImgId] = useStateCallback(defaultId);
   const [startAnimation, setStartAnimation] = useState(false);
   const [first, setFirst] = useState(true);
-  const carouselImgRef = useRef<HTMLDivElement>(null)
+  const carouselImgRef = useRef<any>(null)
 
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls("carousel", customizePrefixCls);
