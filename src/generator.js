@@ -50,7 +50,7 @@ function copyDir (srcDir, desDir) {
           if (name === 'index.ejs') {
             return `index.ts`
           }
-          if (name === 'style.scss') {
+          if (name === 'style.ejs') {
             return `${lowerName}.scss`
           }
         }

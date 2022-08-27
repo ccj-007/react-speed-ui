@@ -6,7 +6,7 @@ import ConfigProvider, {
 import Button from "../Button";
 
 export default {
-  title: "模板/ConfigProvider",
+  title: "全局控制/ConfigProvider",
   component: ConfigProvider,
   parameters: {
     docs: {

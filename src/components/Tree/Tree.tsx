@@ -38,7 +38,7 @@ export interface TreeProps {
  * Tree 树形控件
  */
 const Tree: FC<TreeProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, treeData, itemClass, disabled, onExpand, defaultExpandAll, showCheckBox, onCheck, onclick } = props;
+  const { children, className, prefixCls: customizePrefixCls, style, treeData, itemClass, disabled, onExpand, defaultExpandAll, showCheckBox, onCheck, onClick } = props;
   const [treeState, setTreeState] = useState(treeData);
 
   const { getPrefixCls } = useContext(ConfigContext);
@@ -89,7 +89,7 @@ const Tree: FC<TreeProps> = (props) => {
   }
 
   const clickTreeNode = (child: DataNode) => {
-    onClick && onclick(child)
+    onClick && onClick(child)
   }
 
   React.useEffect(() => {
@@ -100,6 +100,7 @@ const Tree: FC<TreeProps> = (props) => {
 
   const renderTreeItem = (child: DataNode) => {
     return (
+      //@ts-ignore
       <div style={{ paddingLeft: `${child.key.length * 5 + 'px'}` }} key={child.key} className={itemCls} onClick={(child) => clickTreeNode(child)}>
         {/* tree content */}
         <Icon icon={solid('angle-right')} size='1x' onClick={() => handleTreeExpand(child)} color='#4c4c4c' className={`${prefixCls}-icon`} css={css`

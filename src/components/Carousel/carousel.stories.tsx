@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "模板/Carousel",
+  title: "数据展示/Carousel",
   component: Carousel,
   parameters: {
     docs: {

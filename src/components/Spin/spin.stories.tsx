@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "模板/Spin",
+  title: "反馈/Spin",
   component: Spin,
   parameters: {
     docs: {
