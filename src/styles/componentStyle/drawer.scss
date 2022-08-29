@@ -1,27 +1,40 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-drawer {
+.speed-drawer {
+	position: fixed;
+	top: 0;
+	width: 0;
+	height: 100vh;
+	background: #fff;
+	color: #000;
+	transition: width 1s linear;
+	&-left {
+		left: 0;
+	}
 
-// &-content {
+	&-right {
+		right: 0;
+	}
 
-// }
-// &-item {
+	&-width {
+		width: 500px;
+	}
 
-// }
+	&-content {
+	}
 
-// &-icon {
+	&-item {
+	}
 
-// }
+	&-icon {
+	}
 
-// &-desc {
+	&-desc {
+	}
 
-// }
+	&-title {
+	}
 
-// &-title {
-
-// }
-
-// &-subtitle {
-
-// }
-// }
+	&-subtitle {
+	}
+}
