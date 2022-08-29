@@ -1,6 +1,8 @@
+/** @jsxImportSource @emotion/react */
 import React, { FC, useContext, useState, ReactNode } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
+import { css } from "@emotion/react";
 
 export interface DrawerProps {
 	/** 样式命名隔离 */
@@ -19,6 +21,8 @@ export interface DrawerProps {
 	showClose?: boolean;
 	/** 方位 */
 	placement?: "left" | "right";
+	/** 宽度大小 */
+	width?: number;
 }
 
 /**
@@ -34,6 +38,7 @@ const Drawer: FC<DrawerProps> = (props) => {
 		showClose,
 		title,
 		placement,
+		width,
 	} = props;
 	const [state, setState] = useState(null);
 
@@ -43,13 +48,23 @@ const Drawer: FC<DrawerProps> = (props) => {
 	const cls = classNames(prefixCls, className, {
 		[`${prefixCls}-left`]: placement === "left",
 		[`${prefixCls}-right`]: placement === "right",
-		[`${prefixCls}-width`]: visible,
-	});
+  });
+  
+  React.useEffect(() => {
+    
+  }, [visible])
 
 	return (
 		<>
 			{visible && (
-				<div className={cls} style={style}>
+				<div
+					className={cls}
+					style={style}
+					css={css`
+						width: ${width + "px"};
+						transition: width 1s linear;
+					`}
+				>
 					<div>{title}</div>
 					<div className={cls}>{children}</div>
 				</div>
@@ -58,6 +73,9 @@ const Drawer: FC<DrawerProps> = (props) => {
 	);
 };
 
-Drawer.defaultProps = {};
+Drawer.defaultProps = {
+	placement: "left",
+	width: 200,
+};
 
 export default Drawer;

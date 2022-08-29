@@ -3,6 +3,7 @@ import Drawer from "./Drawer";
 import Button from "../Button";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
+import Space from "../Space";
 
 export default {
 	title: "反馈/Drawer",
@@ -22,22 +23,29 @@ export default {
 const defaultDrawerTpl: ComponentStory<typeof Drawer> = (args) => {
 	const { title, placement } = args;
 	const [visible, setVisible] = React.useState(false);
+	const [visible2, setVisible2] = React.useState(false);
 
 	const handleClick = () => {
 		setVisible(!visible);
 	};
+
+	const handleClick2 = () => {
+		setVisible2(!visible2);
+	};
 	return (
 		<>
 			<PageHeader title="基本使用" />
-			<Drawer title={title} visible={visible} placement="left">
-				左侧打开抽屉
-			</Drawer>
-			<Button onClick={handleClick}>左侧打开抽屉</Button>
+			<Space>
+				<Drawer title={title} visible={visible} placement="left">
+					左侧打开抽屉
+				</Drawer>
+				<Button onClick={handleClick}>左侧打开抽屉</Button>
 
-			<Drawer title={title} visible={visible} placement="right">
-				左侧打开抽屉
-			</Drawer>
-			<Button onClick={handleClick}>左侧打开抽屉</Button>
+				<Drawer title={title} visible={visible2} placement="right">
+					左侧打开抽屉
+				</Drawer>
+				<Button onClick={handleClick2}>左侧打开抽屉</Button>
+			</Space>
 		</>
 	);
 };

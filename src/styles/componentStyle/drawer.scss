@@ -2,22 +2,20 @@
 
 .speed-drawer {
 	position: fixed;
+	z-index: 999999999999;
 	top: 0;
 	width: 0;
 	height: 100vh;
 	background: #fff;
 	color: #000;
-	transition: width 1s linear;
 	&-left {
 		left: 0;
+		border-right: 1px solid #aaa;
 	}
 
 	&-right {
 		right: 0;
-	}
-
-	&-width {
-		width: 500px;
+		border-left: 1px solid #aaa;
 	}
 
 	&-content {

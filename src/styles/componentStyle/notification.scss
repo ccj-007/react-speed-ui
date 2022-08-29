@@ -2,47 +2,45 @@
 @import "../commonStyle/animation.scss";
 
 .speed-notification {
-  position: fixed;
-  z-index: 999;
-  background: #fff;
-  border: 1px solid rgb(233, 233, 233);
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.178) ;
-  padding: 20px;
-  box-sizing: border-box;
-  
-  &-tc {
-    top: 20px;
-  }
-  &-tr {
-    top: 20px;
-    right: 20px;
-  }
-  &-tl {
-    top: 20px;
-    left: 20px;
-  }
-  &-bc {
-    bottom: 20px;
-  }
-  &-br {
-    bottom: 20px !important;
-    right: 20px;
-  }
-  &-bl {
-    bottom: 20px !important;
-    left: 20px ;
-  }
+	position: fixed;
+	z-index: 999;
+	background: #fff;
+	border: 1px solid rgb(233, 233, 233);
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.178);
+	padding: 20px;
+	box-sizing: border-box;
 
-  &-card {
-    display: flex;
+	&-tc {
+		top: 20px;
+	}
+	&-tr {
+		top: 20px;
+		right: 20px;
+	}
+	&-tl {
+		top: 20px;
+		left: 20px;
+	}
+	&-bc {
+		bottom: 20px;
+	}
+	&-br {
+		bottom: 20px !important;
+		right: 20px;
+	}
+	&-bl {
+		bottom: 20px !important;
+		left: 20px;
+	}
 
-  }
-  &-warp {
-    margin-left: 10px;
-  }
-  &-content {
-    color: rgb(163, 163, 163);
-  }
+	&-card {
+		display: flex;
+	}
+	&-warp {
+		margin-left: 10px;
+	}
+	&-content {
+		color: rgb(163, 163, 163);
+	}
 }
-
