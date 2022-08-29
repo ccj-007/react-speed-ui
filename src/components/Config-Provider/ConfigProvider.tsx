@@ -16,7 +16,7 @@ export type ThemeOptionsType = {
  * 配置全局组件的主题
  */
 const defaultThemeOptions = {
-	theme: "default", //目前请确保是light
+	theme: "default", //目前请确保是default
 	button: {
 		primary: "#c2d8fa",
 		success: "#52c41a",
@@ -32,7 +32,9 @@ export interface configProps {
 	prefixCls?: string;
 	getPrefixCls?: (componentName: string, customName?: string) => string;
 	children?: React.ReactNode;
+	/** 网站全局主题配置 */
 	globalThemeName?: GlobalThemeType;
+	/** 组件库主题配置 */
 	themeOptions?: ThemeOptionsType;
 }
 let defaultParams = {

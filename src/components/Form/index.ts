@@ -9,4 +9,3 @@ const Form = originForm as any;
 Form.Item = FormItem;
 
 export default Form;
-
