@@ -51,7 +51,6 @@ const Space: FC<SpaceProps> = (props) => {
 
 	const renderSpace = () => {
 		return React.Children.map(children, (chlid, index) => {
-			console.log("child", children);
 			return React.cloneElement(
 				<div
 					className={itemCls}
