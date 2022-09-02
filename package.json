@@ -46,15 +46,16 @@
   },
   "scripts": {
     "tpl": "node src/generator.js",
+    "clear-storybook": "rimraf node_modules/.cache/storybook",
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "build-storybook": "build-storybook -s public",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lib": "rollup --config rollup.config.build.js",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6012 -s public ",
-    "build-storybook": "build-storybook -s public",
     "build:types": "tsc --emitDeclarationOnly",
-    "deploy-storybook": "gh-pages -d storybook-static",
     "clean": "rimraf types lib esm dist",
     "gulp": "npm run clean && gulp"
   },

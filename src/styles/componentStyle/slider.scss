@@ -1,0 +1,42 @@
+@import "../commonStyle/variables.scss";
+
+.speed-slider {
+  padding: 20px;
+  height: 10px;
+  box-sizing: content-box;
+  display: flex;
+
+   &-content {
+    width: 100%;
+    height: 10px;
+    margin: none;
+    border-radius: 10px;
+    position: relative;
+    background: $gray-300;
+   }
+
+  &-select {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    width: 50px;
+    height: 10px;
+    background: $green;
+    height: 100%;
+    z-index: 9;
+  }
+
+  &-gan {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: $white;
+    border: 3px solid #000;
+    border-radius: 50%;
+    z-index: 9;
+    transform: translateY(-50%);
+  }
+}

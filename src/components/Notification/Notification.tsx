@@ -1,11 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import React, { FC, useContext, useState, ReactNode, useRef } from "react";
+import Icon from '../Icon'
+import { css } from '@emotion/react'
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
-import { css } from '@emotion/react'
 export type NotificationPositionType = 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'
-import Icon from '../Icon'
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 export type NotificationDataType = {
   /** 内容 */
   content?: string;
