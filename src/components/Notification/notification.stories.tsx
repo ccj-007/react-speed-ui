@@ -67,16 +67,16 @@ const defaultNotificationTpl: ComponentStory<typeof Notification> = (args) => {
     <>
       <PageHeader title="基本使用" />
       <Notification open={open1} data={noticeSucData} width={300} height={100} position={args.position} duration={2000}> </Notification>
-      <Button onClick={handleClick1}>顶部打开</Button>
+      <Button onClick={handleClick1} btnType='danger'>顶部打开</Button>
       &nbsp; &nbsp;&nbsp; &nbsp;
       <Notification open={open2} data={noticeSucData} width={300} height={100} position="bc" duration={2000}> </Notification>
-      <Button onClick={handleClick2}>底部打开</Button>
+      <Button onClick={handleClick2} btnType='primary'>底部打开</Button>
       &nbsp; &nbsp;&nbsp; &nbsp;
       <Notification open={open3} data={noticeSucData} width={300} height={100} position="tl" duration={2000}> </Notification>
-      <Button onClick={handleClick3}>左上角打开</Button>
+      <Button onClick={handleClick3} btnType='success'>左上角打开</Button>
       &nbsp; &nbsp;&nbsp; &nbsp;
       <Notification open={open4} data={noticeSucData} width={300} height={100} position="tr" duration={2000}> </Notification>
-      <Button onClick={handleClick4}>右上角打开</Button>
+      <Button onClick={handleClick4} btnType='warning'>右上角打开</Button>
       &nbsp; &nbsp;&nbsp; &nbsp;
       <Notification open={open5} data={noticeSucData} width={300} height={100} position="bl" duration={2000}> </Notification>
       <Button onClick={handleClick5}>左下角打开</Button>

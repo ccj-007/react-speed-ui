@@ -1,6 +1,8 @@
 import React from "react";
 import Input from "./Input";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import PageHeader from "../PageHeader";
+
 export default {
   title: "数据录入/Input",
   component: Input,
@@ -15,7 +17,7 @@ export default {
 
 const defaultInputTpl: ComponentStory<typeof Input> = (args: any) => (
   <>
-    <h6>普通的input</h6>
+    <PageHeader title='普通的input'></PageHeader>
     <div>
       <Input placeholder={args.placeholder} onChange={args.onChangeVal}></Input>
     </div>
@@ -24,7 +26,7 @@ const defaultInputTpl: ComponentStory<typeof Input> = (args: any) => (
 
 const disabledInputTpl: ComponentStory<typeof Input> = (args: any) => (
   <>
-    <h6>禁用的input</h6>
+    <PageHeader title='禁用的input'></PageHeader>
     <div>
       <Input {...args}></Input>
     </div>
@@ -33,12 +35,13 @@ const disabledInputTpl: ComponentStory<typeof Input> = (args: any) => (
 
 const typeInputTpl: ComponentStory<typeof Input> = (args) => (
   <>
-    <h6>密码输入框</h6>
+    <PageHeader title='密码输入框'></PageHeader>
     <div>
       <Input isPasswordInput={args.isPasswordInput}></Input>
     </div>
     <br></br>
-    <h6>数字输入框</h6>
+    <h6></h6>
+    <PageHeader title='数字输入框'></PageHeader>
     <div>
       <Input isNumberInput={args.isNumberInput}></Input>
     </div>
@@ -47,12 +50,12 @@ const typeInputTpl: ComponentStory<typeof Input> = (args) => (
 
 const fixInputTpl: ComponentStory<typeof Input> = (args) => (
   <>
-    <h6>前缀</h6>
+    <PageHeader title='前缀'></PageHeader>
     <div>
       <Input prefix={args.prefix}></Input>
     </div>
     <br></br>
-    <h6>后缀</h6>
+    <PageHeader title='后缀'></PageHeader>
     <div>
       <Input suffix={args.suffix}></Input>
     </div>

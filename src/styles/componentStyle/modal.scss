@@ -1,0 +1,34 @@
+@import "../commonStyle/variables.scss";
+
+.speed-modal {
+  position: fixed;
+  z-index: 99;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  height: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+&-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .7;
+  width: 100vw;
+  height: 100vh;
+}
+
+&-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+}

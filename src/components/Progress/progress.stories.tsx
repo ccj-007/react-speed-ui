@@ -2,6 +2,8 @@ import React from "react";
 import Progress from "./Progress";
 import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import PageHeader from "../PageHeader";
+
 export default {
   title: "数据展示/Progress",
   component: Progress,
@@ -17,6 +19,7 @@ export default {
 const defaultProgressTpl: ComponentStory<typeof Progress> = (args) => {
   return (
     <>
+      <PageHeader title='基本使用'></PageHeader>
       <Progress percent={args.percent}></Progress>
     </>
   );

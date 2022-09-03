@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "./index";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 const { Header, Content, Footer, Sider } = Layout;
+import PageHeader from "../PageHeader";
 
 export default {
   title: "布局/Layout",
@@ -18,6 +19,7 @@ export default {
 const LayoutITpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
+      <PageHeader title='上中下结构'></PageHeader>
       <Layout>
         <Header>Header</Header>
         <Content>Content</Content>
@@ -29,6 +31,8 @@ const LayoutITpl: ComponentStory<typeof Layout> = () => {
 const LayoutIITpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
+      <PageHeader title='四宫格——左侧菜单'></PageHeader>
+
       <Header>Header</Header>
       <Layout>
         <Sider>Sider</Sider>
@@ -41,6 +45,8 @@ const LayoutIITpl: ComponentStory<typeof Layout> = () => {
 const LayoutIIITpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
+      <PageHeader title='四宫格——右侧菜单'></PageHeader>
+
       <Header>Header</Header>
       <Layout>
         <Content>Content</Content>
@@ -54,6 +60,8 @@ const LayoutIIITpl: ComponentStory<typeof Layout> = () => {
 const LayoutIVTpl: ComponentStory<typeof Layout> = () => {
   return (
     <>
+      <PageHeader title='四宫格——菜单独占'></PageHeader>
+
       <Sider>Sider</Sider>
       <Layout>
         <Header>Header</Header>

@@ -1,7 +1,6 @@
 @import "../commonStyle/variables.scss";
 
 .speed-slider {
-  padding: 20px;
   height: 10px;
   box-sizing: content-box;
   display: flex;
@@ -13,6 +12,11 @@
     border-radius: 10px;
     position: relative;
     background: $gray-300;
+
+    &-disabled {
+      background: $gray-300;
+
+    }
    }
 
   &-select {
@@ -25,6 +29,10 @@
     background: $green;
     height: 100%;
     z-index: 9;
+
+    &-disabled {
+      background: $gray-500;
+    }
   }
 
   &-gan {
@@ -34,9 +42,33 @@
     width: 20px;
     height: 20px;
     background: $white;
-    border: 3px solid #000;
+    border: 3px solid $green;
     border-radius: 50%;
     z-index: 9;
     transform: translateY(-50%);
+    cursor: pointer;
+
+    &:hover {
+    box-shadow: 0 0 20px -5px rgb(13, 75, 4);
+    }
+
+    &-disabled {
+      border: 3px solid $gray-500;
+      cursor: not-allowed;
+    }
+  }
+
+  &-tips {
+    position: absolute;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    background: #fff;
+    box-shadow: 0 0 20px -5px rgb(198, 198, 198);
   }
 }

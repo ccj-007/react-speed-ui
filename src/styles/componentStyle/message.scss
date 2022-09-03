@@ -1,0 +1,52 @@
+@import "../commonStyle/variables.scss";
+
+.speed-message {
+  padding: 10px 20px;  
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 30px;
+  
+  &-success {
+    background: #52c41a10;
+    border: 1px solid $green;
+  }
+  
+  &-warning {
+    background-color: #fadb1410;
+    border: 1px solid $yellow;
+  }
+  
+  &-error {
+    background: #dc354510;
+    border: 1px solid $red;
+  }
+
+  &-info {
+    background: #0d6efd10;
+    border: 1px solid $blue;
+  }
+
+  &-desc {
+    font-weight: 600;
+  }
+  &-content {
+    display: flex;
+    align-items: center;
+  }
+  &-title {
+    display: flex;
+    align-items: center;
+  }
+  &-icon {
+    margin-right: 10px;
+  }
+
+  &-close {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    top: 0px;
+  }
+}

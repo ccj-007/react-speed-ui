@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "./index";
 import { TextPartProps } from "./Text";
 import { TitleProps } from "./Title";
+import PageHeader from "../PageHeader";
 
 const { Title, Text } = Typography;
 
@@ -21,6 +22,7 @@ const titleTpl = (args: TitleProps) => {
   let { level } = args;
   return (
     <>
+      <PageHeader title='标题样式'></PageHeader>
       <Title level={level}>h{level}. Speed UI</Title>
       <Title level={2}>h2. Speed UI</Title>
       <Title level={3}>h3. Speed UI</Title>
@@ -40,6 +42,7 @@ const textTpl = (args: TextPartProps) => {
   let { type } = args;
   return (
     <>
+      <PageHeader title='文本样式'></PageHeader>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <Text type={type}>Speed UI</Text>
         <Text type={"danger"}>Speed UI</Text>

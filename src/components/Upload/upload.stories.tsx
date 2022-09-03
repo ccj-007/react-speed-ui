@@ -2,6 +2,8 @@ import React from "react";
 import Upload, { UploadFile } from "./Upload";
 import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import PageHeader from "../PageHeader";
+
 export default {
   title: "数据录入/Upload",
   component: Upload,
@@ -27,31 +29,37 @@ const defaultFileList: UploadFile[] = [
 
 const defaultUploadTpl: ComponentStory<typeof Upload> = (args) => {
   return (
-    <div style={{ width: "auto" }}>
-      <Upload
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        onChange={action("changed")}
-        onRemove={action("removed")}
-        name="fileName"
-        defaultFileList={defaultFileList}
-      ></Upload>
-    </div>
+    <>
+      <PageHeader title='上传文件'></PageHeader>
+      <div style={{ width: "auto" }}>
+        <Upload
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          onChange={action("changed")}
+          onRemove={action("removed")}
+          name="fileName"
+          defaultFileList={defaultFileList}
+        ></Upload>
+      </div></>
   );
 };
 
 
 const dragUploadTpl: ComponentStory<typeof Upload> = (args) => {
   return (
-    <div style={{ width: "auto" }}>
-      <Upload
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        onChange={action("changed")}
-        onRemove={action("removed")}
-        name="fileName"
-        defaultFileList={defaultFileList}
-        drag
-      ></Upload>
-    </div>
+    <>
+      <PageHeader title='拖动上传'></PageHeader>
+
+      <div style={{ width: "auto" }}>
+        <Upload
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          onChange={action("changed")}
+          onRemove={action("removed")}
+          name="fileName"
+          defaultFileList={defaultFileList}
+          drag
+        ></Upload>
+      </div>
+    </>
   );
 };
 
