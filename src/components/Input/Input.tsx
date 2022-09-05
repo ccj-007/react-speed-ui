@@ -1,96 +1,84 @@
-import React, { ChangeEvent, InputHTMLAttributes } from "react";
+import React, { ChangeEvent, InputHTMLAttributes, useState } from "react";
 import classNames from "classnames";
+import { ChangeEventHandler } from "react";
 
 type InputSize = "lg" | "sm";
 
 export interface InputProps {
-  /** 尺寸 */
-  size: InputSize;
-  /** 禁用 */
-  disabled: boolean;
-  /** 是否是密码输入框 */
-  isPasswordInput: boolean;
-  /** 是否是数字输入框 */
-  isNumberInput: boolean;
-  placeholder: string;
-  /** 前缀 */
-  prefix: string;
-  /** 后缀 */
-  suffix: string;
-  /** 输入change事件,直接获取val */
-  onChangeVal: Function;
-  /** 初始值input */
-  value: any;
-  className: string;
-  children: React.ReactNode;
-  style: React.CSSProperties;
+	/** 尺寸 */
+	size: InputSize;
+	/** 前缀 */
+	prefix: string;
+	/** 后缀 */
+	suffix: string;
+	/** 初始值input */
+	value: any;
+	/** 失去焦点需要清除value */
+	blurClear: boolean;
+	/** 改变的回调 */
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	/** 失去焦点的回调 */
+	onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
+	className: string;
+	children: React.ReactNode;
+	style: React.CSSProperties;
 }
 export type InputExternalProps = Omit<InputProps, "size">;
 
 export type allInputProps = Partial<InputProps> &
-  InputHTMLAttributes<HTMLInputElement>;
+	InputHTMLAttributes<HTMLInputElement>;
 
 /**
  * Input  input组件
  */
 const Input: React.FC<allInputProps> = (props) => {
-  let {
-    disabled,
-    isPasswordInput,
-    isNumberInput,
-    placeholder,
-    prefix,
-    suffix,
-    className,
-    onChangeVal,
-    value,
-    ...restProps
-  } = props;
-  let [inputType, setInputType] = React.useState<string>("text");
-  let [inputVal, setInputVal] = React.useState<any>(value);
+	let {
+		disabled = false,
+		prefix,
+		suffix,
+		className,
+		onChange,
+		onBlur,
+		blurClear = false,
+		...restProps
+	} = props;
+	const [value, setValue] = useState("");
 
-  React.useEffect(() => {
-    //控制value
-    value ? setInputVal(value) : setInputVal("");
+	const cls = classNames("speed-input", className, {
+		disabled: disabled,
+	});
 
-    //控制type
-    if (isPasswordInput) {
-      setInputType("password");
-    } else if (isNumberInput) {
-      setInputType("number");
-    } else {
-      setInputType("text");
-    }
-  }, [isPasswordInput, value]);
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setValue(e.target.value);
+		onChange && onChange(e);
+	};
 
-  const classes = classNames("speed-input", className, {
-    disabled: disabled,
-  });
+	const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
+		blurClear && setValue("");
+		onBlur && onBlur(e);
+	};
 
-  return (
-    <>
-      {prefix ? <div className="input-prefix">{prefix}</div> : ""}
-      <input
-        disabled={disabled}
-        type={inputType}
-        className={classes}
-        {...restProps}
-        placeholder={placeholder}
-        value={inputVal}
-      />
-      {suffix ? <div className="input-suffix">{suffix}</div> : ""}
-    </>
-  );
+	return (
+		<>
+			{prefix ? <div className="input-prefix">{prefix}</div> : ""}
+			<input
+				className={cls}
+				{...restProps}
+				onChange={handleChange}
+				onBlur={handleBlur}
+				value={value}
+			/>
+			{suffix ? <div className="input-suffix">{suffix}</div> : ""}
+		</>
+	);
 };
 
 Input.defaultProps = {
-  disabled: false,
-  isPasswordInput: false,
-  isNumberInput: false,
-  placeholder: "",
-  prefix: "",
-  suffix: "",
-  value: "",
+	disabled: false,
+	prefix: "",
+	suffix: "",
+	value: "",
+	blurClear: false,
 };
 
 export default Input;

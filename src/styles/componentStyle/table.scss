@@ -1,27 +1,38 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-table {
+.speed-table {
+	&-header {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		background: $gray-100;
+		padding: 20px;
+		border-bottom: 1px solid $gray-200;
+		font-weight: 600;
+		color: #5c5c5c;
+		&-item {
+			flex: 1;
+			@include speed-flex-center;
+		}
+	}
 
-// &-content {
+	&-body {
+		&-row {
+			@extend .speed-table-header;
+			background: none;
+			font-weight: normal;
+			color: #000;
+			&-item {
+				flex: 1;
+				@include speed-flex-center;
+			}
+		}
+	}
 
-// }
-// &-item {
-
-// }
-
-// &-icon {
-
-// }
-
-// &-desc {
-
-// }
-
-// &-title {
-
-// }
-
-// &-subtitle {
-
-// }
-// }
+	&-page {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 10px;
+		margin-right: 10px;
+	}
+}

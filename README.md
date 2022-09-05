@@ -25,38 +25,40 @@ react-speed-ui
   </a>
 </p>
 
-
 ## 特色：
 
-- 30多个轻量组件开箱即用📟
-- TS支持💎
-- 主题切换💱 
-- 命名隔离🔞
-- 卡通风🔫
-- 单元测试📧
-- 支持按需加载css、js🎉
-- 最新版storybook文档支持👍
-- 支持国际化👍
+- 30 多个轻量组件开箱即用 📟
+- TS 支持 💎
+- 主题切换 💱
+- 命名隔离 🔞
+- 卡通风 🔫
+- 单元测试 📧
+- 支持按需加载 css、js🎉
+- storybook + vite 构建文档 👍
+- 支持国际化 👍
 - 命令行直接生成**组件开发模板**
 
-## 使用场景： 
+## 使用场景：
 
 1. 用于快速搭建**个人应用**📨
 2. 有时候写个**DEMO**，对样式和组件有要求，那么再适合不过了
 
 ## 如何安装
 
-> 使用 npm 
+> 使用 npm
+
 ```
 npm i react-speed-ui -S
 ```
 
 > 使用 yarn
+
 ```
 yarn add react-speed-ui
 ```
 
-> SDK引入
+> SDK 引入
+
 ```js
 <link rel="stylesheet" href="./node_modules/react-speed-ui/dist/css/speed.min.css">
 <script type="text/javascript" src="./node_modules/react-speed-ui/dist/lib/speed.js"></script>
@@ -64,30 +66,28 @@ yarn add react-speed-ui
 
 > 使用 CDN (目前暂不支持)
 
-
 ## 快速使用
+
 > 1. 全量引入
 
 ```js
-  import { Button } from 'react-speed-ui'
-  import 'react-speed-ui/dist/css/speed.min.css'
+import { Button } from "react-speed-ui";
+import "react-speed-ui/dist/css/speed.min.css";
 
-  const App: React.FC = () => (
-    <>
-      <Button btnType="danger">danger button</Button>
-    </>
-  );
+const App: React.FC = () => (
+	<>
+		<Button btnType="danger">danger button</Button>
+	</>
+);
 
-  export default App;
+export default App;
 ```
-
 
 > 2. 按需引入
 
 ```js
-import { Button } from 'react-speed-ui'
-import 'react-speed-ui/dist/css/components/button.css'
+import { Button } from "react-speed-ui";
+import "react-speed-ui/dist/css/components/button.css";
 ```
 
 > 3. 使用 babel-plugin-import （暂不支持）
-

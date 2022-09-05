@@ -1,3 +1,9 @@
+@mixin speed-flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 @mixin button-size($padding-y, $padding-x, $font-size, $border-raduis) {
 	padding: $padding-y $padding-x;
 	font-size: $font-size;

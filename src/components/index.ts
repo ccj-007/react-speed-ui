@@ -32,6 +32,10 @@ export { default as Layout } from "./Layout";
 
 export { default as Menu } from "./Menu";
 
+export { default as Message } from "./Message";
+
+export { default as Modal } from "./Modal";
+
 export { default as Notification } from "./Notification";
 
 export { default as PageHeader } from "./PageHeader";
@@ -39,6 +43,24 @@ export { default as PageHeader } from "./PageHeader";
 export { default as Pagination } from "./Pagination";
 
 export { default as Progress } from "./Progress";
+
+export { default as Radio } from "./Radio";
+
+export { default as Rate } from "./Rate";
+
+export { default as Slider } from "./Slider";
+
+export { default as Space } from "./Space";
+
+export { default as Spin } from "./Spin";
+
+export { default as Steps } from "./Steps";
+
+export { default as Switch } from "./Switch";
+
+export { default as Table } from "./Table";
+
+export { default as Tooltip } from "./Tooltip";
 
 export { default as Transition } from "./Transition";
 
