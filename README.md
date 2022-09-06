@@ -34,7 +34,8 @@ react-speed-ui
 - 卡通风 🔫
 - 单元测试 📧
 - 支持按需加载 css、js🎉
-- storybook + vite 构建文档 👍
+- storybook + vite 构建文档 👍\
+- gulp 打包组件库 👍
 - 支持国际化 👍
 - 命令行直接生成**组件开发模板**
 
