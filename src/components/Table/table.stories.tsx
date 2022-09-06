@@ -16,12 +16,67 @@ export default {
 	},
 } as ComponentMeta<typeof Table>;
 
+const defaultpaginationParams = {
+	total: 6,
+	defaultCurrent: 1,
+	current: 1,
+	defaultPageSize: 3,
+	pageSize: 3,
+};
+
 /**
  * 展示面板
  */
 const defaultTableTpl: ComponentStory<typeof Table> = (args) => {
-	const [dataSource, setDataSource] = React.useState(defaultDataSource);
+	const [paginationParams] = React.useState(defaultpaginationParams);
+	const columns = [
+		{
+			title: "ID",
+			dataIndex: "key",
+			key: "key",
+		},
+		{
+			title: "姓名",
+			dataIndex: "name",
+			key: "name",
+		},
+		{
+			title: "年龄",
+			dataIndex: "age",
+			key: "age",
+		},
+		{
+			title: "住址",
+			dataIndex: "address",
+			key: "address",
+		},
+	];
 
+	return (
+		<>
+			<PageHeader title="基本使用" />
+			<Table
+				dataSource={defaultDataSource}
+				columns={columns}
+				paginationParams={paginationParams}
+			></Table>
+		</>
+	);
+};
+
+const customTableTpl: ComponentStory<typeof Table> = (args) => {
+	const [dataSource, setDataSource] = React.useState(defaultDataSource);
+	const [paginationParams, setPaginationParams] = React.useState(
+		defaultpaginationParams
+	);
+	const handleDelete = (key) => {
+		let result = dataSource.filter((item) => item.key !== key);
+		setDataSource(result);
+		setPaginationParams({
+			...paginationParams,
+			total: paginationParams.total - 1,
+		});
+	};
 	const columns = [
 		{
 			title: "ID",
@@ -75,6 +130,7 @@ const defaultTableTpl: ComponentStory<typeof Table> = (args) => {
 			key: "edit",
 			render: (source) => {
 				const [isModalVisible, setIsModalVisible] = React.useState(false);
+
 				const showModal = () => {
 					setIsModalVisible(true);
 				};
@@ -108,14 +164,15 @@ const defaultTableTpl: ComponentStory<typeof Table> = (args) => {
 			},
 		},
 	];
-	const handleDelete = (key) => {
-		let result = dataSource.filter((item) => item.key !== key);
-		setDataSource(result);
-	};
+
 	return (
 		<>
-			<PageHeader title="基本使用" />
-			<Table dataSource={dataSource} columns={columns}></Table>
+			<PageHeader title="自定义表格" />
+			<Table
+				dataSource={dataSource}
+				columns={columns}
+				paginationParams={paginationParams}
+			></Table>
 		</>
 	);
 };
@@ -125,3 +182,6 @@ const defaultTableTpl: ComponentStory<typeof Table> = (args) => {
  */
 export const defaultTable = defaultTableTpl.bind({});
 defaultTable.args = {};
+
+export const customTable = customTableTpl.bind({});
+customTable.args = {};

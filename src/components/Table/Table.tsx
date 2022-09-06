@@ -2,7 +2,8 @@ import React, { FC, useContext, useState, ReactNode, useRef } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 import _ from "lodash";
-import { Pagination } from "../index";
+import { Pagination, PaginationProps } from "../index";
+import { defaultPaginationParams } from "../Pagination/Pagination";
 
 export interface TableProps {
 	/** 样式命名隔离 */
@@ -23,6 +24,8 @@ export interface TableProps {
 	rowSelect?: any;
 	/** 表格样式 */
 	tableType?: "default" | "border";
+	/** 分页器配置 */
+	paginationParams?: PaginationProps;
 }
 
 /**
@@ -39,8 +42,13 @@ const Table: FC<TableProps> = (props) => {
 		showHeader = true,
 		rowSelect,
 		tableType = "default",
+		paginationParams = defaultPaginationParams,
 	} = props;
-	const [state, setState] = useState(null);
+
+	//将页码转为下标
+	const defaultCurrent =
+		paginationParams.current != null ? paginationParams.current - 1 : 1;
+	const [current, setCurrent] = useState(defaultCurrent);
 
 	const { getPrefixCls } = useContext(ConfigContext);
 	let prefixCls = getPrefixCls("table", customizePrefixCls);
@@ -48,7 +56,7 @@ const Table: FC<TableProps> = (props) => {
 	const cls = classNames(prefixCls, className, {});
 
 	const tranDataSource = React.useMemo(() => {
-		const cloneDataSource = _.cloneDeep(dataSource);
+		let cloneDataSource = _.cloneDeep(dataSource);
 		//处理edit新增的key
 		if (columns[columns.length - 1].dataIndex === "edit") {
 			cloneDataSource.forEach((data) => {
@@ -63,18 +71,34 @@ const Table: FC<TableProps> = (props) => {
 				});
 			}
 		});
-		console.log("开始转换", JSON.stringify(cloneDataSource));
+		//处理分页器的按需展示
+		let { pageSize, total } = paginationParams;
+		if (pageSize != null && total != null) {
+			let maxRange = current * pageSize + pageSize;
+			if (maxRange >= cloneDataSource.length) {
+				maxRange = cloneDataSource.length;
+			}
+			cloneDataSource = cloneDataSource.slice(current * pageSize, maxRange);
+		}
+
+		//如果当前页面无数据，自动返回上一个页面
+		if (!cloneDataSource.length && current >= 1) {
+			setCurrent(current - 1);
+		}
+		console.log("cloneDataSource", cloneDataSource);
 
 		return cloneDataSource;
-	}, [dataSource]);
+	}, [dataSource, current]);
 
-	const handlePageChange = () => {};
+	const handlePageChange = (page: number) => {
+		setCurrent(page);
+	};
 	return (
 		<div className={cls} style={style}>
 			{showHeader && (
 				<div className={`${prefixCls}-header`}>
 					<>
-						{columns.length &&
+						{columns.length >= 1 &&
 							columns.map((column) => {
 								return (
 									<div className={`${prefixCls}-header-item`} key={column.key}>
@@ -86,7 +110,7 @@ const Table: FC<TableProps> = (props) => {
 				</div>
 			)}
 			<div className={`${prefixCls}-body`}>
-				{tranDataSource.length &&
+				{tranDataSource.length >= 1 &&
 					tranDataSource.map((source, souceIndex) => {
 						return (
 							<div className={`${prefixCls}-body-row`} key={source.key}>
@@ -110,9 +134,7 @@ const Table: FC<TableProps> = (props) => {
 			</div>
 			<div className={`${prefixCls}-page`}>
 				<Pagination
-					defaultCurrent={0}
-					total={9}
-					defaultPageSize={3}
+					{...paginationParams}
 					onChange={handlePageChange}
 				></Pagination>
 			</div>

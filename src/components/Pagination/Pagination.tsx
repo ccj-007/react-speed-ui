@@ -40,11 +40,11 @@ export interface PaginationProps {
  */
 const Pagination: FC<PaginationProps> = (props) => {
 	let {
-		current,
-		defaultCurrent,
 		total = 50,
-		pageSize,
-		defaultPageSize,
+		defaultCurrent = 1,
+		current = defaultCurrent,
+		defaultPageSize = 10,
+		pageSize = defaultPageSize,
 		disabled,
 		onChange,
 		editJumpPage = false,
@@ -52,9 +52,6 @@ const Pagination: FC<PaginationProps> = (props) => {
 		showTotal = false,
 		onShowSizeChange,
 	} = props;
-
-	pageSize = defaultPageSize ? defaultPageSize : 10;
-	current = defaultCurrent ? defaultCurrent : 1;
 
 	const { getPrefixCls } = useContext(ConfigContext);
 	let prefixCls = getPrefixCls("pagination");
@@ -82,6 +79,9 @@ const Pagination: FC<PaginationProps> = (props) => {
 
 	const changePageNums = (curr: number) => {
 		if (disabled) return;
+
+		console.log("curr", curr);
+
 		setCur(curr);
 	};
 	const changeLeftPageNums = () => {
@@ -178,5 +178,17 @@ const Pagination: FC<PaginationProps> = (props) => {
 		</>
 	);
 };
+
+export const defaultPaginationParams = {
+	total: 50,
+	defaultCurrent: 1,
+	current: 1,
+	defaultPageSize: 10,
+	pageSize: 10,
+	editJumpPage: false,
+	editPageSize: false,
+	showTotal: false,
+};
+Pagination.defaultProps = defaultPaginationParams;
 
 export default Pagination;

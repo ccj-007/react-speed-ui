@@ -85,7 +85,7 @@ export const defaultIconTpl: ComponentStory<typeof Icon> = () => {
 				<div className={prefixCls}>
 					<Icon icon={solid("comments")} size="5x" color="#4c4c4c"></Icon>
 					comments
-				</div>{" "}
+				</div>
 				<div className={prefixCls}>
 					<Icon icon={solid("filter")} size="5x" color="#4c4c4c"></Icon>
 					filter

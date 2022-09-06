@@ -27,6 +27,10 @@
 				@include speed-flex-center;
 			}
 		}
+
+		&-row:hover {
+			background: rgba(245, 245, 245, 0.561);
+		}
 	}
 
 	&-page {

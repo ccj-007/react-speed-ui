@@ -41,6 +41,7 @@ export { default as Notification } from "./Notification";
 export { default as PageHeader } from "./PageHeader";
 
 export { default as Pagination } from "./Pagination";
+export type { PaginationProps } from "./Pagination";
 
 export { default as Progress } from "./Progress";
 
