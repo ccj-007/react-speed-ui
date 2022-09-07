@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import PageHeader from '../PageHeader'
 
 export default {
-  title: "反馈/Alert",
+  title: "反馈/Alert 警告",
   component: Alert,
   parameters: {
     docs: {

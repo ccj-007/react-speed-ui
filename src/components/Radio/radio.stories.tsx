@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "数据录入/Radio",
+  title: "数据录入/Radio 单选框",
   component: Radio,
   parameters: {
     docs: {

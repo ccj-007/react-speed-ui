@@ -5,7 +5,7 @@ import PageHeader from "../PageHeader";
 import Button from '../Button'
 
 export default {
-  title: "反馈/Modal",
+  title: "反馈/Modal 模态框",
   component: Modal,
   parameters: {
     docs: {

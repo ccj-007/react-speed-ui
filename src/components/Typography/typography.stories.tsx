@@ -7,7 +7,7 @@ import PageHeader from "../PageHeader";
 const { Title, Text } = Typography;
 
 export default {
-  title: "通用/Typography",
+  title: "通用/Typography 文本",
   component: Typography,
   parameters: {
     docs: {

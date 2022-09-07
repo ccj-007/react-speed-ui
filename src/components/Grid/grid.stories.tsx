@@ -56,7 +56,7 @@ defaultGrid.args = {
 };
 
 export default {
-  title: "布局/Grid",
+  title: "布局/Grid 格栅",
   component: defaultGridTpl,
   parameters: {
     docs: {

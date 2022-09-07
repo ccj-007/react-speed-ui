@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 export default {
-  title: "数据录入/AutoComplete",
+  title: "数据录入/AutoComplete 自动补全",
   component: AutoComplete,
   parameters: {
     docs: {

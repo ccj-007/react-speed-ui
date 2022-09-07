@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "布局/Divider",
+  title: "布局/Divider 分割",
   component: Divider,
   parameters: {
     docs: {

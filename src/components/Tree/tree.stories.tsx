@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 import type { DataNode } from './type';
 export default {
-  title: "数据展示/Tree",
+  title: "数据展示/Tree 树形控件",
   component: Tree,
   parameters: {
     docs: {

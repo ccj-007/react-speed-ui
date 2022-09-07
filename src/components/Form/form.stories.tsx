@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "数据录入/Form",
+  title: "数据录入/Form 表单",
   component: Form,
   parameters: {
     docs: {

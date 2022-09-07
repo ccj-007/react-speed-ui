@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "数据录入/Upload",
+  title: "数据录入/Upload 上传",
   component: Upload,
   parameters: {
     docs: {

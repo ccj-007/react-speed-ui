@@ -37,7 +37,7 @@ const Avatar: FC<AvatarProps> = (props) => {
 
   const renderAvatar = () => {
     if (text) {
-      return <>{text.substring(0, 1).toUpperCase()}</>
+      return <div style={style} >{text.substring(0, 1).toUpperCase()}</div>
     }
     if (icon) return icon
     if (src) return <img style={style} src={src} alt="" />

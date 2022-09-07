@@ -5,7 +5,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "通用/Button",
+  title: "通用/Button 按钮",
   component: Button,
   parameters: {
     docs: {

@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "数据录入/Rate",
+  title: "数据录入/Rate 评分",
   component: Rate,
   parameters: {
     docs: {

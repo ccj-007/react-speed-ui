@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "数据展示/Slider",
+  title: "数据展示/Slider 滑动输入条",
   component: Slider,
   parameters: {
     docs: {

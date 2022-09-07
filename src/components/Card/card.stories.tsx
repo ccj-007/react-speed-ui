@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "数据展示/Card",
+  title: "数据展示/Card 卡片",
   component: Card,
   parameters: {
     docs: {

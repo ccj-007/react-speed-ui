@@ -6,7 +6,7 @@ import Button from "../Button";
 import Icon from '../Icon'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 export default {
-  title: "反馈/Notification",
+  title: "反馈/Notification 通知",
   component: Notification,
   parameters: {
     docs: {

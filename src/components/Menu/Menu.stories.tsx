@@ -6,7 +6,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "导航/Menu",
+  title: "导航/Menu 菜单",
   component: Menu,
   parameters: {
     docs: {

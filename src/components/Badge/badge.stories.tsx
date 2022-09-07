@@ -22,14 +22,30 @@ const defaultBadgeTpl: ComponentStory<typeof Badge> = (args) => {
   return (
     <>
       <PageHeader title="基本使用" />
-      <Badge>
-        <Avatar shape="square"><div>User</div></Avatar>
-      </Badge>
+      <Space>
+        <Badge>
+          <Avatar shape="square" text='User'></Avatar>
+        </Badge>
+        <Badge count={0} showZero>
+          <Avatar shape="square" text='User'></Avatar>
+        </Badge>
+        <Badge count={10} dotSize={20} style={{ background: 'green' }}>
+          <Avatar shape="square" text='User' ></Avatar>
+        </Badge>
+      </Space>
 
-      <PageHeader title="小圆点" />
-      {/* <Badge dot>
-        <span>Text...................</span>
-      </Badge> */}
+      <PageHeader title="标记" />
+      <Space>
+        <Badge dot dotSize={5}>
+          <Avatar shape="square" text='User'></Avatar>
+        </Badge>
+        <Badge dot dotSize={10}>
+          <Avatar shape="square" text='User'></Avatar>
+        </Badge>
+        <Badge dot dotSize={15}>
+          <Avatar shape="square" text='User'></Avatar>
+        </Badge>
+      </Space>
     </>
   );
 };

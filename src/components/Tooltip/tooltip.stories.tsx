@@ -6,7 +6,7 @@ import Space from "../Space";
 import Button from "../Button";
 
 export default {
-  title: "数据展示/Tooltip",
+  title: "数据展示/Tooltip 气泡框",
   component: Tooltip,
   parameters: {
     docs: {

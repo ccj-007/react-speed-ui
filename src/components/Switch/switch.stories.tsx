@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
 
 export default {
-  title: "数据录入/Switch",
+  title: "数据录入/Switch 切换器",
   component: Switch,
   parameters: {
     docs: {

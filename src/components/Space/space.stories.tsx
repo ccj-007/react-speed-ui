@@ -5,40 +5,40 @@ import PageHeader from "../PageHeader";
 import Button from "../Button";
 
 export default {
-	title: "布局/Space",
-	component: Space,
-	parameters: {
-		docs: {
-			description: {
-				component: "### 处理多个元素的间隔布局",
-			},
-		},
-	},
+  title: "布局/Space 间隔",
+  component: Space,
+  parameters: {
+    docs: {
+      description: {
+        component: "### 处理多个元素的间隔布局",
+      },
+    },
+  },
 } as ComponentMeta<typeof Space>;
 
 /**
  * 展示面板
  */
 const defaultSpaceTpl: ComponentStory<typeof Space> = (args) => {
-	return (
-		<>
-			<PageHeader title="默认间距" />
-			<Space direction={args.direction}>
-				<Button>按钮1</Button>
-				<Button>按钮2</Button>
-				<Button>按钮3</Button>
-				<Button>按钮4</Button>
-			</Space>
+  return (
+    <>
+      <PageHeader title="默认间距" />
+      <Space direction={args.direction}>
+        <Button>按钮1</Button>
+        <Button>按钮2</Button>
+        <Button>按钮3</Button>
+        <Button>按钮4</Button>
+      </Space>
 
-			<PageHeader title="垂直间距" />
-			<Space direction="vertical">
-				<Button>按钮1</Button>
-				<Button>按钮2</Button>
-				<Button>按钮3</Button>
-				<Button>按钮4</Button>
-			</Space>
-		</>
-	);
+      <PageHeader title="垂直间距" />
+      <Space direction="vertical">
+        <Button>按钮1</Button>
+        <Button>按钮2</Button>
+        <Button>按钮3</Button>
+        <Button>按钮4</Button>
+      </Space>
+    </>
+  );
 };
 
 /**
@@ -46,5 +46,5 @@ const defaultSpaceTpl: ComponentStory<typeof Space> = (args) => {
  */
 export const defaultSpace = defaultSpaceTpl.bind({});
 defaultSpace.args = {
-	direction: "horizontal",
+  direction: "horizontal",
 } as SpaceProps;

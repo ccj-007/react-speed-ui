@@ -72,3 +72,6 @@ export { default as Typography } from "./Typography";
 export { default as Upload } from "./Upload";
 
 export { default as Avatar } from "./Avatar";
+
+export { default as Badge } from "./Badge";
+

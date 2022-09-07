@@ -7,7 +7,7 @@ import Icon from "../Icon";
 
 
 export default {
-  title: "导航/Steps",
+  title: "导航/Steps 步骤",
   component: Steps,
   parameters: {
     docs: {

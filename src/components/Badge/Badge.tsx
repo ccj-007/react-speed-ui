@@ -17,6 +17,8 @@ export interface BadgeProps {
   showZero?: boolean;
   /** 小圆点 */
   dot?: boolean;
+  /** 小圆点尺寸 */
+  dotSize?: number;
   /** 原点的颜色 */
   dotColor?: string;
 }
@@ -25,8 +27,7 @@ export interface BadgeProps {
  * Badge 组件模板
  */
 const Badge: FC<BadgeProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, count = 0, showZero = false, dot = false, dotColor = 'red' } = props;
-  const [state, setState] = useState(null);
+  const { children, className, prefixCls: customizePrefixCls, style, count = 1, showZero = true, dot = false, dotColor = 'red', dotSize = 15 } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls("badge", customizePrefixCls);
@@ -37,8 +38,7 @@ const Badge: FC<BadgeProps> = (props) => {
         React.Children.map(children, (child) => {
           return React.cloneElement(child, {
             className: classNames(prefixCls, className),
-            ...props
-          }, <div className={`${prefixCls}-numDot`}> {count}</div>)
+          }, count === 0 && !showZero ? <></> : <div className={`${prefixCls}-numDot`} style={{ width: dotSize + 'px', height: dotSize + 'px', right: -(dotSize * .5) + 'px', top: -(dotSize * .5) + 'px', ...style }}>{dot ? '' : count}</div>)
         })
       )
     }
@@ -53,10 +53,11 @@ const Badge: FC<BadgeProps> = (props) => {
 };
 
 Badge.defaultProps = {
-  count: 0,
-  showZero: false,
+  count: 1,
+  showZero: true,
   dot: false,
-  dotColor: 'red'
+  dotColor: 'red',
+  dotSize: 15
 };
 
 export default Badge;

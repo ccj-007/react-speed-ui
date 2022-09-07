@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "./Avatar";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Icon, PageHeader, Space } from '../index'
+import { Icon, PageHeader, Space, Badge } from '../index'
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 export default {
   title: "数据展示/Avatar 头像",
@@ -37,7 +37,9 @@ const defaultAvatarTpl: ComponentStory<typeof Avatar> = (args) => {
         <Avatar shape="circle" style={{ background: 'green' }} size={40} text='A'></Avatar>
         <Avatar shape="circle" style={{ background: 'orange' }} size={60} icon={<Icon icon={solid("user")} size="2x" color="#fff"></Icon>} ></Avatar></Space>
       <PageHeader title="带徽标的头像" />
-      <Avatar></Avatar>
+      <Badge>
+        <Avatar></Avatar>
+      </Badge>
     </>
   );
 };

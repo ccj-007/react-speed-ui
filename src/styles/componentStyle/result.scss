@@ -1,0 +1,30 @@
+@import "../commonStyle/variables.scss";
+
+.speed-result {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 300px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  text-align: center;
+
+&-extra {
+
+}
+&-icon {
+
+}
+&-title {
+  font-size: 20px;
+}
+&-subTitle {
+
+}
+
+&-extra {
+
+}
+
+}

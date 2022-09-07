@@ -7,7 +7,7 @@ import Button from "../Button";
 import Space from "../Space";
 
 export default {
-  title: "数据展示/Progress",
+  title: "数据展示/Progress 进度条",
   component: Progress,
   parameters: {
     docs: {
