@@ -1,27 +1,9 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-avatar {
-
-// &-content {
-
-// }
-// &-item {
-
-// }
-
-// &-icon {
-
-// }
-
-// &-desc {
-
-// }
-
-// &-title {
-
-// }
-
-// &-subtitle {
-
-// }
-// }
+.speed-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #aaa;
+  color: #fff;
+}

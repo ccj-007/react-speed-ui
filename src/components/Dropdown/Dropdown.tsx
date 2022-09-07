@@ -90,7 +90,6 @@ const Dropdown: FC<DropdownProps> = (props) => {
   };
 
   const child = React.Children.only(children) as React.ReactElement<any>;
-  console.log(child);
 
   const menuBox = (
     <div ref={btnRef}>

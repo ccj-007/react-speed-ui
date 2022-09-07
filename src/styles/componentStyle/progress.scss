@@ -1,44 +1,66 @@
 @import "../commonStyle/variables.scss";
 
 .speed-progress-bar {
-	width: 100%;
-	box-sizing: border-box;
-	&-outer {
-		border-radius: $progress-border-radius;
-		background-color: $progress-bg;
-		overflow: hidden;
-		position: relative;
-	}
-	&-inner {
-		position: absolute;
-		left: 0;
-		top: 0;
-		display: flex;
-		align-items: center;
-		height: 100%;
-		border-radius: $progress-border-radius;
-		line-height: 1;
-		transition: $progress-bar-transition;
-		.inner-text {
-			color: $progress-bar-color;
-			font-size: $progress-font-size;
-			margin: 0 5px;
-		}
-	}
-	&-inner-right {
-		justify-content: flex-end !important;
-	}
+  width: 100%;
+  box-sizing: border-box;
 
-	&-inner-center {
-		justify-content: center !important;
-	}
+  &-outer {
+    border-radius: $progress-border-radius;
+    background-color: $progress-bg;
+    overflow: hidden;
+    position: relative;
+  }
 
-	&-inner-left {
-		justify-content: flex-start !important;
-	}
-	@each $key, $val in $theme-colors {
-		.color-#{$key} {
-			background-color: $val;
-		}
-	}
+  &-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: $progress-border-radius;
+    line-height: 1;
+    transition: $progress-bar-transition;
+
+    .inner-text {
+      color: $progress-bar-color;
+      font-size: $progress-font-size;
+      margin: 0 5px;
+    }
+  }
+
+  &-inner-right {
+    justify-content: flex-end !important;
+  }
+
+  &-inner-center {
+    justify-content: center !important;
+  }
+
+  &-inner-left {
+    justify-content: flex-start !important;
+  }
+
+  @each $key,
+  $val in $theme-colors {
+    .color-#{$key} {
+      background-color: $val;
+    }
+  }
+}
+
+.speed-progress-cir {
+  position: relative;
+  &-inner {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+  }
+
+  &-circle {
+    transition: all 1s linear;
+  }
 }
