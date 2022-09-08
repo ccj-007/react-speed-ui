@@ -1,9 +1,26 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-container {
+.speed-container {
 
-// &-content {
+  &-column {
+    display: flex;
+    flex-direction: column;
+  }
+  &-row {
+    display: flex;
+  }
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
 
-// }
+  &-around {
+    align-items: center;
+    justify-content: space-around;
+  }
 
-// }
+  &-between {
+    align-items: center;
+    justify-content: space-between;
+  }
+}

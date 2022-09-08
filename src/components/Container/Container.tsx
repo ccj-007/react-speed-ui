@@ -11,27 +11,37 @@ export interface ContainerProps {
   style?: React.CSSProperties;
   /** 组件类名 */
   className?: string;
+  /** 对齐方式 */
+  align?: 'center' | 'around' | 'between';
+  /** 方向 */
+  direction?: 'row' | 'column';
 }
 
 /**
  * Container 组件模板
  */
 const Container: FC<ContainerProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style } = props;
-  const [state, setState] = useState(null);
+  const { children, className, prefixCls: customizePrefixCls, style, align = 'center', direction = 'row' } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls("container", customizePrefixCls);
 
-  const cls = classNames(prefixCls, className, {});
+  const cls = classNames(prefixCls, className,
+    {
+      [`${prefixCls}-${direction}`]: direction,
+      [`${prefixCls}-${align}`]: align
+    });
+
   return (
     <div className={cls} style={style}>
-      <div>Container</div>
-      <div className={`${prefixCls}-warp`}>{children}</div>
+      {children}
     </div>
   );
 };
 
-Container.defaultProps = {};
+Container.defaultProps = {
+  align: 'center',
+  direction: 'row'
+};
 
 export default Container;
