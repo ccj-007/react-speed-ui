@@ -22,7 +22,16 @@ const defaultBackTopTpl: ComponentStory<typeof BackTop> = (args) => {
   return (
     <>
       <PageHeader title="基本使用" />
-      <BackTop></BackTop>
+      <BackTop ></BackTop>
+      <div style={{ height: '400px', background: '#f4f4f4', overflow: "auto" }}>
+        <>
+          {
+            Array(30).fill('content......').map(text => {
+              return <div>{text}</div>
+            })
+          }
+        </>
+      </div>
     </>
   );
 };

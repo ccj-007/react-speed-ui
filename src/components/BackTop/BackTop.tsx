@@ -11,26 +11,44 @@ export interface BackTopProps {
   style?: React.CSSProperties;
   /** 组件类名 */
   className?: string;
+  /** 滚动值 */
+  scrollTopVal?: number;
+  /** 容器 */
+  container?: any
 }
 
 /**
  * BackTop 组件模板
  */
 const BackTop: FC<BackTopProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style } = props;
+  const { children, className, prefixCls: customizePrefixCls, style, container } = props;
+  console.log(container);
+
   const [state, setState] = useState(null);
 
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls("backtop", customizePrefixCls);
 
+  const handleScroll = (e: any) => {
+    if (e) {
+      console.log("scrollTopVal", e?.target?.scrollTop);
+    }
+  }
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   const cls = classNames(prefixCls, className, {});
   return (
     <div className={cls} style={style}>
-      <div>BackTop</div>
       <div>{children}</div>
     </div>
   );
-};
+}
 
 BackTop.defaultProps = {};
 
