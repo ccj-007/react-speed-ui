@@ -11,45 +11,98 @@ export interface BackTopProps {
   style?: React.CSSProperties;
   /** 组件类名 */
   className?: string;
-  /** 滚动值 */
-  scrollTopVal?: number;
-  /** 容器 */
-  container?: any
+  /** 滚动高度达到此参数值才出现 BackTop */
+  visibilityHeight?: number;
+  /** 容器, 默认document */
+  container?: React.RefObject<any>
+  /** onClick */
+  onClick?: () => void
 }
 
 /**
  * BackTop 组件模板
  */
 const BackTop: FC<BackTopProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, container } = props;
-  console.log(container);
+  const { children, className, prefixCls: customizePrefixCls, style, container, visibilityHeight = 400, onClick } = props;
 
-  const [state, setState] = useState(null);
+  const [backTop, setBackTop] = useState<number | null>(null);
+  const [transition, setTransition] = useState<boolean>(false);
+  const backRef = React.useRef<HTMLDivElement>(null)
 
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls("backtop", customizePrefixCls);
 
   const handleScroll = (e: any) => {
-    if (e) {
-      console.log("scrollTopVal", e?.target?.scrollTop);
+    if (container) {
+      setBackTop(e.target.scrollTop)
+    } else {
+      //@ts-ignore
+      window.scrollY && setBackTop(window.scrollY)
     }
   }
+
+  let showBackTop = React.useMemo(() => {
+    if (backTop && backTop >= visibilityHeight) {
+      return true
+    } else {
+      setTransition(false)
+      return false
+    }
+  }, [backTop])
+
   React.useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    if (showBackTop) {
+      setTimeout(() => {
+        setTransition(true)
+      }, 100);
+    }
+  }, [showBackTop])
+
+  React.useEffect(() => {
+    if (container) {
+      container.current.addEventListener('scroll', handleScroll)
+    } else {
+      document.addEventListener('scroll', handleScroll)
+    }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      if (container) {
+        container.current.removeEventListener('scroll', handleScroll)
+      } else {
+        document.addEventListener('scroll', handleScroll)
+      }
     }
   }, [])
 
-  const cls = classNames(prefixCls, className, {});
+  const cls = classNames(prefixCls, className);
+
+  const handleClick = () => {
+    if (container) {
+      setBackTop(0)
+      container.current.scrollTop = 0
+    } else {
+      setBackTop(0)
+      document.documentElement.scrollIntoView({
+        behavior: "smooth"
+      });
+      // window.scrollTo(0, 0)
+    }
+    setTransition(false)
+    onClick && onClick()
+  }
   return (
-    <div className={cls} style={style}>
-      <div>{children}</div>
-    </div>
+    <>
+      {
+        showBackTop && <div className={cls} style={{ "opacity": transition ? 1 : 0, ...style }} ref={backRef} onClick={handleClick}>
+          <div>{children}</div>
+        </div>
+      }
+    </>
   );
 }
 
-BackTop.defaultProps = {};
+BackTop.defaultProps = {
+  visibilityHeight: 400
+};
 
 export default BackTop;

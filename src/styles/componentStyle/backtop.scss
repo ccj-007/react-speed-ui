@@ -1,9 +1,18 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-backtop {
+.speed-backtop {
+  position: fixed;
+  z-index: 9999999999999;
+  bottom: 40px;
+  right: 40px;
+  background: $blue;
+  padding: 5px 10px;
+  color: #fff;
+  transition: all .5s ease-in;
+  border-radius: 5px;
+  cursor: pointer;
 
-// &-content {
-
-// }
-
-// }
+  &:hover {
+    opacity: .7;
+  }
+}
