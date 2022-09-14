@@ -1,9 +1,56 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-anchor {
+.speed-anchor {
+	position: fixed;
+	top: 50px;
+	right: 50px;
+	display: flex;
 
-// &-content {
+	&-line {
+		margin-right: 10px;
+		width: 2px;
+		height: 100%;
+		border-radius: 50%;
+		background: $blue;
+		position: relative;
+	}
+	&-ballbox {
+		position: absolute;
+		width: auto;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease-in;
+	}
+	&-ball {
+		width: 10px;
+		height: 10px;
+		background: #fff;
+		border-radius: 50%;
+		border: 1px solid $blue;
+	}
 
-// }
+	&-item {
+		cursor: pointer;
+		font-size: 16px;
+		line-height: 16px;
+		height: 16px;
+		flex: 1;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
 
-// }
+		&:hover {
+			color: $blue;
+		}
+	}
+
+	&-content {
+		height: 120px;
+		display: flex;
+		flex-direction: column;
+	}
+}

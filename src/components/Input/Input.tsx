@@ -43,7 +43,6 @@ const Input: React.FC<allInputProps> = (props) => {
 		...restProps
 	} = props;
 	const [value, setValue] = useState("");
-
 	const cls = classNames("speed-input", className, {
 		disabled: disabled,
 	});

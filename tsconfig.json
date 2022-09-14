@@ -1,36 +1,30 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": false,
-    "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
-    // 类型声明文件的配置
-    "emitDeclarationOnly": true,
-    "declaration": true,
-    "declarationDir": "types",
-    "rootDir": "src"
-  },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "src/components/**/__tests__/**",
-    "src/components/**/*.stories.tsx",
-    "src/components/**/*.stories.mdx"
-  ]
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": false,
+		"jsx": "preserve",
+		"jsxImportSource": "@emotion/react",
+		// 类型声明文件的配置
+		"emitDeclarationOnly": true,
+		"declaration": true,
+		"declarationDir": "types",
+		"rootDir": "src"
+	},
+	"include": ["src"],
+	"exclude": [
+		"src/components/**/__tests__/**",
+		"src/components/**/*.stories.tsx",
+		"src/components/**/*.stories.mdx"
+	]
 }
