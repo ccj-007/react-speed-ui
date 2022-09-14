@@ -1,9 +1,37 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-container {
+.speed-container {
+  width: 100%;  
+  height: 100%;
+  &-column {
+    display: flex;
+    flex-direction: column;
+  }
+  &-row {
+    display: flex;
+  }
+  &-center {
+    align-items: center;
+    justify-content: center;
+  }
 
-// &-content {
+  &-around {
+    align-items: center;
+    justify-content: space-around;
+  }
 
-// }
+  &-between {
+    align-items: center;
+    justify-content: space-between;
+  }
 
-// }
+  &-start {
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &-end {
+    align-items: center;
+    justify-content: flex-end;
+  }
+}

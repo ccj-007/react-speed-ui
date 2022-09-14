@@ -22,7 +22,14 @@ const defaultEmptyTpl: ComponentStory<typeof Empty> = (args) => {
   return (
     <>
       <PageHeader title="基本使用" />
-      <Empty></Empty>
+      <div style={{ width: '600px', height: '300px', border: '.5px solid #aaa' }}>
+        <Empty></Empty>
+      </div>
+
+      <PageHeader title="其他样式" />
+      <div style={{ width: '600px', height: '300px', border: '.5px solid #aaa' }}>
+        <Empty type="2"></Empty>
+      </div>
     </>
   );
 };

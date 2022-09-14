@@ -74,3 +74,9 @@ export { default as Upload } from "./Upload";
 export { default as Avatar } from "./Avatar";
 
 export { default as Badge } from "./Badge";
+
+export { default as Container } from "./Container";
+
+export { default as BackTop } from "./BackTop";
+
+export { default as Anchor } from "./Anchor";

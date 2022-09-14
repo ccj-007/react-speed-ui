@@ -1,9 +1,13 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-empty {
+.speed-empty {
+  width: 100%;
+  height: 100%;
+  color: $gray-600;
 
-// &-content {
+  &-icon {
+    margin-bottom: 20px;
+  }
+}
 
-// }
 
-// }
