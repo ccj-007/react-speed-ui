@@ -47,7 +47,7 @@ const defaultBreadCrumbTpl: ComponentStory<typeof Breadcrumb> = (args: any) => {
         </Breadcrumb>
       </div>
 
-      <PageHeader title="自定义分隔符" />
+      <PageHeader title="禁用" />
       <div>
         <Breadcrumb>
           <BreadcrumbItem disabled>Home</BreadcrumbItem>

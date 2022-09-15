@@ -4,7 +4,7 @@ import { ConfigContext } from "../Config-Provider/ConfigProvider";
 
 interface BreadcrumbProps {
   /** 样式隔离 */
-  prefixCls: string;
+  prefixCls?: string;
   children?: React.ReactNode;
   className?: string;
   /**自定义链接函数，和 react-router 配置使用 */
