@@ -33,6 +33,7 @@ const Breadcrumb: FC<BreadcrumbProps> = (props) => {
     prefixCls: customizePrefixCls,
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
+
   const prefixCls = getPrefixCls("breadcrumb", customizePrefixCls);
 
   const renderChildren = () => {
@@ -44,10 +45,15 @@ const Breadcrumb: FC<BreadcrumbProps> = (props) => {
       });
     });
   };
-
   const classes = classNames(prefixCls, className);
 
   return <div className={classes}>{renderChildren()}</div>;
 };
 
 export default Breadcrumb;
+
+
+
+
+
+

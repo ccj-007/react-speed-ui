@@ -1,17 +1,17 @@
-import React from "react";
-import Drawer from "./Drawer";
-import Button from "../Button";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import PageHeader from "../PageHeader";
-import Space from "../Space";
+import React from 'react';
+import Drawer from './Drawer';
+import Button from '../Button';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import PageHeader from '../PageHeader';
+import Space from '../Space';
 
 export default {
-  title: "反馈/Drawer 抽屉",
+  title: '反馈/Drawer 抽屉',
   component: Drawer,
   parameters: {
     docs: {
       description: {
-        component: "### 屏幕边缘滑出的浮层面板",
+        component: '### 屏幕边缘滑出的浮层面板',
       },
     },
   },
@@ -20,7 +20,7 @@ export default {
 /**
  * 展示面板
  */
-const defaultDrawerTpl: ComponentStory<typeof Drawer> = (args) => {
+const defaultDrawerTpl: ComponentStory<typeof Drawer> = args => {
   const { title, placement } = args;
   const [visible, setVisible] = React.useState(false);
   const [visible2, setVisible2] = React.useState(false);
@@ -56,44 +56,24 @@ const defaultDrawerTpl: ComponentStory<typeof Drawer> = (args) => {
   }, [visible4]);
   return (
     <>
-      <PageHeader title="基本使用" />
+      <PageHeader title='基本使用' />
       <Space>
-        <Drawer
-          title={title}
-          visible={visible}
-          onClose={handleClose}
-          placement="left"
-        >
+        <Drawer title={title} visible={visible} onClose={handleClose} placement='left'>
           左侧打开抽屉
         </Drawer>
         <Button onClick={handleShow}>左侧打开抽屉</Button>
 
-        <Drawer
-          title={title}
-          visible={visible2}
-          onClose={handleClose2}
-          placement="right"
-        >
+        <Drawer title={title} visible={visible2} onClose={handleClose2} placement='right'>
           右侧打开抽屉
         </Drawer>
         <Button onClick={handleShow2}>右侧打开抽屉</Button>
 
-        <Drawer
-          title={title}
-          visible={visible3}
-          onClose={handleClose3}
-          placement="top"
-        >
+        <Drawer title={title} visible={visible3} onClose={handleClose3} placement='top'>
           顶部打开抽屉
         </Drawer>
         <Button onClick={handleShow3}>顶部打开抽屉</Button>
 
-        <Drawer
-          title={title}
-          visible={visible4}
-          onClose={handleClose4}
-          placement="bottom"
-        >
+        <Drawer title={title} visible={visible4} onClose={handleClose4} placement='bottom'>
           底部打开抽屉
         </Drawer>
         <Button onClick={handleShow4}>底部打开抽屉</Button>
@@ -107,6 +87,6 @@ const defaultDrawerTpl: ComponentStory<typeof Drawer> = (args) => {
  */
 export const defaultDrawer = defaultDrawerTpl.bind({});
 defaultDrawer.args = {
-  title: "默认标题",
-  placement: "left",
+  title: '默认标题',
+  placement: 'left',
 };
