@@ -2,7 +2,7 @@ import React, { FC, useContext, useState, ReactNode } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 import { Container } from "../index";
-import Countdown from './Countdown'
+import Countdown, { CountdownProps } from './Countdown'
 export interface StatisticProps {
   /** 样式命名隔离 */
   prefixCls?: string;
@@ -24,14 +24,12 @@ export interface StatisticProps {
   title?: React.ReactNode;
 }
 
-interface StatisticComponent {
-  Countdown: typeof Countdown;
-}
-
 /**
  * Statistic 用于统计数据
  */
-const Statistic: FC<StatisticProps> = (props) => {
+const Statistic: FC<StatisticProps> & {
+  Countdown: FC<CountdownProps>
+} = (props) => {
   const { children, className, prefixCls: customizePrefixCls, style, title, suffix, prefix, value, toFixedNum } = props;
   const [state, setState] = useState(null);
 
@@ -41,6 +39,7 @@ const Statistic: FC<StatisticProps> = (props) => {
   const cls = classNames(prefixCls, className, {});
   return (
     <div className={cls} style={style}>
+      {children}
       <Container direction="column" align="between">
         <div className={`${prefixCls}-title`}>{title}</div>
         <div className={`${prefixCls}-value`}>{value}</div>
@@ -48,6 +47,8 @@ const Statistic: FC<StatisticProps> = (props) => {
     </div>
   );
 };
+
+Statistic.Countdown = Countdown
 
 Statistic.defaultProps = {};
 

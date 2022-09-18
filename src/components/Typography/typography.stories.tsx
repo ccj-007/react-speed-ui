@@ -44,6 +44,8 @@ const textTpl = (args: TextPartProps) => {
     <>
       <PageHeader title='文本样式'></PageHeader>
       <div style={{ display: "flex", flexDirection: "column" }}>
+
+
         <Text type={type}>Speed UI</Text>
         <Text type={"danger"}>Speed UI</Text>
         <Text type={"success"}>Speed UI</Text>

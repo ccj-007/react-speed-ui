@@ -1,9 +1,39 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-cascader {
+.speed-cascader {
+  position: relative;
 
-// &-content {
+  &-content {
+    display: flex;
+    position: absolute;
+    bottom: -240%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+  }
 
-// }
 
-// }
+  &-column {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  &-item {
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &-item:hover {
+    cursor: pointer;
+    color: $green;
+    background: $gray-100;
+
+    .fa-angle-right {
+      color: $green;
+    }
+  }
+}

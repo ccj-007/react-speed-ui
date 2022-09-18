@@ -2,6 +2,7 @@ import React from "react";
 import Statistic from "./Statistic";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { PageHeader } from "../index";
+const { Countdown } = Statistic;
 
 export default {
   title: "数据展示/Statistic 统计数值",
@@ -23,6 +24,10 @@ const defaultStatisticTpl: ComponentStory<typeof Statistic> = (args) => {
     <>
       <PageHeader title="基本使用" />
       <Statistic title="Active Users" value={112893} />
+      <Countdown></Countdown>
+      {/* <Statistic>
+        <Countdown></Countdown>
+      </Statistic> */}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState, ReactNode } from "react";
+import React, { FC, useContext, useState, ReactNode, useEffect, useRef } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 
@@ -17,7 +17,7 @@ export interface <%= name %>Props {
   * <%= name %> 组件模板
     */
     const <%= name %>: FC <<%= name %>Props> = (props) => {
-        const { children, className, prefixCls: customizePrefixCls, style } = props;
+        const { children, className, prefixCls: customizePrefixCls, style,restProps } = props;
         const [state, setState] = useState(null)
 
         const { getPrefixCls } = useContext(ConfigContext);
@@ -27,7 +27,7 @@ export interface <%= name %>Props {
 
           });
           return (
-          <div className={cls} style={style}>
+          <div className={cls} style={style} {...restProps}>
             <div>
               <%= name %>
             </div>

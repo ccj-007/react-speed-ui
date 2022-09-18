@@ -1,14 +1,14 @@
 import * as React from "react";
 
 export interface TypographyProps {
-	component?: string;
+  component?: string;
 }
 
 const Typography: React.FC<TypographyProps> = (props) => {
-	const { component } = props;
-	const Component = component as any;
+  const { component } = props;
+  const Component = component as any;
 
-	return <Component></Component>;
+  return <Component></Component>;
 };
 
 export default Typography;
