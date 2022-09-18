@@ -20,11 +20,20 @@ export default {
  * 展示面板
  */
 const defaultStatisticTpl: ComponentStory<typeof Statistic> = (args) => {
+  const [run, setRun] = React.useState(true)
+  const handleChange = (val) => {
+    console.log(val);
+
+    if (val === 0) {
+      setRun(false)
+    }
+  }
   return (
     <>
       <PageHeader title="基本使用" />
       <Statistic title="Active Users" value={112893} />
-      <Countdown></Countdown>
+      <Countdown countType="count" onChange={handleChange} run={run}></Countdown>
+      <Countdown countType="day"></Countdown>
       {/* <Statistic>
         <Countdown></Countdown>
       </Statistic> */}
