@@ -33,8 +33,8 @@ export interface CountdownProps {
  * Statistic 用于统计数据
  */
 const Countdown: FC<CountdownProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, defaultDayVal, countType = 'day', format = "YYYY-MM-DD HH:mm:ss:SSS", count: defaultCount = 5, onChange, run = true, ...restProps } = props;
-  const [dayVal, setDayVal] = useState<any>(dayjs(defaultDayVal ? defaultDayVal : new Date()).format(format))
+  const { children, className, prefixCls: customizePrefixCls, style, defaultDayVal, countType = 'day', format = "YYYY-MM-DD HH:mm:ss", count: defaultCount = 5, onChange, run = true, ...restProps } = props;
+  const [dayVal, setDayVal] = useState<any>((dayjs(defaultDayVal ? defaultDayVal : new Date().getTime()).format(format)))
   const [count, setCount] = useState<number>(defaultCount)
 
   useInterval(() => {

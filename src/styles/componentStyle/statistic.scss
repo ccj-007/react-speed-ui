@@ -1,9 +1,14 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-statistic {
+.speed-statistic {
 
-// &-content {
+  &-content {}
 
-// }
+  &-title {
+    color: $gray-400;
+  }
 
-// }
+  &-value {
+    font-size: 20px;
+  }
+}

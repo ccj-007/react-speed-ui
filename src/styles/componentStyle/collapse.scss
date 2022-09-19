@@ -1,9 +1,28 @@
-// @import "../commonStyle/variables.scss";
+@import "../commonStyle/variables.scss";
 
-// .speed-collapse {
+.speed-collapse {
 
-// &-content {
+  &-panel {
 
-// }
+    &-header {
+      background: #f7f7f7;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
 
-// }
+    &-content {
+      border-bottom: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      padding: 10px;
+      transition: all .5s ease-in;
+    }
+
+  }
+}

@@ -37,12 +37,18 @@ const Statistic: FC<StatisticProps> & {
   let prefixCls = getPrefixCls("statistic", customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {});
+
+  //千分位
+  let newVal = React.useMemo(() => {
+    var reg = /\d{1,3}(?=(\d{3})+$)/g;
+    return (value + '').replace(reg, '$&,');
+  }, [value])
   return (
     <div className={cls} style={style}>
       {children}
       <Container direction="column" align="between">
         <div className={`${prefixCls}-title`}>{title}</div>
-        <div className={`${prefixCls}-value`}>{value}</div>
+        <div className={`${prefixCls}-value`}>{prefix}{newVal}</div>
       </Container>
     </div>
   );

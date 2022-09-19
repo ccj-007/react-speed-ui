@@ -66,7 +66,7 @@ const BackTop: FC<BackTopProps> = (props) => {
     }
 
     return () => {
-      if (container) {
+      if (container && container.current) {
         container.current.removeEventListener('scroll', handleScroll)
       } else {
         document.addEventListener('scroll', handleScroll)

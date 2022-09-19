@@ -1,6 +1,7 @@
 import React, { FC, useContext, useState, ReactNode } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
+import Panel, { PanelProps } from "./Panel";
 
 export interface CollapseProps {
   /** 样式命名隔离 */
@@ -11,27 +12,50 @@ export interface CollapseProps {
   style?: React.CSSProperties;
   /** 组件类名 */
   className?: string;
+  /** 激活的key */
+  defaultActiveKey?: string[];
+  /** 改变回调 */
+  onChange?: (key: string[]) => void;
 }
 
 /**
  * Collapse 组件模板
  */
-const Collapse: FC<CollapseProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style } = props;
+const Collapse: FC<CollapseProps> & {
+  Panel: FC<PanelProps>
+} = (props) => {
+  const { children, className, prefixCls: customizePrefixCls, style, defaultActiveKey, onChange } = props;
   const [state, setState] = useState(null);
 
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls("collapse", customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {});
+
+  const renderChild = () => {
+    let len = -1
+    React.Children.forEach(children, (item, index) => {
+      len++
+    })
+    return React.Children.map(children, (child, index) => {
+      const childElement =
+        child as React.FunctionComponentElement<PanelProps>;
+      return React.cloneElement(childElement, {
+        keyList: defaultActiveKey,
+        onChange: onChange,
+        order: index,
+        len: len
+      })
+    })
+  }
   return (
     <div className={cls} style={style}>
-      <div>Collapse</div>
-      <div className={`${prefixCls}-warp`}>{children}</div>
+      {renderChild()}
     </div>
   );
 };
 
 Collapse.defaultProps = {};
 
+Collapse.Panel = Panel
 export default Collapse;
