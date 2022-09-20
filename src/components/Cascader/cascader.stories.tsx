@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PageHeader } from '../index';
 
 export default {
-  title: '模板/Cascader 级联选择',
+  title: '数据展示/Cascader 级联选择',
   component: Cascader,
   parameters: {
     docs: {

@@ -5,12 +5,12 @@ import { PageHeader, Collapse } from "../index";
 const { Panel } = Collapse
 
 export default {
-  title: "模板/Collapse",
+  title: "数据展示/Collapse 下拉展示",
   component: Collapse,
   parameters: {
     docs: {
       description: {
-        component: "### 组件模板",
+        component: "### 下拉展示",
       },
     },
   },

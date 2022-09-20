@@ -145,7 +145,7 @@ const Drawer: FC<DrawerProps> = props => {
         <Transition
           in={visible && maskShow}
           classNames={'show'}
-          addEndListener={(node, done) => {}}
+          addEndListener={(node, done) => { }}
           nodeRef={maskRef}
           onExited={() => {
             console.log('111111');

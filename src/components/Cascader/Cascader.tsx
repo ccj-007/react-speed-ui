@@ -28,7 +28,7 @@ export interface CascaderProps {
 }
 
 /**
- * Cascader 组件模板
+ * Cascader 级联选择框
  */
 const Cascader: FC<CascaderProps> = props => {
   const { children, className, prefixCls: customizePrefixCls, style, options, placeholder, activeStyles, iconActiveColor = '$52c41a', onChange, onClear, ...restProps } = props;

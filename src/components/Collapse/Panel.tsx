@@ -23,7 +23,7 @@ export interface PanelProps {
   /** chlidren总数量 */
   len?: number
   /** 改变的回调 */
-  onChange?: (key: string[]) => void;
+  onChange?: (key: string) => void;
 }
 
 /**
@@ -53,19 +53,23 @@ const Panel: FC<PanelProps> = (props) => {
   const cls = classNames(prefixCls, className, {});
 
   const expandClick = () => {
+    keyId && onChange && onChange(keyId)
     setExpand(!expand)
   }
   return (
     <div className={cls} style={style}>
-      <div onClick={expandClick} className={`${prefixCls}-header`} style={{ borderTop: order === 0 ? '1px solid #ddd' : '0px solid #ddd', borderRadius: order === 0 ? '5px 5px 0 0' : '' }}>
+      <div onClick={expandClick} className={`${prefixCls}-header`} style={{ borderTop: order === 0 ? '1px solid #ddd' : '0px solid #ddd', borderRadius: order === 0 ? '5px 5px 0 0' : order === len && !expand ? '0 0 5px 5px' : '' }}>
         <div>{header}</div>   <Icon icon={solid("angle-right")} size="1x" color="#4c4c4c"></Icon>
       </div>
 
       <div className={`${prefixCls}-content`} style={{
         borderRadius: order === len ? '0 0 5px 5px' : '',
-        padding: expand ? '10px' : '0px'
+        height: expand ? '150px' : '0',
+        borderBottom: expand ? '1px solid #ddd' : '0 solid #ddd'
       }}>
-        {expand && children}
+        <div style={{ padding: '10px' }}>
+          {children}
+        </div>
       </div>
     </div>
   );

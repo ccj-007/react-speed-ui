@@ -17,12 +17,32 @@
     }
 
     &-content {
+      box-sizing: border-box;
       border-bottom: 1px solid #ddd;
       border-left: 1px solid #ddd;
-      border-right: 1px solid #ddd;
-      padding: 10px;
-      transition: all .5s ease-in;
+      border-right: 1px solid #dddddd;
+      overflow: hidden;
+      transition: all .3s ease-in-out;
     }
+  }
+}
 
+@keyframes collapseOpen {
+  0% {
+    height: 0;
+  }
+
+  100% {
+    height: 150px;
+  }
+}
+
+@keyframes collapseClose {
+  0% {
+    height: 150px;
+  }
+
+  100% {
+    height: 0;
   }
 }

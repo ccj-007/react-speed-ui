@@ -15,11 +15,11 @@ export interface CollapseProps {
   /** 激活的key */
   defaultActiveKey?: string[];
   /** 改变回调 */
-  onChange?: (key: string[]) => void;
+  onChange?: (key: string) => void;
 }
 
 /**
- * Collapse 组件模板
+ * Collapse 下拉展示
  */
 const Collapse: FC<CollapseProps> & {
   Panel: FC<PanelProps>
