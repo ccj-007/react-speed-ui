@@ -26,8 +26,10 @@ const DatePicker: FC<DatePickerProps> = (props) => {
   const cls = classNames(prefixCls, className, {});
   return (
     <div className={cls} style={style}>
-      <div>DatePicker</div>
-      <div className={`${prefixCls}-warp`}>{children}</div>
+      <div className={`${prefixCls}-picker`}></div>
+      <div className={`${prefixCls}-xq`}></div>
+
+      <div className={`${prefixCls}-day`}></div>
     </div>
   );
 };

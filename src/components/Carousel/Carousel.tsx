@@ -6,6 +6,7 @@ import Icon from '../Icon'
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import useStateCallback from "../../hooks/useStateCallback";
 import { css } from '@emotion/react'
+import useInterval from '../../hooks/useInterval'
 
 type CarouselContentType = {
   imgUrl: string,
@@ -55,17 +56,22 @@ const Carousel: FC<CarouselProps> = (props) => {
 
   const cls = classNames(prefixCls, className, {});
 
-  const groupCls = classNames(`${prefixCls}-group`, {
-    [`${prefixCls}-group-top`]: dotPosition === 'top',
-    [`${prefixCls}-group-bottom`]: dotPosition === 'bottom',
-    [`${prefixCls}-group-left`]: dotPosition === 'left',
-    [`${prefixCls}-group-right`]: dotPosition === 'right',
-  });
+  const groupCls = classNames(`${prefixCls}-group`, `${prefixCls}-group-${dotPosition}`);
 
 
   const animationStyle = {
     animation: startAnimation ? 'fade-in 1s cubic-bezier(.39,.575,.565,1.000) both' : ''
   }
+
+  useInterval(() => {
+    if (autoplay && contentList) {
+      if (imgId === contentList.length - 1) {
+        setImgId(0)
+      } else {
+        setImgId(imgId + 1)
+      }
+    }
+  }, 2000)
 
   const handleNext = () => {
     first && setFirst(false)
