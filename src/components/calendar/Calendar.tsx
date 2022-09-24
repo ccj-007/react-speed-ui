@@ -35,7 +35,7 @@ const Calendar: FC<calendarProps> = (props) => {
   const [month, setMonth] = useState(dayjs().month() + 1);
   const [days, setDays] = useState(dayjs().daysInMonth());
   const [day, setDay] = useState(dayjs().date());
-  const [week, setWeek] = useState(dayjs(`${year}-${month}-${day}`).day());
+  const [week, setWeek] = useState(dayjs(`${year}-${month}-1`).day() + 1);
   const [prevList, setPrevList] = useState<number[]>([]);
   const [dayList, setDayList] = useState(Array(35).fill(1));
   const [nextList, setNextList] = useState<number[]>([]);
@@ -50,7 +50,7 @@ const Calendar: FC<calendarProps> = (props) => {
     const sumDay = 35
     const weekDays = 7
     let prevNum = weekDays - week + 1
-    let prevDays = Array.from(Array(dayjs(`${year}-${month - 1}-${day}`).daysInMonth()).keys()).map(item => item + 1)
+    let prevDays = Array.from(Array(dayjs(`${year}-${month - 1}-1`).daysInMonth()).keys()).map(item => item + 1)
     let curDays = Array.from(Array(days).keys()).map(item => item + 1)
     let prevList = prevDays.slice(-(prevNum), prevDays.length)
     let nextList = Array.from(Array(35).keys()).map(item => item + 1).slice(0, sumDay - curDays.length - prevList.length)
@@ -78,10 +78,10 @@ const Calendar: FC<calendarProps> = (props) => {
   }
 
   useEffect(() => {
-    console.log("11111111111");
+    console.log("11111111111", `${year}-${month}-${1}`);
 
     handleDayList()
-    setWeek(dayjs(`${year}-${month}-${day}`).day())
+    setWeek(dayjs(`${year}-${month}-1`).day() + 1)
   }, [month, year])
   return (
     <div className={cls} style={style}>

@@ -82,3 +82,5 @@ export { default as BackTop } from './BackTop';
 export { default as Anchor } from './Anchor';
 
 export { default as Collapse } from './Collapse';
+
+export { default as Calendar } from './Collapse';
