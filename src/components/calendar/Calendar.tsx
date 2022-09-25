@@ -52,7 +52,7 @@ const Calendar: FC<CalendarProps> = (props) => {
     onPanelChange,
     defaultValue,
     customData: defaultCustom,
-    disabledDate = true,
+    disabledDate = false,
     mode = 'default'
   } = props;
   const [year, setYear] = useState(dayjs().year());
@@ -103,6 +103,7 @@ const Calendar: FC<CalendarProps> = (props) => {
   }, [year, month, days])
 
   const handleClickDay = (day: number) => {
+    console.log(day)
     setDay(day)
   }
 
@@ -214,7 +215,7 @@ const Calendar: FC<CalendarProps> = (props) => {
 };
 
 Calendar.defaultProps = {
-  disabledDate: true,
+  disabledDate: false,
   mode: 'default'
 };
 

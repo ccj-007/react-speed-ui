@@ -52,6 +52,8 @@ export interface InputProps {
   autoFocus: boolean;
   /** 子节点 */
   children: React.ReactNode;
+  /** 值 */
+  value?: any;
   /** 获取input的ref回调*/
   onRef: (inputRef: any) => void;
   /** 清除的回调 */
@@ -80,13 +82,14 @@ const Input: React.FC<allInputProps> = props => {
     inputStyle,
     inputClassName,
     autoFocus = false,
+    value: defaultVal,
     onChange,
     onClear,
     onBlur,
     onRef,
     ...restProps
   } = props;
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(defaultVal);
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef(null) as RefObject<HTMLInputElement>;
@@ -116,6 +119,10 @@ const Input: React.FC<allInputProps> = props => {
 
     onRef && onRef(inputRef);
   });
+
+  useEffect(() => {
+    setValue(defaultVal)
+  }, [defaultVal]);
 
   const renderIcon = () => {
     if (showIcon && !showCloseIcon) {

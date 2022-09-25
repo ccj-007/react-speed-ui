@@ -20,6 +20,12 @@ const defaultAutoCompleteTpl: ComponentStory<typeof AutoComplete> = (
 ) => {
   let lakers = [
     { value: "aaa", name: "我的小 A" },
+    { value: "aaaaaaaa我是小A", name: "我的小 B" },
+    { value: "ccc", name: "我的小 C" },
+    { value: "ddd", name: "我的小 D" },
+    { value: "eee", name: "我的小 E" },
+    { value: "aaaaaaaa我是小D", name: "我的小 F" },
+    { value: "ggg", name: "我的小 G" },
     { value: "bbb", name: "我的小 B" },
     { value: "ccc", name: "我的小 C" },
     { value: "ddd", name: "我的小 D" },
@@ -45,7 +51,16 @@ const defaultAutoCompleteTpl: ComponentStory<typeof AutoComplete> = (
 
   return (
     <>
-      <PageHeader title='自动补全的input输入框' />
+      <PageHeader title='本地数据域补全' />
+      <div>
+        <AutoComplete
+          onSelect={() => action("selected")}
+          fetchSuggestions={lakers}
+          width={args.width}
+          {...args}
+        ></AutoComplete>
+      </div>
+      <PageHeader title='异步补全' />
       <div>
         <AutoComplete
           renderOptions={renderOptions}
