@@ -3,10 +3,13 @@
 .speed-calendar {
   color: #fff;
   width: 700px;
+  &-arrow {
+    cursor: pointer;
+  }
 
   &-picker {
     width: 100%;
-    height: 40px;
+    height: 60px;
     background: $blue;
     box-shadow: 0 -5px 15px rgb(28, 112, 202) inset;
     display: flex;
@@ -22,26 +25,112 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    &-item {
+    &-item,
+    &-disabled {
       width: 100px;
       display: flex;
       height: 80px;
       background: #fff;
       color: #000;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
+      flex-direction: column;
       cursor: pointer;
       border-right: 0.5px solid #e8e8e8;
       border-bottom: 0.5px solid #e8e8e8;
+      transition: background 0.2s ease-in;
     }
 
     &-item:nth-child(7n + 1) {
+      border-left: 0.5px solid #e8e8e8;
+    }
+    &-disabled:first-child {
       border-left: 0.5px solid #e8e8e8;
     }
 
     &-item-active {
       background: $blue;
       opacity: 0.8;
+      color: #fff;
+    }
+
+    &-item:hover {
+      background: $blue;
+      color: #fff;
+    }
+  }
+
+  &-week {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    background: $blue;
+    &-item {
+      display: flex;
+      background: $blue;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      flex: 1;
+    }
+  }
+}
+
+.speed-calendar-mini {
+  color: #fff;
+  width: 280px;
+  &-arrow {
+    cursor: pointer;
+  }
+
+  &-picker {
+    width: 100%;
+    height: 30px;
+    background: $blue;
+    box-shadow: 0 -5px 15px rgb(28, 112, 202) inset;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &-detail {
+    margin: 0 20px;
+  }
+
+  &-day {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    &-item,
+    &-disabled {
+      width: 40px;
+      display: flex;
+      height: 40px;
+      background: #fff;
+      color: #000;
+      justify-content: center;
+      align-items: flex-start;
+      cursor: pointer;
+      border-right: 0.5px solid #e8e8e8;
+      border-bottom: 0.5px solid #e8e8e8;
+      transition: background 0.2s ease-in;
+    }
+
+    &-item:nth-child(7n + 1) {
+      border-left: 0.5px solid #e8e8e8;
+    }
+    &-disabled:first-child {
+      border-left: 0.5px solid #e8e8e8;
+    }
+
+    &-item-active {
+      background: $blue;
+      opacity: 0.8;
+      color: #fff;
+    }
+
+    &-item:hover {
+      background: $blue;
       color: #fff;
     }
   }

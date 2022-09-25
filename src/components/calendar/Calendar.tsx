@@ -4,13 +4,19 @@ import React, {
   useState,
   ReactNode,
   useEffect,
-  useRef,
+  useMemo,
 } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 import dayjs from "dayjs";
 
-export interface calendarProps {
+interface OutDateProps { format: string, dateObj: Date, timestamp: number }
+
+interface CalendarCustom {
+  day: number
+  getNode: () => ReactNode
+}
+export interface CalendarProps {
   /** 样式命名隔离 */
   prefixCls?: string;
   /** 组件子节点 */
@@ -19,77 +25,151 @@ export interface calendarProps {
   style?: React.CSSProperties;
   /** 组件类名 */
   className?: string;
+  /** 默认日期 */
+  defaultValue?: number;
+  /** 默认禁用 */
+  disabledDate?: boolean;
+  /** mode */
+  mode?: 'mini' | 'default';
+  /** 自定义渲染内容 */
+  customData?: CalendarCustom[];
+  /** 点击日期的回调 */
+  onSelect?: (outDateObj: OutDateProps) => void;
+  /** 当面板改变的回调 */
+  onPanelChange?: (outDateObj: OutDateProps) => void;
 }
 
 /**
  * calendar 组件模板
  */
-const Calendar: FC<calendarProps> = (props) => {
+const Calendar: FC<CalendarProps> = (props) => {
   const {
     children,
     className,
     prefixCls: customizePrefixCls,
     style,
+    onSelect,
+    onPanelChange,
+    defaultValue,
+    customData: defaultCustom,
+    disabledDate = true,
+    mode = 'default'
   } = props;
   const [year, setYear] = useState(dayjs().year());
-  const [month, setMonth] = useState(dayjs().month() + 1);
+  const [month, setMonth] = useState(dayjs().month());
   const [days, setDays] = useState(dayjs().daysInMonth());
-  const [day, setDay] = useState(dayjs().date());
-  const [week, setWeek] = useState(dayjs(`${year}-${month}-1`).day() + 1);
+  const [day, setDay] = useState(defaultValue ? defaultValue : dayjs().date());
+  const [week, setWeek] = useState(dayjs(`${year}-${month}-1`).day());
   const [prevList, setPrevList] = useState<number[]>([]);
   const [dayList, setDayList] = useState(Array(35).fill(1));
   const [nextList, setNextList] = useState<number[]>([]);
-  const [dayId, setDayId] = useState<number>(-1);
+  const [customData, setCustomData] = useState<any>(defaultCustom);
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("calendar", customizePrefixCls);
-
+  let prefixCls = getPrefixCls("calendar", customizePrefixCls)
+  if (mode === 'mini') {
+    prefixCls = `${prefixCls}-mini`
+  }
   const cls = classNames(prefixCls, className, {});
 
-  const handleDayList = () => {
-    const sumDay = 35
-    const weekDays = 7
-    let prevNum = weekDays - week + 1
-    let prevDays = Array.from(Array(dayjs(`${year}-${month - 1}-1`).daysInMonth()).keys()).map(item => item + 1)
+  const changeDateTime = () => {
+    let prevDays = Array.from(Array(dayjs(`${year}-${month}-1`).daysInMonth()).keys()).map(item => item + 1)
     let curDays = Array.from(Array(days).keys()).map(item => item + 1)
-    let prevList = prevDays.slice(-(prevNum), prevDays.length)
-    let nextList = Array.from(Array(35).keys()).map(item => item + 1).slice(0, sumDay - curDays.length - prevList.length)
+    let prevList: number[] = []
+    if (week > 1) {
+      prevList = prevDays.slice(-(week - 1))
+    } else if (week === 1) {
+      //周一
+      prevList = []
+    } else {
+      //0代表 周日
+      prevList = prevDays.slice(-6)
+    }
+    const maxDay = curDays.length + prevList.length > 35 ? 42 : 35
 
-    console.log(nextList);
-
+    let nextList = Array.from(Array(maxDay).keys()).map(item => item + 1).slice(0, maxDay - curDays.length - prevList.length)
 
     setPrevList(prevList)
     setDayList(curDays)
     setNextList(nextList)
   }
 
-  const handleClickDay = (item) => {
+  let outDateObj = useMemo(() => {
+    let format = dayjs(new Date(year, month, day)).format('YYYY-MM-DD')
+    let dateObj = dayjs(new Date(year, month, day)).toDate()
+    let timestamp = dayjs(new Date(year, month, day)).valueOf()
 
-    console.log(item);
+    return { format, dateObj, timestamp }
+  }, [year, month, days])
 
+  const handleClickDay = (day: number) => {
+    setDay(day)
+  }
+
+  const handleClickDisabledDayLeft = (day: number) => {
+    handleClickLeft()
+    setDay(day)
+  }
+  const handleClickDisabledDayRight = (day: number) => {
+    handleClickRight()
+    setDay(day)
   }
 
   const handleClickLeft = () => {
-    setMonth(month - 1)
+    if (month - 1 === 0) {
+      setYear(year - 1)
+      setMonth(12)
+    } else {
+      setMonth(month - 1)
+    }
+    onPanelChange && onPanelChange(outDateObj)
   }
 
   const handleClickRight = () => {
-    setMonth(month + 1)
+    if (month + 1 === 13) {
+      setYear(year + 1)
+      setMonth(1)
+    } else {
+      setMonth(month + 1)
+    }
+    onPanelChange && onPanelChange(outDateObj)
   }
 
   useEffect(() => {
-    console.log("11111111111", `${year}-${month}-${1}`);
+    console.log(JSON.stringify(outDateObj));
+    onSelect && onSelect(outDateObj)
+  }, [day])
 
-    handleDayList()
-    setWeek(dayjs(`${year}-${month}-1`).day() + 1)
+  useEffect(() => {
+    setWeek(dayjs(`${year}-${month}-1`).day())
   }, [month, year])
+
+  useEffect(() => {
+    changeDateTime()
+  }, [week])
+
+  const getItemCls = (item: number) => {
+    if (item === day) {
+      return `${prefixCls}-day-item ${prefixCls}-day-item-active`
+    }
+    return `${prefixCls}-day-item`
+  }
+
+  const renderCustom = (day: number) => {
+    if (customData) {
+      let item = customData.find((dayItem: CalendarCustom) => dayItem.day === day)
+      if (item && item.getNode) {
+        return item.getNode()
+      }
+    }
+  }
   return (
     <div className={cls} style={style}>
       <div className={cls} style={style}>
         <div className={`${prefixCls}-picker`}>
-          <div onClick={handleClickLeft}> {'<'} </div>
+          <div className={`${prefixCls}-arrow`} onClick={() => !disabledDate && handleClickLeft()}> {'<'} </div>
           <div className={`${prefixCls}-detail`}>{year}年{month}月</div>
-          <div onClick={handleClickRight}> {'>'} </div>
+          <div className={`${prefixCls}-arrow`} onClick={() => !disabledDate && handleClickRight()}> {'>'} </div>
         </div>
         <div className={`${prefixCls}-week`}>
           {
@@ -103,21 +183,25 @@ const Calendar: FC<calendarProps> = (props) => {
         <div className={`${prefixCls}-day`}>
           {
             prevList.map((item, index) => {
-              return <div key={index} onClick={() => handleClickDay(item)} className={`${prefixCls}-day-item`} style={{ color: '#aaa' }}>
+              return <div key={index} onClick={() => !disabledDate && handleClickDisabledDayLeft(item)} className={`${prefixCls}-day-disabled`} style={{ color: '#aaa' }}>
                 {item}
               </div>
             })
           }
           {
             dayList.map((item, index) => {
-              return <div key={index} onClick={() => handleClickDay(item)} className={`${prefixCls}-day-item`}>
+              return <div key={index} onClick={() => !disabledDate && handleClickDay(item)} className={getItemCls(item)}
+              >
                 {item}
+                {
+                  renderCustom(item)
+                }
               </div>
             })
           }
           {
             nextList.map((item, index) => {
-              return <div key={index} onClick={() => handleClickDay(item)} className={`${prefixCls}-day-item`} style={{ color: '#aaa' }}>
+              return <div key={index} onClick={() => !disabledDate && handleClickDisabledDayRight(item)} className={`${prefixCls}-day-disabled`} style={{ color: '#aaa' }}>
                 {item}
               </div>
             })
@@ -125,10 +209,13 @@ const Calendar: FC<calendarProps> = (props) => {
         </div>
         {children}
       </div>
-    </div>
+    </div >
   );
 };
 
-Calendar.defaultProps = {};
+Calendar.defaultProps = {
+  disabledDate: true,
+  mode: 'default'
+};
 
 export default Calendar;
