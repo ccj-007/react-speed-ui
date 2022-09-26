@@ -4,12 +4,12 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { PageHeader } from "../index";
 
 export default {
-  title: "模板/DatePicker",
+  title: "模板/DatePicker 日期选择器",
   component: DatePicker,
   parameters: {
     docs: {
       description: {
-        component: "### 组件模板",
+        component: "### 日期选择器",
       },
     },
   },

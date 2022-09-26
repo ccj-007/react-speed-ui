@@ -1,9 +1,44 @@
-// @import "../commonStyle/variables.scss";
+@import '../commonStyle/variables.scss';
 
-// .speed-select {
+.speed-select {
+  position: relative;
+  width: 200px;
 
-// &-content {
+  &-options {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    left: 0;
+    box-shadow: 0 10px 20px 8px #f5f5f5;
+  }
 
-// }
+  &-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-// }
+  &-option {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-item {
+      cursor: pointer;
+      height: 20px;
+      padding: 20px;
+      width: 100%
+    }
+
+
+
+    &-item-active {
+      transition: all .2s ease;
+      background: $green ;
+      color: #fff;
+    }
+  }
+}

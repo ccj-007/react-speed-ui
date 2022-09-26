@@ -157,13 +157,13 @@ Carousel.defaultProps = {
   defaultId: 0,
   dotPosition: 'bottom',
   contentList: [{
-    imgUrl: "https://img2.baidu.com/it/u=2902289707,1456932409&fm=253&fmt=auto&app=138&f=JPEG?w=456&h=500",
+    imgUrl: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F9vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F11385343fbf2b211827ce1cdc88065380dd78ee6.jpg&refer=http%3A%2F%2Fgss0.baidu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666797389&t=b4baa6d9f31506accc67f784dce14c54",
     id: 0
   }, {
-    imgUrl: "https://img0.baidu.com/it/u=387490922,3684765776&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889",
+    imgUrl: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F18%2F20200318081321_lerlp.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666797308&t=daca309a8957c66f1bb8a7817623ce30",
     id: 1
   }, {
-    imgUrl: "https://img2.baidu.com/it/u=1487379787,1415708977&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=1082",
+    imgUrl: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201902%2F01%2F20190201205420_oynyr.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666797308&t=e4392944bc3c222c36918044dc310cad",
     id: 2
   }]
 };

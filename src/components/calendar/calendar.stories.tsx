@@ -1,15 +1,15 @@
 import React from "react";
 import Calendar from "./Calendar";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { PageHeader, Tag } from "../index";
+import { PageHeader } from "../index";
 
 export default {
-  title: "模板/Calendar",
+  title: "模板/Calendar 日历",
   component: Calendar,
   parameters: {
     docs: {
       description: {
-        component: "### 组件模板",
+        component: "### 日历",
       },
     },
   },

@@ -14,7 +14,7 @@ export interface DatePickerProps {
 }
 
 /**
- * DatePicker 组件模板
+ * DatePicker 日期选择器
  */
 const DatePicker: FC<DatePickerProps> = (props) => {
   const { children, className, prefixCls: customizePrefixCls, style } = props;
