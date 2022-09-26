@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState, ReactNode } from "react";
+import React, { FC, useContext, ReactNode } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 
@@ -38,7 +38,7 @@ const Badge: FC<BadgeProps> = (props) => {
         React.Children.map(children, (child) => {
           return React.cloneElement(child, {
             className: classNames(prefixCls, className),
-          }, count === 0 && !showZero ? <></> : <div className={`${prefixCls}-numDot`} style={{ width: dotSize + 'px', height: dotSize + 'px', right: -(dotSize * .5) + 'px', top: -(dotSize * .5) + 'px', ...style }}>{dot ? '' : count}</div>)
+          }, count === 0 && !showZero ? <></> : <div className={`${prefixCls}-numDot`} style={{ width: dotSize + 'px', color: dotColor, height: dotSize + 'px', right: -(dotSize * .5) + 'px', top: -(dotSize * .5) + 'px', ...style }}>{dot ? '' : count}</div>)
         })
       )
     }

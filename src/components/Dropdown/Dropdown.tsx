@@ -42,7 +42,7 @@ const Dropdown: FC<DropdownProps> = (props) => {
   let menuRef = React.useRef<HTMLDivElement>(null);
 
   const menuClasses = classNames("speed-subMenu", childClassName, {
-    ["disabled"]: disabled,
+    "disabled": disabled,
   });
 
   const openDropdown = () => {

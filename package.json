@@ -52,12 +52,12 @@
     "clear-storybook": "rimraf node_modules/.cache/storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "build-storybook -s public",
+    "storybook": "start-storybook -p 6012 -s public ",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lib": "rollup --config rollup.config.build.js",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6012 -s public ",
     "build:types": "tsc --emitDeclarationOnly",
     "clean": "rimraf types lib esm dist",
     "gulp": "npm run clean && gulp"
@@ -70,11 +70,15 @@
     "overrides": [
       {
         "files": [
-          "**/*.stories.*"
+          "**/**"
         ],
         "rules": {
           "import/no-anonymous-default-export": "off",
-          "react-hooks/rules-of-hooks": "off"
+          "react-hooks/rules-of-hooks": "off",
+          "@typescript-eslint/no-unused-vars": "off",
+          "react-hooks/exhaustive-deps": "off",
+          "no-script-url": "off",
+          "array-callback-return": "off"
         }
       }
     ]

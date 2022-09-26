@@ -29,7 +29,7 @@ export interface InputProps {
   /** input自定义样式 */
   inputStyle?: React.CSSProperties;
   /** 初始值input */
-  value: any;
+  value?: string;
   /** 自定义默认图标 */
   icon: React.ReactNode;
   /** 展示默认图标 */
@@ -52,8 +52,6 @@ export interface InputProps {
   autoFocus: boolean;
   /** 子节点 */
   children: React.ReactNode;
-  /** 值 */
-  value?: any;
   /** 获取input的ref回调*/
   onRef: (inputRef: any) => void;
   /** 清除的回调 */

@@ -48,7 +48,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 
   const componentRef = useRef<HTMLDivElement>(null);
 
-  const [inputValue, setInputValue] = useState<string>(value);
+  const [inputValue, setInputValue] = useState<string>(value || '');
   const [suggestions, setSuggestions] = useState<AutoItemProps[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const debounceVal = useDebounce(inputValue, 500);
@@ -67,7 +67,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 
       let results
       if (fetchSuggestions instanceof Function) {
-        results = fetchSuggestions(value);
+        results = fetchSuggestions(value || '');
       }
       if (fetchSuggestions instanceof Array) {
         results = fetchSuggestions.filter(item => {
@@ -87,9 +87,9 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
           }
         });
       } else {
-        setSuggestions(results);
+        results && setSuggestions(results);
         setShowDropdown(true);
-        if (results.length > 0) {
+        if (results && results.length > 0) {
           setShowDropdown(true);
         }
       }

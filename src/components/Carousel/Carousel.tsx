@@ -114,7 +114,7 @@ const Carousel: FC<CarouselProps> = (props) => {
   }, [imgId])
   const renderContentFn = () => {
     if (contentList && imgId != null && imgId >= 0) {
-      return <img src={contentList[imgId].imgUrl} className={`${prefixCls}-imgs-item`} style={animationStyle} ref={carouselImgRef}></img>
+      return <img alt='' src={contentList[imgId].imgUrl} className={`${prefixCls}-imgs-item`} style={animationStyle} ref={carouselImgRef}></img>
     } else {
       return <></>
     }

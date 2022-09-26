@@ -41,15 +41,18 @@ const Alert: React.FC<AlertProps> = (props) => {
 
   const classes = classNames(prefixCls, className, {
     [`${prefixCls}-${alertType}`]: alertType,
-    ["slide-in-blurred-top"]: isOpen,
+    "slide-in-blurred-top": isOpen,
   });
 
   React.useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        closeAlert && closeAlert();
-      }, 1000);
+    function handleAlert() {
+      if (isOpen) {
+        setTimeout(() => {
+          closeAlert && closeAlert();
+        }, 1000);
+      }
     }
+    handleAlert()
   }, [isOpen]);
 
   return (

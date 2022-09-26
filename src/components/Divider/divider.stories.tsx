@@ -70,9 +70,9 @@ const defaultDividerTpl: ComponentStory<typeof Divider> = (args) => {
       <div style={{ display: "flex", justifyContent: "flex-start" }}>
         Text
         <Divider type="vertical" />
-        <a href="#">Link</a>
+        <a href="https://github.com/ccj-007/react-speed-ui">Link</a>
         <Divider type="vertical" />
-        <a href="#">Link</a>
+        <a href="https://github.com/ccj-007/react-speed-ui">Link</a>
       </div>
     </>
   );
