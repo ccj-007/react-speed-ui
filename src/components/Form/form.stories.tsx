@@ -3,6 +3,7 @@ import Form from "./index";
 import { action } from "@storybook/addon-actions";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PageHeader from "../PageHeader";
+import { Input, Button } from "../index";
 
 export default {
   title: "数据录入/Form 表单",
@@ -24,11 +25,18 @@ const defaultFormTpl: any = (args) => {
     <>
       <PageHeader title="基本使用" />
       <Form action="" >
-        <Form.Item type='text' placeholder="输入用户名" label='用户名'></Form.Item>
-        <Form.Item type='text' placeholder="输入密码" label='密码'></Form.Item>
-        <Form.Item type='button' value="登录"></Form.Item>
-        <Form.Item type='button' value="注册"></Form.Item>
-        <Form.Item type='submit' value="提交" ></Form.Item>
+        <Form.Item label="Username"
+          name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+          <Input placeholder="请输入你的用户名" showCloseIcon></Input>
+        </Form.Item>
+        <Form.Item label="Password"
+          name="password"
+          rules={[{ required: true, message: 'Please input your password!' }]}>
+          <Input placeholder="请输入你的密码" showCloseIcon type='password'></Input>
+        </Form.Item>
+        <Form.Item >
+          <Button style={{ background: '#31c27c', borderColor: '#31c27c' }}>Submit</Button>
+        </Form.Item>
       </Form>
     </>
   );

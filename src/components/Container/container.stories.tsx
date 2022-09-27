@@ -27,8 +27,14 @@ const defaultContainerTpl: ComponentStory<typeof Container> = (args) => {
         <Button>Container</Button>
       </Container>
 
-      <PageHeader title="水平均分" />
+      <PageHeader title="中间均分" />
       <Container align='around' style={{ width: '600px', height: '200px', background: '#f4f4f4' }}>
+        <Button>Container</Button>
+        <Button>Container</Button>
+      </Container>
+
+      <PageHeader title="水平均分" />
+      <Container align='evenly' style={{ width: '600px', height: '200px', background: '#f4f4f4' }}>
         <Button>Container</Button>
         <Button>Container</Button>
       </Container>
@@ -46,8 +52,14 @@ const defaultContainerTpl: ComponentStory<typeof Container> = (args) => {
         <Button>Container</Button>
       </Container>
 
-      <PageHeader title="垂直均分" />
+      <PageHeader title="垂直中间均分" />
       <Container align='around' direction="column" style={{ width: '600px', height: '200px', background: '#f4f4f4' }}>
+        <Button>Container</Button>
+        <Button>Container</Button>
+      </Container>
+
+      <PageHeader title="垂直均分" />
+      <Container align='evenly' direction="column" style={{ width: '600px', height: '200px', background: '#f4f4f4' }}>
         <Button>Container</Button>
         <Button>Container</Button>
       </Container>

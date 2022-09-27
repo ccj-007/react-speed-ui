@@ -150,7 +150,7 @@ const Input: React.FC<allInputProps> = props => {
         value={value}
         style={inputStyle}
       ></input>
-      {renderIcon()}
+      {value && renderIcon()}
       {suffix ? <div className={`${prefixCls}-suffix`}>{suffix}</div> : ''}
     </div>
   );
@@ -166,5 +166,7 @@ Input.defaultProps = {
   showCloseIcon: false,
   autoFocus: false,
 };
+
+Input.displayName = 'Input'
 
 export default Input;

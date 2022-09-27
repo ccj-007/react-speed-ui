@@ -12,7 +12,7 @@ export interface ContainerProps {
   /** 组件类名 */
   className?: string;
   /** 对齐方式 */
-  align?: 'center' | 'around' | 'between' | 'start' | 'end';
+  align?: 'center' | 'around' | 'between' | 'start' | 'end' | 'evenly';
   /** 方向 */
   direction?: 'row' | 'column';
 }

@@ -111,6 +111,31 @@
   }
 }
 
+.moveY-enter {
+  opacity: 0;
+  transform: translateY(90%) !important;
+}
+
+.moveY-enter-active {
+  opacity: 1;
+  transform: translateY(105%) !important;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.moveY-exit {
+  opacity: 1;
+}
+
+.moveY-exit-active {
+  opacity: 0;
+  transform: translateY(90%) !important;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.moveY-exit-done {
+  transform: translateY(90%) !important;
+}
+
 .show-enter {
   opacity: 0;
 }

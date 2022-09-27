@@ -6,7 +6,7 @@ import { PageHeader } from "../index";
 const { Option } = Select
 
 export default {
-  title: "模板/Select 下拉选择器",
+  title: "数据录入/Select 下拉选择器",
   component: Select,
   parameters: {
     docs: {

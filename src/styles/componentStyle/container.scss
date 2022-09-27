@@ -23,6 +23,11 @@
     justify-content: space-around;
   }
 
+  &-evenly {
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
   &-between {
     align-items: center;
     justify-content: space-between;

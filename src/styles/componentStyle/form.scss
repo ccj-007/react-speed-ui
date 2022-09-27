@@ -7,11 +7,18 @@
   }
 
   &-button {
-    display: inline-block;
-    background: $blue;
-    border: none;
-    color: #fff;
-    padding: 5px;
-    margin:  5px;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+  }
+
+  &-error-info {
+    color: $red;
+    height: 30px;
+  }
+
+  &-error-required {
+    color: $red;
+    margin-right: 4px;
   }
 }

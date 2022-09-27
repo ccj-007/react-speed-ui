@@ -31,9 +31,9 @@ const Form: FC<FormProps> = (props) => {
   const cls = classNames(prefixCls, className, {});
   return (
     <FormContext.Provider value={{ onFinish, onFinishFailed }}>
-      <form className={cls} style={style} {...restProps}>
+      <div className={cls} style={style} {...restProps}>
         {children}
-      </form>
+      </div>
     </FormContext.Provider>
   );
 };

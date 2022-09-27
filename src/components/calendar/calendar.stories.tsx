@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { PageHeader } from "../index";
 
 export default {
-  title: "模板/Calendar 日历",
+  title: "数据展示/Calendar 日历",
   component: Calendar,
   parameters: {
     docs: {
