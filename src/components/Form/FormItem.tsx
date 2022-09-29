@@ -65,7 +65,7 @@ const FormItem: FC<FormItemProps> = (props) => {
       })
     }
   }
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     let val = e.target.value
     showError(val)
   }
