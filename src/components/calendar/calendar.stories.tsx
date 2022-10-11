@@ -19,22 +19,14 @@ export default {
 /**
  * 展示面板
  */
-const defaultcalendarTpl: ComponentStory<typeof Calendar> = (args) => {
-  const style = {
-    background: 'red',
-    width: '5px',
-    height: '5px',
-    borderRadius: '50%',
-    position: 'relative',
-    left: '5px'
-  }
+const defaultCalendarTpl: ComponentStory<typeof Calendar> = (args) => {
   const customData = [
     {
       day: 1,
       getNode: () => {
         return <div style={{ display: 'flex' }}>
           <div>吃饭</div>
-          <div style={style}></div>
+          <div style={{ background: 'red', width: '5px', height: '5px', borderRadius: '50%', position: 'relative', left: '5px' }}></div>
         </div >
       }
     },
@@ -67,7 +59,7 @@ const defaultcalendarTpl: ComponentStory<typeof Calendar> = (args) => {
       getNode: () => {
         return <div style={{ display: 'flex' }}>
           <div>摸鱼</div>
-          <div style={style}></div>
+          <div style={{ background: 'red', width: '5px', height: '5px', borderRadius: '50%', position: 'relative', left: '5px' }}></div>
         </div >
       }
     },
@@ -93,5 +85,5 @@ const defaultcalendarTpl: ComponentStory<typeof Calendar> = (args) => {
 /**
  * 参数面板
  */
-export const defaultcalendar = defaultcalendarTpl.bind({});
-defaultcalendar.args = {};
+export const defaultCalendar = defaultCalendarTpl.bind({});
+defaultCalendar.args = {};

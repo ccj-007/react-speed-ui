@@ -16,18 +16,19 @@ interface BaseButtonProps {
   btnType?: ButtonType;
   children: React.ReactNode;
   href?: string;
+  htmlType?: string
 }
 
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 // a 链接属性
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
-export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
 /**
  * Button  按钮组件
  */
 const Button: FC<ButtonProps> = props => {
-  const { className, disabled, size, btnType, children, href, ...restProps } = props;
+  const { className, disabled, size, btnType, children, href, htmlType, ...restProps } = props;
 
   const configInfo = useContext(ConfigContext);
 

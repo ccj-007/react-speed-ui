@@ -63,6 +63,35 @@ const defaultTableTpl: ComponentStory<typeof Table> = args => {
 const customTableTpl: ComponentStory<typeof Table> = args => {
   const [dataSource, setDataSource] = React.useState(defaultDataSource);
   const [paginationParams, setPaginationParams] = React.useState(defaultpaginationParams);
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+
+  /** input 单元格 */
+  const hanldeBlur = e => {
+    let val = e.target.value;
+    if (val.trim()) {
+      let cloneData = [...dataSource];
+      cloneData.forEach((item, index) => {
+        if (item.key === source.key) {
+          cloneData[index].name = val;
+        }
+      });
+      setDataSource(cloneData);
+    }
+  };
+
+  /** 编辑操作 单元格 */
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleConfirm = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const handleDelete = key => {
     let result = dataSource.filter(item => item.key !== key);
     setDataSource(result);
@@ -71,6 +100,7 @@ const customTableTpl: ComponentStory<typeof Table> = args => {
       total: paginationParams.total - 1,
     });
   };
+
   const columns = [
     {
       title: 'ID',
@@ -83,18 +113,7 @@ const customTableTpl: ComponentStory<typeof Table> = args => {
       key: 'name',
       render: source => {
         if (!source) return;
-        const hanldeBlur = e => {
-          let val = e.target.value;
-          if (val.trim()) {
-            let cloneData = [...dataSource];
-            cloneData.forEach((item, index) => {
-              if (item.key === source.key) {
-                cloneData[index].name = val;
-              }
-            });
-            setDataSource(cloneData);
-          }
-        };
+
         return <Input placeholder={source.name} onBlur={hanldeBlur} style={{ width: '200px' }} blurClear></Input>;
       },
     },
@@ -117,19 +136,7 @@ const customTableTpl: ComponentStory<typeof Table> = args => {
       dataIndex: 'edit',
       key: 'edit',
       render: source => {
-        const [isModalVisible, setIsModalVisible] = React.useState(false);
 
-        const showModal = () => {
-          setIsModalVisible(true);
-        };
-
-        const handleConfirm = () => {
-          setIsModalVisible(false);
-        };
-
-        const handleCancel = () => {
-          setIsModalVisible(false);
-        };
         return (
           <>
             <Modal visible={isModalVisible} onConfirm={handleConfirm} onCancel={handleCancel}>

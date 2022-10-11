@@ -37,7 +37,7 @@
   position: relative;
   width: 30px;
   height: 16px;
-  background:  $gray-500;
+  background: $gray-500;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -54,10 +54,11 @@
     background: $gray-100;
     border-radius: 7px;
     transition: all .2s linear;
+    cursor: pointer;
   }
 
   &-circle-active {
-    transform: translateX(12.5px);
+    transform: translateX(13px);
     transition: all .2s linear;
   }
 }

@@ -1,6 +1,6 @@
 body {
-	@include theme-aware("background", "global-background");
-	@include theme-aware("color", "global-color");
+  @include theme-aware("background", "global-background");
+  @include theme-aware("color", "global-color");
 }
 
 //在css内部针对性修改
@@ -15,29 +15,33 @@ body {
 
 ul,
 li {
-	padding: 0;
-	margin: 0;
-	list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .sfc {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sfv {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sf {
-	display: flex;
+  display: flex;
 }
 
 .speed-dark {
-	background: #000 !important;
-	color: #fff !important;
+  background: #000 !important;
+  color: #fff !important;
+}
+
+input {
+  caret-color: #aaa;
 }

@@ -144,11 +144,12 @@ const Input: React.FC<allInputProps> = props => {
       <input
         className={inputCls}
         ref={inputRef}
-        {...restProps}
         onChange={handleChange}
         onBlur={handleBlur}
         value={value}
         style={inputStyle}
+        disabled={disabled}
+        {...restProps}
       ></input>
       {value && renderIcon()}
       {suffix ? <div className={`${prefixCls}-suffix`}>{suffix}</div> : ''}

@@ -35,13 +35,14 @@ const defaultAutoCompleteTpl: ComponentStory<typeof AutoComplete> = (
   ];
   //测试异步
   const handleFetch = (query: string) => {
+    console.log(query);
+
     return fetch(`https://api.github.com/search/users?q=${query}`)
       .then((res) => res.json())
       .then(({ items }) => {
         console.log(items);
-        return items
-          .slice(0, 10)
-          .map((item: any) => ({ value: item.login, ...item }));
+        return items.slice(0, 10).map((item: any) => ({ value: item.login, ...item }));
+
       });
   };
 

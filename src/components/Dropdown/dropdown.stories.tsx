@@ -2,7 +2,7 @@ import React from "react";
 import Dropdown from "./Dropdown";
 import Button from "../Button/Button";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import PageHeader from "../PageHeader";
+import { PageHeader, Space } from "../index";
 export default {
   title: "导航/Dropdown 下拉列表",
   component: Dropdown,
@@ -50,7 +50,6 @@ const defaultDropdownTpl: ComponentStory<typeof Dropdown> = (args) => {
   return (
     <>
       <PageHeader title="基本使用" />
-
       <Dropdown
         menu={menu}
         placement={"l"}

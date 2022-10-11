@@ -83,4 +83,7 @@ export { default as Anchor } from './Anchor';
 
 export { default as Collapse } from './Collapse';
 
-export { default as Calendar } from './Collapse';
+export { default as Calendar } from './Calendar';
+export type { CalendarProps } from './Calendar';
+
+export { default as Select } from './Select';

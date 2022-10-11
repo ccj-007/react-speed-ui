@@ -67,7 +67,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 
       let results
       if (fetchSuggestions instanceof Function) {
-        results = fetchSuggestions(value || '');
+        results = fetchSuggestions(inputValue || '');
       }
       if (fetchSuggestions instanceof Array) {
         results = fetchSuggestions.filter(item => {

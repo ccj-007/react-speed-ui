@@ -4,8 +4,14 @@ import { FormContext } from "./Form";
 import classNames from "classnames";
 
 type FormItemRule = {
+  /** 是否必填 */
   required?: boolean
-  message?: string
+  /** 错误信息 */
+  message: string
+  /** 最小的字符串长度 */
+  minLen?: number
+  /** 最大的字符串长度 */
+  maxLen?: number
 }
 
 export interface FormItemProps {
@@ -35,7 +41,7 @@ const FormItem: FC<FormItemProps> = (props) => {
 
   const { getPrefixCls } = useContext(ConfigContext);
   const { onFinish, onFinishFailed } = useContext(FormContext);
-  let required = rules.some(rule => rule.required)
+  let required = rules.some(rule => rule.required) //必填
 
   let prefixCls = getPrefixCls("formItem", customizePrefixCls);
 
@@ -61,6 +67,12 @@ const FormItem: FC<FormItemProps> = (props) => {
           } else {
             setErrorInfo(rule.message)
           }
+        }
+        if (rule.maxLen && val.length >= rule.maxLen) {
+          setErrorInfo(rule.message)
+        }
+        if (rule.minLen && val.length <= rule.minLen) {
+          setErrorInfo(rule.message)
         }
       })
     }

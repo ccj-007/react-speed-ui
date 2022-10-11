@@ -56,7 +56,7 @@ const Calendar: FC<CalendarProps> = (props) => {
     mode = 'default'
   } = props;
   const [year, setYear] = useState(dayjs().year());
-  const [month, setMonth] = useState(dayjs().month());
+  const [month, setMonth] = useState(dayjs().month() + 1);
   const [days, setDays] = useState(dayjs().daysInMonth());
   const [day, setDay] = useState(defaultValue ? defaultValue : dayjs().date());
   const [week, setWeek] = useState(dayjs(`${year}-${month}-1`).day());
@@ -95,15 +95,15 @@ const Calendar: FC<CalendarProps> = (props) => {
   }
 
   let outDateObj = useMemo(() => {
-    let format = dayjs(new Date(year, month, day)).format('YYYY-MM-DD')
-    let dateObj = dayjs(new Date(year, month, day)).toDate()
-    let timestamp = dayjs(new Date(year, month, day)).valueOf()
+    let format = dayjs(new Date(year, month - 1, day)).format('YYYY-MM-DD')
+    let dateObj = dayjs(new Date(year, month - 1, day)).toDate()
+    let timestamp = dayjs(new Date(year, month - 1, day)).valueOf()
+    console.log(format);
 
     return { format, dateObj, timestamp }
-  }, [year, month, days])
+  }, [year, month, days, day])
 
   const handleClickDay = (day: number) => {
-    console.log(day)
     setDay(day)
   }
 
@@ -137,9 +137,9 @@ const Calendar: FC<CalendarProps> = (props) => {
   }
 
   useEffect(() => {
-    console.log(JSON.stringify(outDateObj));
     onSelect && onSelect(outDateObj)
   }, [day])
+
 
   useEffect(() => {
     setWeek(dayjs(`${year}-${month}-1`).day())

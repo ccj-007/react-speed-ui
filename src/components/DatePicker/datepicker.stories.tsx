@@ -1,10 +1,10 @@
 import React from "react";
 import DatePicker from "./DatePicker";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { PageHeader } from "../index";
+import { PageHeader, Container } from "../index";
 
 export default {
-  title: "模板/DatePicker 日期选择器",
+  title: "数据录入/DatePicker 日期选择器",
   component: DatePicker,
   parameters: {
     docs: {
@@ -21,8 +21,27 @@ export default {
 const defaultDatePickerTpl: ComponentStory<typeof DatePicker> = (args) => {
   return (
     <>
-      <PageHeader title="基本使用" />
-      <DatePicker></DatePicker>
+      <Container align='evenly'>
+        <div>
+          <PageHeader title="基本使用" />
+          <DatePicker></DatePicker>
+        </div>
+        <div>
+          <PageHeader title="禁用" />
+          <DatePicker disabled></DatePicker>
+        </div>
+      </Container>
+      <Container align='evenly'>
+        <div>
+          <PageHeader title="范围选择器" />
+          <DatePicker></DatePicker>
+        </div>
+        <div>
+          <PageHeader title="基本使用" />
+          <DatePicker></DatePicker>
+        </div>
+      </Container>
+
     </>
   );
 };
