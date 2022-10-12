@@ -8,13 +8,13 @@ export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'link';
 
 interface BaseButtonProps {
   className?: string;
-  /**设置 Button 的禁用 */
-  disabled?: boolean;
   /**设置 Button 的尺寸 */
   size?: ButtonSize;
+  /**是否禁用*/
+  disabled?: boolean;
   /**设置 Button 的类型 */
   btnType?: ButtonType;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   href?: string;
   htmlType?: string
 }
@@ -28,7 +28,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
  * Button  按钮组件
  */
 const Button: FC<ButtonProps> = props => {
-  const { className, disabled, size, btnType, children, href, htmlType, ...restProps } = props;
+  const { className, size, disabled, btnType = 'primary', children, href, htmlType, ...restProps } = props;
 
   const configInfo = useContext(ConfigContext);
 
@@ -49,13 +49,13 @@ const Button: FC<ButtonProps> = props => {
 
   if (btnType === 'link' && href) {
     return (
-      <a className={classes} href={href} {...restProps}>
+      <a data-testid='button' className={classes} href={href} {...restProps}>
         {children}
       </a>
     );
   } else {
     return (
-      <button style={themeStyles} className={classes} disabled={disabled} {...restProps}>
+      <button data-testid='button' disabled={disabled} style={themeStyles} className={classes}  {...restProps} >
         {children}
       </button>
     );

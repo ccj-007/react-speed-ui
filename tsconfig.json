@@ -22,5 +22,5 @@
     "rootDir": "src"
   },
   "include": ["src"],
-  "exclude": ["src/components/**/__tests__/**", "src/components/**/*.stories.tsx", "src/components/**/*.stories.mdx"]
+  "exclude": ["src/components/**/*.stories.tsx", "src/components/**/*.stories.mdx"]
 }

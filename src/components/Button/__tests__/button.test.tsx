@@ -2,55 +2,48 @@
  * @description  button test
  */
 
-import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
-import Button, { ButtonProps } from '../button'
-const defaultProps = {
-  onClick: jest.fn()
-}
-
-const testProps: ButtonProps = {
-  btnType: 'primary',
-  size: 'lg',
-  className: 'klass'
-}
-
-const disabledProps: ButtonProps = {
-  disabled: true,
-  onClick: jest.fn(),
-}
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
+import Button from '../Button';
+import "@testing-library/jest-dom/extend-expect";
+afterEach(cleanup);
 
 describe('test button component', () => {
-  it('test first button', () => {
-    const wrapper = render(<Button {...defaultProps}>Nice</Button>)
-    const element = wrapper.queryByText('Nice') as HTMLButtonElement
-    expect(element).toBeTruthy()
-    expect(element).toBeInTheDocument()
-    expect(element.tagName).toEqual('BUTTON')
-    expect(element).toHaveClass('btn btn-primary')
-    fireEvent.click(element)
-    expect(defaultProps.onClick).toHaveBeenCalled()
+  it('should render a <Button/> components', () => {
+    const { asFragment } = render(
+      <>
+        <Button >default button</Button>
+        <Button size="lg">small button</Button>
+        <Button size="sm">small button</Button>
+        <Button btnType="success">success button</Button>
+        <Button btnType="primary">primary button</Button>
+        <Button btnType="warning">warning button</Button>
+        <Button btnType="danger">danger button</Button>
+        <Button btnType="link" href="https://google.com">
+          link button
+        </Button>
+      </>
+    );
+    expect(asFragment()).toMatchSnapshot();
   })
 
-  it('should render the correct component based on different props', () => {
-    const wrapper = render(<Button {...testProps}>Nice</Button>)
-    const element = wrapper.getByText('Nice')
-    expect(element).toBeInTheDocument()
-    expect(element).toHaveClass('btn-primary btn-lg klass')
+  it('should use speed-ui classNames', () => {
+    const { container } = render(
+      <>
+        <Button size="lg">small button</Button>
+      </>
+    );
+    expect(container.firstChild).toHaveClass('btn btn-lg')
   })
-  it('should render a link when btnType equals link and href is provided', () => {
-    const wrapper = render(<Button btnType='link' href="http://dummyurl">Link</Button>)
-    const element = wrapper.getByText('Link')
-    expect(element).toBeInTheDocument()
-    expect(element.tagName).toEqual('A')
-    expect(element).toHaveClass('btn btn-link')
-  })
-  it('should render disabled button when disabled set to true', () => {
-    const wrapper = render(<Button {...disabledProps}>Nice</Button>)
-    const element = wrapper.getByText('Nice') as HTMLButtonElement
-    expect(element).toBeInTheDocument()
-    expect(element.disabled).toBeTruthy()
-    fireEvent.click(element)
-    expect(disabledProps.onClick).not.toHaveBeenCalled()
-  })
-})
+
+  it("should be disabled", () => {
+    const { getByTestId } = render(<Button disabled />);
+    expect(getByTestId("button")).toBeDisabled();
+  });
+
+
+  it("if button type is link so tagName is a", () => {
+    const { getByTestId } = render(<Button btnType='link' href='www.baidu.com' />);
+    expect(getByTestId("button").tagName).toEqual('A');
+  });
+});

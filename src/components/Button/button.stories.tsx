@@ -19,7 +19,7 @@ export default {
 const defaultButtonTpl: ComponentStory<typeof Button> = () => (
   <>
     <PageHeader title='基本使用' />
-    <Button onClick={action("clicked")}>default button</Button>
+    <Button onClick={action("clicked")} >default button</Button>
   </>
 );
 
