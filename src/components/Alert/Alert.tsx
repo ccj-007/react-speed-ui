@@ -58,7 +58,7 @@ const Alert: React.FC<AlertProps> = (props) => {
   return (
     <>
       {isOpen ? (
-        <div className={classes}>
+        <div className={classes} data-testid='alert'>
           <div className={`${prefixCls}-maintitle`} data-testid="alert-title">
             {title}
           </div>

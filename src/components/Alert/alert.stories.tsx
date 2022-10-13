@@ -31,7 +31,6 @@ export const AlertWithButton: React.FC<AlertProps> = (props) => {
           alertType={alertType}
           content={content}
           closeAlert={() => setIsOpen(false)}
-          openAlert={() => setIsOpen(true)}
         ></Alert>
       </div>
 

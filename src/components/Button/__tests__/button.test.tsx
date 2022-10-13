@@ -1,7 +1,6 @@
-import { render, cleanup } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Button from '../Button';
 import "@testing-library/jest-dom/extend-expect";
-afterEach(cleanup);
 
 describe('test button component', () => {
   it('should render a <Button/> components', () => {
@@ -28,7 +27,7 @@ describe('test button component', () => {
         <Button size="lg">small button</Button>
       </>
     );
-    expect(container.firstChild).toHaveClass('btn btn-lg')
+    expect(container.firstChild).toHaveClass('speed-button speed-button-lg')
   })
 
   it("should be disabled", () => {

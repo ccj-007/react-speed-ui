@@ -10,7 +10,7 @@ exports[`test affix component should render a <Affix/> components 1`] = `
       offsettop="20"
     >
       <button
-        class="btn btn-primary"
+        class="speed-button speed-button-primary"
         data-testid="button"
       >
         Affix top
@@ -25,7 +25,7 @@ exports[`test affix component should render a <Affix/> components 1`] = `
       offsetbottom="40"
     >
       <button
-        class="btn btn-primary"
+        class="speed-button speed-button-primary"
         data-testid="button"
       >
         Affix bottom

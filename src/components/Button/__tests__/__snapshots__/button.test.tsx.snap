@@ -3,49 +3,49 @@
 exports[`test button component should render a <Button/> components 1`] = `
 <DocumentFragment>
   <button
-    class="btn btn-primary"
+    class="speed-button speed-button-primary"
     data-testid="button"
   >
     default button
   </button>
   <button
-    class="btn btn-primary btn-lg"
+    class="speed-button speed-button-primary speed-button-lg"
     data-testid="button"
   >
     small button
   </button>
   <button
-    class="btn btn-primary btn-sm"
+    class="speed-button speed-button-primary speed-button-sm"
     data-testid="button"
   >
     small button
   </button>
   <button
-    class="btn btn-success"
+    class="speed-button speed-button-success"
     data-testid="button"
   >
     success button
   </button>
   <button
-    class="btn btn-primary"
+    class="speed-button speed-button-primary"
     data-testid="button"
   >
     primary button
   </button>
   <button
-    class="btn btn-warning"
+    class="speed-button speed-button-warning"
     data-testid="button"
   >
     warning button
   </button>
   <button
-    class="btn btn-danger"
+    class="speed-button speed-button-danger"
     data-testid="button"
   >
     danger button
   </button>
   <a
-    class="btn btn-link"
+    class="speed-button speed-button-link"
     data-testid="button"
     href="https://google.com"
   >

@@ -7,6 +7,9 @@ export type ButtonSize = 'lg' | 'sm';
 export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'link';
 
 interface BaseButtonProps {
+  /** 样式命名隔离 */
+  prefixCls?: string;
+  /** 组件类名 */
   className?: string;
   /**设置 Button 的尺寸 */
   size?: ButtonSize;
@@ -28,15 +31,16 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
  * Button  按钮组件
  */
 const Button: FC<ButtonProps> = props => {
-  const { className, size, disabled, btnType = 'primary', children, href, htmlType, ...restProps } = props;
+  const { className, size, disabled, btnType = 'primary', prefixCls: customizePrefixCls, children, href, htmlType, ...restProps } = props;
 
   const configInfo = useContext(ConfigContext);
+  let prefixCls = configInfo.getPrefixCls("button", customizePrefixCls);
 
-  const classes = classNames('btn', className, {
-    [`btn-${btnType}`]: btnType,
-    [`btn-${size}`]: size,
+  const classes = classNames(prefixCls, className, {
+    [`${prefixCls}-${btnType}`]: btnType,
+    [`${prefixCls}-${size}`]: size,
     [`${configInfo.prefixCls}-dark`]: configInfo.isDark, //暗黑主题
-    disabled: btnType === 'link' && disabled,
+    [`${prefixCls}-disabled`]: btnType === 'link' && disabled,
   });
 
   //自定义组件主题配置
