@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test affix component should render a <Affix/> components 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-affix speed-affix-top"
+    style="top: 20px; bottom: 0px;"
+  >
+    <div
+      offsettop="20"
+    >
+      <button
+        class="btn btn-primary"
+        data-testid="button"
+      >
+        Affix top
+      </button>
+    </div>
+  </div>
+  <div
+    class="speed-affix speed-affix-bottom"
+    style="top: 0px; bottom: 40px;"
+  >
+    <div
+      offsetbottom="40"
+    >
+      <button
+        class="btn btn-primary"
+        data-testid="button"
+      >
+        Affix bottom
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
