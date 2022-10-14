@@ -22,7 +22,7 @@ interface AutoItemType {
 type AutoItemProps<T = {}> = AutoItemType & T;
 
 export interface AutoCompleteProps extends InputExternalProps {
-  fetchSuggestions: (str: string) => AutoItemProps[] | Promise<any[]> | any[];
+  fetchSuggestions?: (str: string) => AutoItemProps[] | Promise<any[]> | any[];
   onSelect?: (item: AutoItemProps) => void;
   /* 自定义渲染 */
   renderOptions?: (item: AutoItemProps) => ReactElement;
@@ -149,7 +149,7 @@ const AutoComplete: FC<AutoCompleteProps> = (props) => {
 
   const generateDropdown = () => {
     return (
-      <ul>
+      <ul data-testid='autoComplete-warp'>
         {suggestions.map((item, index) => {
           const cnames = classNames(`${prefixCls}-suggestion-item`, {
             "is-active": index === highlightIndex,

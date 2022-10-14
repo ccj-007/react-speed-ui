@@ -35,9 +35,9 @@ describe('test anchor component', () => {
     expect(asFragment()).toMatchSnapshot();
   })
 
-  it('use speed-anchor className', () => { 
-    const {container} = render(
-        <Anchor />
+  it('use speed-anchor className', () => {
+    const { container } = render(
+      <Anchor />
     );
     expect(container.firstChild).toHaveClass('speed-anchor')
   });

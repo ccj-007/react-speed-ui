@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test avatar component different shape should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-avatar"
+    style="width: 40px; height: 40px; border-radius: 50%; background: green;"
+  >
+    <div
+      style="background: green;"
+    >
+      A
+    </div>
+  </div>
+  <div
+    class="speed-avatar"
+    style="width: 60px; height: 60px; border-radius: 50%; background: orange;"
+  >
+    <svg
+      aria-hidden="true"
+      class="svg-inline--fa fa-user fa-2x speed-icon"
+      color="#fff"
+      data-icon="user"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test avatar component different size should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-avatar"
+    style="width: 40px; height: 40px; border-radius: none; background: green;"
+  >
+    <div
+      style="background: green;"
+    >
+      A
+    </div>
+  </div>
+  <div
+    class="speed-avatar"
+    style="width: 60px; height: 60px; border-radius: none; background: orange;"
+  >
+    <svg
+      aria-hidden="true"
+      class="svg-inline--fa fa-user fa-2x speed-icon"
+      color="#fff"
+      data-icon="user"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test avatar component use string & icon & img should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-avatar"
+    style="width: 30px; height: 30px; border-radius: none;"
+  >
+    <div>
+      U
+    </div>
+  </div>
+  <div
+    class="speed-avatar"
+    style="width: 30px; height: 30px; border-radius: none;"
+  >
+    <svg
+      aria-hidden="true"
+      class="svg-inline--fa fa-user fa-1x speed-icon"
+      color="#fff"
+      data-icon="user"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="speed-avatar"
+    style="width: 30px; height: 30px; border-radius: none;"
+  >
+    <img
+      alt=""
+      src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201708%2F07%2F20170807114113_4efNW.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1665131372&t=27759fd5e80cffad11405f01579fb6a1"
+      style="width: 30px; height: 30px;"
+    />
+  </div>
+</DocumentFragment>
+`;
