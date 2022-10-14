@@ -142,6 +142,7 @@ const Input: React.FC<allInputProps> = props => {
     <div className={inputWarpCls} style={style}>
       {prefix ? <div className={`${prefixCls}-prefix`}>{prefix}</div> : ''}
       <input
+        data-testid='input'
         className={inputCls}
         ref={inputRef}
         onChange={handleChange}

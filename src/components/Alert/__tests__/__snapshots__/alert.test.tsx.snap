@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test alert component should render 1`] = `<DocumentFragment />`;
+exports[`test alert component should render 1`] = `
+<DocumentFragment>
+  <button
+    class="speed-button speed-button-primary"
+    data-testid="button"
+  >
+    alert
+  </button>
+  <div
+    class="speed-alert speed-alert-success slide-in-blurred-top"
+    data-testid="alert"
+  >
+    <div
+      class="speed-alert-maintitle"
+      data-testid="alert-title"
+    >
+      title content
+    </div>
+    <div
+      data-testid="alert-content"
+    >
+      test content
+    </div>
+    <div
+      class="speed-alert-close"
+    >
+      X
+    </div>
+  </div>
+</DocumentFragment>
+`;

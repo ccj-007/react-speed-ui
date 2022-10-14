@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test autoComplete component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-autoComplete"
+  >
+    <div
+      class="speed-input-warp"
+      style="width: 600px;"
+    >
+      <input
+        class="speed-input"
+        data-testid="input"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class=""
+      style="width: 600px;"
+    />
+  </div>
+</DocumentFragment>
+`;

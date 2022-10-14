@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { Anchor } from '../../index';
 import "@testing-library/jest-dom/extend-expect";
 import React from 'react';
@@ -27,21 +27,18 @@ describe('test anchor component', () => {
         key: 3,
       },
     ];
-    const Demo = () => {
-      return (
-        <>
-          <Anchor jumpObj={jumpObj}></Anchor>
-        </>
-      );
-    }
-    const { asFragment } = render(<Demo />)
+    const { asFragment } = render(
+      <>
+        <Anchor jumpObj={jumpObj}></Anchor>
+      </>
+    );
     expect(asFragment()).toMatchSnapshot();
   })
 
-  it('should use speed-ui classNames', () => {
-    const { container } = render(
-      <Anchor ></Anchor>
+  it('use speed-anchor className', () => { 
+    const {container} = render(
+        <Anchor />
     );
     expect(container.firstChild).toHaveClass('speed-anchor')
-  })
-});
+  });
+})
