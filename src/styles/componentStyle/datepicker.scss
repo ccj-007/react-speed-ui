@@ -20,4 +20,13 @@
     top: 50%;
     transform: translateY(-50%);
   }
+
+  &-input {
+    width: 200px;
+    border: none;
+
+    &:hover {
+      border: none;
+    }
+  }
 }

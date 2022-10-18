@@ -1,15 +1,15 @@
-import React from "react";
-import DatePicker from "./DatePicker";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { PageHeader, Container } from "../index";
+import React from 'react';
+import DatePicker from './DatePicker';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { PageHeader, Container } from '../index';
 
 export default {
-  title: "数据录入/DatePicker 日期选择器",
+  title: '数据录入/DatePicker 日期选择器',
   component: DatePicker,
   parameters: {
     docs: {
       description: {
-        component: "### 日期选择器",
+        component: '### 日期选择器',
       },
     },
   },
@@ -18,30 +18,21 @@ export default {
 /**
  * 展示面板
  */
-const defaultDatePickerTpl: ComponentStory<typeof DatePicker> = (args) => {
+const defaultDatePickerTpl: ComponentStory<typeof DatePicker> = args => {
   return (
     <>
-      <Container align='evenly'>
-        <div>
-          <PageHeader title="基本使用" />
-          <DatePicker></DatePicker>
-        </div>
-        <div>
-          <PageHeader title="禁用" />
-          <DatePicker disabled></DatePicker>
-        </div>
-      </Container>
-      <Container align='evenly'>
-        <div>
-          <PageHeader title="范围选择器" />
-          <DatePicker></DatePicker>
-        </div>
-        <div>
-          <PageHeader title="基本使用" />
-          <DatePicker></DatePicker>
-        </div>
-      </Container>
-
+      <div>
+        <PageHeader title='基本使用' />
+        <DatePicker></DatePicker>
+      </div>
+      <div>
+        <PageHeader title='禁用' />
+        <DatePicker disabled></DatePicker>
+      </div>
+      <div>
+        <PageHeader title='范围选择器' />
+        <DatePicker showArea></DatePicker>
+      </div>
     </>
   );
 };
