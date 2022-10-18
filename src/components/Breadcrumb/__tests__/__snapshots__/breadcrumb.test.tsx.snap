@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test badge component basic use should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-breadcrumbItem"
+  >
+    <span
+      class=""
+    >
+      Home
+    </span>
+  </div>
+  <div
+    class="speed-breadcrumbItem"
+  >
+    <span
+      class=""
+    >
+      <a
+        href="https://github.com/ccj-007/react-speed-ui"
+      >
+        Application Center
+      </a>
+    </span>
+  </div>
+  <div
+    class="speed-breadcrumbItem"
+  >
+    <span
+      class=""
+    >
+      <a
+        href="https://github.com/ccj-007/react-speed-ui"
+      >
+        Application List
+      </a>
+    </span>
+  </div>
+  <div
+    class="speed-breadcrumbItem"
+  >
+    <span
+      class=""
+    >
+      An Application
+    </span>
+  </div>
+  <div
+    class="speed-breadcrumb"
+  >
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span
+        style="margin: 0px 10px;"
+      >
+        <span>
+          -&gt;
+        </span>
+      </span>
+      <span
+        class=""
+      >
+        Home
+      </span>
+    </div>
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span
+        style="margin: 0px 10px;"
+      >
+        <span>
+          -&gt;
+        </span>
+      </span>
+      <span
+        class=""
+      >
+        <a
+          href="https://github.com/ccj-007/react-speed-ui"
+        >
+          Application Center
+        </a>
+      </span>
+    </div>
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span
+        style="margin: 0px 10px;"
+      >
+        <span>
+          -&gt;
+        </span>
+      </span>
+      <span
+        class=""
+      >
+        <a
+          href="https://github.com/ccj-007/react-speed-ui"
+        >
+          Application List
+        </a>
+      </span>
+    </div>
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span
+        style="margin: 0px 10px;"
+      >
+        <span>
+          -&gt;
+        </span>
+      </span>
+      <span
+        class=""
+      >
+        An Application
+      </span>
+    </div>
+  </div>
+  <div
+    class="speed-breadcrumb"
+  >
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span
+        style="margin: 0px 10px;"
+      />
+      <span
+        class="speed-breadcrumbItem-disabled"
+      >
+        Home
+      </span>
+    </div>
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span>
+        ---&gt;
+      </span>
+      <span
+        class="speed-breadcrumbItem-disabled"
+      >
+        <a
+          class="speed-breadcrumbItem-disabled"
+          href="javascript:;"
+        >
+          Application Center
+        </a>
+      </span>
+    </div>
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span>
+        -----&gt;
+      </span>
+      <span
+        class="speed-breadcrumbItem-disabled"
+      >
+        <a
+          class="speed-breadcrumbItem-disabled"
+          href="javascript:;"
+        >
+          Application List
+        </a>
+      </span>
+    </div>
+    <div
+      class="speed-breadcrumbItem"
+    >
+      <span>
+        -----&gt;
+      </span>
+      <span
+        class="speed-breadcrumbItem-disabled"
+      >
+        An Application
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

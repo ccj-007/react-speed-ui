@@ -14,6 +14,8 @@ interface OutDateProps { format: string, dateObj: Date, timestamp: number }
 
 interface CalendarCustom {
   day: number
+  month: number
+  year: number
   getNode: () => ReactNode
 }
 export interface CalendarProps {
@@ -159,7 +161,7 @@ const Calendar: FC<CalendarProps> = (props) => {
   const renderCustom = (day: number) => {
     if (customData) {
       let item = customData.find((dayItem: CalendarCustom) => dayItem.day === day)
-      if (item && item.getNode) {
+      if (item && item.getNode && item.month === month && item.year === year) {
         return item.getNode()
       }
     }

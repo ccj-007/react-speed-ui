@@ -20,9 +20,12 @@ export default {
  * 展示面板
  */
 const defaultCalendarTpl: ComponentStory<typeof Calendar> = (args) => {
+  let date = new Date()
   const customData = [
     {
       day: 1,
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
       getNode: () => {
         return <div style={{ display: 'flex' }}>
           <div>吃饭</div>
@@ -32,30 +35,40 @@ const defaultCalendarTpl: ComponentStory<typeof Calendar> = (args) => {
     },
     {
       day: 2,
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
       getNode: () => {
         return <div>睡觉</div>
       }
     },
     {
       day: 3,
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
       getNode: () => {
         return <div>打豆豆</div>
       }
     },
     {
-      day: 4,
+      day: 6,
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
       getNode: () => {
         return <div>学习一天</div>
       }
     },
     {
       day: 15,
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
       getNode: () => {
         return <div>加班</div>
       }
     },
     {
       day: 16,
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
       getNode: () => {
         return <div style={{ display: 'flex' }}>
           <div>摸鱼</div>
