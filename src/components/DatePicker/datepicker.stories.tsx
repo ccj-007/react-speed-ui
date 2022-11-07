@@ -19,6 +19,16 @@ export default {
  * 展示面板
  */
 const defaultDatePickerTpl: ComponentStory<typeof DatePicker> = args => {
+  const startDate = {
+    year: 2022,
+    month: 11,
+    day: 2
+  }
+  const endDate = {
+    year: 2022,
+    month: 11,
+    day: 30
+  }
   return (
     <>
       <div>
@@ -31,7 +41,7 @@ const defaultDatePickerTpl: ComponentStory<typeof DatePicker> = args => {
       </div>
       <div>
         <PageHeader title='范围选择器' />
-        <DatePicker showArea></DatePicker>
+        <DatePicker showArea startDate={startDate} endDate={endDate}></DatePicker>
       </div>
     </>
   );

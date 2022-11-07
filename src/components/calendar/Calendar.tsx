@@ -32,7 +32,7 @@ export interface CalendarProps {
   /** 组件类名 */
   className?: string;
   /** 默认日期 */
-  defaultValue?: number;
+  defaultObj?: LimitDateType;
   /** 默认禁用 */
   disabledDate?: boolean;
   /** mode */
@@ -45,6 +45,8 @@ export interface CalendarProps {
   customData?: CalendarCustom[];
   /** 点击日期的回调 */
   onSelect?: (outDateObj: OutDateProps) => void;
+  /** 点击日期范围内的回调 */
+  onAreaSelect?: (outDateObj: OutDateProps) => void;
   /** 当面板改变的回调 */
   onPanelChange?: (outDateObj: OutDateProps) => void;
 }
@@ -59,23 +61,25 @@ const Calendar: FC<CalendarProps> = props => {
     prefixCls: customizePrefixCls,
     style,
     onSelect,
+    onAreaSelect,
     onPanelChange,
-    defaultValue,
+    defaultObj = { day: 0, year: 0, month: 0 },
     customData: defaultCustom,
     disabledDate = false,
     mode = 'default',
     minDate,
     maxDate,
   } = props;
-  const [year, setYear] = useState(dayjs().year());
-  const [month, setMonth] = useState(dayjs().month() + 1);
+  const [year, setYear] = useState(defaultObj.year || dayjs().year());
+  const [month, setMonth] = useState(defaultObj.month || dayjs().month() + 1);
   const [days, setDays] = useState(dayjs().daysInMonth()); //一个月的天数
-  const [day, setDay] = useState(defaultValue ? defaultValue : dayjs().date());
+  const [day, setDay] = useState(defaultObj.day || dayjs().date());
   const [week, setWeek] = useState(dayjs(`${year}-${month}-1`).day());
   const [prevList, setPrevList] = useState<number[]>([]);
   const [dayList, setDayList] = useState(Array(35).fill(1));
   const [nextList, setNextList] = useState<number[]>([]);
   const [customData, setCustomData] = useState<any>(defaultCustom);
+  const [first, setFirst] = useState<any>(true);
 
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls('calendar', customizePrefixCls);
@@ -151,8 +155,18 @@ const Calendar: FC<CalendarProps> = props => {
   };
 
   useEffect(() => {
-    console.log('day', day);
-    onSelect && onSelect(outDateObj);
+    if (first.current) {
+      first.current = false
+      return
+    } else {
+      console.log('day', day);
+      onSelect && onSelect(outDateObj);
+
+      //根据范围触发
+      if ((minDate && day > minDate.day) || (maxDate && day < maxDate.day)) {
+        onAreaSelect && onAreaSelect(outDateObj)
+      }
+    }
   }, [day]);
 
   useEffect(() => {
