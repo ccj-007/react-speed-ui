@@ -3,19 +3,19 @@ module.exports = {
   plugins: ['@babel/plugin-transform-runtime', '@babel/proposal-class-properties'],
   env: {
     esm: {
-      presets: [
-        [
-          '@babel/env',
-          {
-            modules: false,
-          },
-        ],
-      ],
       plugins: [
         [
           '@babel/plugin-transform-runtime',
           {
             useESModules: true,
+          },
+        ],
+      ],
+      presets: [
+        [
+          '@babel/env',
+          {
+            modules: false,
           },
         ],
       ],

@@ -44,6 +44,12 @@ react-speed-ui
 1. 用于快速搭建**个人应用**📨
 2. 有时候写个**DEMO**，对样式和组件有要求，那么再适合不过了
 
+## 启动 storybook 项目
+
+```sh
+npm run storybook
+```
+
 ## 如何安装
 
 > 使用 npm
@@ -72,13 +78,13 @@ yarn add react-speed-ui
 > 1. 全量引入
 
 ```js
-import { Button } from "react-speed-ui";
-import "react-speed-ui/dist/css/speed.min.css";
+import { Button } from 'react-speed-ui';
+import 'react-speed-ui/dist/css/speed.min.css';
 
 const App: React.FC = () => (
-	<>
-		<Button btnType="danger">danger button</Button>
-	</>
+  <>
+    <Button btnType='danger'>danger button</Button>
+  </>
 );
 
 export default App;
@@ -87,8 +93,8 @@ export default App;
 > 2. 按需引入
 
 ```js
-import { Button } from "react-speed-ui";
-import "react-speed-ui/dist/css/components/button.css";
+import { Button } from 'react-speed-ui';
+import 'react-speed-ui/dist/css/components/button.css';
 ```
 
-> 3. 使用 babel-plugin-import （暂不支持）
+> 3. 使用 babel-plugin-import 自动导入样式和 js 文件

@@ -1,42 +1,43 @@
-@import "../commonStyle/variables.scss";
+@import '../commonStyle/variables.scss';
+@import '../commonStyle/mixin.scss';
 
 .speed-table {
-	&-header {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		background: $gray-100;
-		padding: 20px;
-		border-bottom: 1px solid $gray-200;
-		font-weight: 600;
-		color: #5c5c5c;
-		&-item {
-			flex: 1;
-			@include speed-flex-center;
-		}
-	}
+  &-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background: $gray-100;
+    padding: 20px;
+    border-bottom: 1px solid $gray-200;
+    font-weight: 600;
+    color: #5c5c5c;
+    &-item {
+      flex: 1;
+      @include speed-flex-center;
+    }
+  }
 
-	&-body {
-		&-row {
-			@extend .speed-table-header;
-			background: none;
-			font-weight: normal;
-			color: #000;
-			&-item {
-				flex: 1;
-				@include speed-flex-center;
-			}
-		}
+  &-body {
+    &-row {
+      @extend .speed-table-header;
+      background: none;
+      font-weight: normal;
+      color: #000;
+      &-item {
+        flex: 1;
+        @include speed-flex-center;
+      }
+    }
 
-		&-row:hover {
-			background: rgba(245, 245, 245, 0.561);
-		}
-	}
+    &-row:hover {
+      background: rgba(245, 245, 245, 0.561);
+    }
+  }
 
-	&-page {
-		display: flex;
-		justify-content: flex-end;
-		margin-top: 10px;
-		margin-right: 10px;
-	}
+  &-page {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
 }

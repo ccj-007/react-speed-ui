@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState, ReactNode } from "react";
+import React, { FC, useContext, useState, ReactNode, RefObject, useRef } from "react";
 import { ConfigContext } from "../Config-Provider/ConfigProvider";
 import classNames from "classnames";
 import Icon from "../Icon";
@@ -32,16 +32,12 @@ export interface PanelProps {
 const Panel: FC<PanelProps> = (props) => {
   const { children, className, prefixCls: customizePrefixCls, style, header, keyId, onChange, order, len, keyList } = props;
   const [expand, setExpand] = useState(false);
-
+  const contentRef = useRef() as RefObject<HTMLDivElement>
   React.useEffect(() => {
     if (keyList) {
       let exist = keyList?.some(item => {
         return item === keyId
       })
-      console.log('defaultActiveKey', keyList);
-      console.log('key', keyId);
-
-      console.log("exist", exist);
 
       exist && setExpand(true)
     }
@@ -61,11 +57,10 @@ const Panel: FC<PanelProps> = (props) => {
       <div onClick={expandClick} className={`${prefixCls}-header`} style={{ borderTop: order === 0 ? '1px solid #ddd' : '0px solid #ddd', borderRadius: order === 0 ? '5px 5px 0 0' : order === len && !expand ? '0 0 5px 5px' : '' }}>
         <div>{header}</div>   <Icon icon={solid("angle-right")} size="1x" color="#4c4c4c"></Icon>
       </div>
-
-      <div className={`${prefixCls}-content`} style={{
+      <div className={`${prefixCls}-content`} ref={contentRef} style={{
         borderRadius: order === len ? '0 0 5px 5px' : '',
-        height: expand ? '150px' : '0',
-        borderBottom: expand ? '1px solid #ddd' : '0 solid #ddd'
+        borderBottom: expand ? '1px solid #ddd' : '0 solid #ddd',
+        height: expand ? 'auto' : '0'
       }}>
         <div style={{ padding: '10px' }}>
           {children}

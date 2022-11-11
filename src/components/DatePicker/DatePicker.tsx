@@ -6,7 +6,6 @@ export type LimitDateType = {
   month: number;
   year: number;
 };
-
 export interface DatePickerProps {
   /** 样式命名隔离 */
   prefixCls?: string;
@@ -31,8 +30,6 @@ export interface DatePickerProps {
   /** 改变的回调 */
   onChange?: (val: any) => void;
 }
-
-
 
 /**
  * DatePicker 日期选择器
