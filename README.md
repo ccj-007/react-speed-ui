@@ -105,7 +105,8 @@ require('react-speed-ui/dist/css/components/button.css');
 
 > 3. 自动化按需导入
 
-- 原目录结构无法实现 babel-import-plugin 的插件自动导入，所以自己手动封装了 babel 插件来实现适合本组件库的按需导入 js、css，同时也具备了扩展性。
+- 原目录结构无法实现 babel-import-plugin 的插件自动导入，所以自己手动封装了 babel 插件来实现适合本组件库的按需导入 js、css，同时也具备了扩展性。虽然 es
+  6 的静态编译带来了 tree-sharking 的摇钱树优化，对 css 文件是无法实现的，在 js 中一些异常的对象变量的引用传入函数中、类的语法在 babel 中的转化也会导致副作用的生成，不能使组件被完全优化。
 
 ```js
 import { Button } from 'react-speed-ui';
@@ -126,7 +127,7 @@ git clone git@github.com:ccj-007/babel-plugin-idea.git
 cd ./import-plugin/plugin/plugin.js
 ```
 
-将此文件夹在 babel.config.js 配置如下：
+将此文件拷贝到你的项目中并新建 babel.config.js 配置如下：
 
 ```json
 module.exports = {
