@@ -1,11 +1,9 @@
 <p align="center">
 <img src="https://cdn.lijinke.cn/logo.png" width="100"/>
 </p>
-
 <h1 align="center">
 react-speed-ui
 </h1>
-
 <h4 align="center">
  极速组件库 : 速度不差、体积小巧、追求新技术的组件库
 </h4>
@@ -36,7 +34,6 @@ react-speed-ui
 - 支持按需加载 🎉
 - storybook + vite 构建文档 👍
 - gulp 打包组件库 👍
-- 支持国际化 👍
 - 命令行直接生成**组件开发模板**
 
 ## 使用场景：
@@ -68,7 +65,7 @@ yarn add react-speed-ui
 
 ```js
 <link rel="stylesheet" href="./node_modules/react-speed-ui/dist/css/speed.min.css">
-<script type="text/javascript" src="./node_modules/react-speed-ui/dist/lib/speed.js"></script>
+<script type="text/javascript" src="./node_modules/react-speed-ui/dist/lib/speed.min.js"></script>
 ```
 
 > 使用 CDN (目前暂不支持)
@@ -90,11 +87,61 @@ const App: React.FC = () => (
 export default App;
 ```
 
-> 2. 按需引入
+> 2.  按需引入
+
+- esm 导入
 
 ```js
-import { Button } from 'react-speed-ui';
+import Button from 'react-speed-ui/dist/esm/components/Button';
 import 'react-speed-ui/dist/css/components/button.css';
 ```
 
-> 3. 使用 babel-plugin-import 自动导入样式和 js 文件
+- cjs 导入
+
+```js
+const Button = require('react-speed-ui/dist/lib/components/Button').default;
+require('react-speed-ui/dist/css/components/button.css');
+```
+
+> 3. 自动化按需导入
+
+- 原目录结构无法实现 babel-import-plugin 的插件自动导入，所以自己手动封装了 babel 插件来实现适合本组件库的按需导入 js、css，同时也具备了扩展性。
+
+```js
+import { Button } from 'react-speed-ui';
+ReactDOM.render(<Button>xxxx</Button>);
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import Button from 'react-speed-ui/dist/esm/components/Button';
+import 'react-speed-ui/dist/css/components/button.css';
+ReactDOM.render(<Button>xxxx</Button>);
+```
+
+### 如何配置（目前暂时未发布到 npm）
+
+```shell
+git clone git@github.com:ccj-007/babel-plugin-idea.git
+
+cd ./import-plugin/plugin/plugin.js
+```
+
+将此文件夹在 babel.config.js 配置如下：
+
+```json
+module.exports = {
+  "plugins": [
+  [
+    require('../babel-preset-import-plugin'),
+    {
+      "libName": "react-speed-ui",  //组件库名
+      "stylePath": "dist/css/components", //样式路径
+      "styleOneLower": true,  //样式文件首字母是否大写
+      "componentPath": "dist/lib/components", //组件文件路径
+    },
+  ],
+];
+}
+```
+
+在 create-react-app 配置需`npm run eject`, 然后在 webpack.config.js 配置 babel-loader，传入对应的 plugins 配置，某些情况下模块解析失败，注意默认配置了缓存，可以关闭 cacheDirectory 或在 node_modules 下.cache 手动删除缓存即可恢复。

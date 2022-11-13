@@ -84,6 +84,3 @@ function copyDir (srcDir, desDir) {
 }
 
 copyDir(templatePath, toPath)
-
-
-
