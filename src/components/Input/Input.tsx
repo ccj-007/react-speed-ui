@@ -30,6 +30,8 @@ export interface InputProps {
   inputStyle?: React.CSSProperties;
   /** 初始值input */
   value?: string;
+  /** 默认icon */
+  isDefaultIcon?: React.ReactNode;
   /** 自定义默认图标 */
   icon: React.ReactNode;
   /** 展示默认图标 */
@@ -38,6 +40,8 @@ export interface InputProps {
   closeIcon: React.ReactNode;
   /** 展示关闭图标 */
   showCloseIcon: boolean;
+  /** hover图标的颜色 */
+  hoverColor?: string;
   /** 失去焦点需要清除value */
   blurClear: boolean;
   /** 改变的回调 */
@@ -74,12 +78,14 @@ const Input: React.FC<allInputProps> = props => {
     blurClear = false,
     showIcon = false,
     showCloseIcon = false,
+    hoverColor,
     icon,
     closeIcon,
     style,
     inputStyle,
     inputClassName,
     autoFocus = false,
+    isDefaultIcon,
     value: defaultVal,
     onChange,
     onClear,
@@ -107,7 +113,7 @@ const Input: React.FC<allInputProps> = props => {
   };
 
   const handleClear = () => {
-    onClear && onClear()
+    onClear && onClear();
     value && setValue('');
     inputRef.current && inputRef.current.focus();
   };
@@ -119,21 +125,25 @@ const Input: React.FC<allInputProps> = props => {
   });
 
   useEffect(() => {
-    setValue(defaultVal)
+    setValue(defaultVal);
   }, [defaultVal]);
 
   const renderIcon = () => {
     if (showIcon && !showCloseIcon) {
       return (
-        <div className={`${prefixCls}-icon`} >
-          {icon ? icon : <Icon icon={solid('angle-down')} size='1x' color='#4c4c4c'></Icon>}
+        <div className={`${prefixCls}-icon`}>
+          {icon ? icon : <Icon icon={solid('angle-down')} size='1x' color='#4c4c4c' hoverColor={hoverColor}></Icon>}
         </div>
       );
     }
     if (!showIcon && showCloseIcon) {
       return (
         <div className={`${prefixCls}-icon`} onClick={handleClear}>
-          {closeIcon ? closeIcon : <Icon icon={solid('circle-xmark')} size='1x' color='#4c4c4c'></Icon>}
+          {closeIcon ? (
+            closeIcon
+          ) : (
+            <Icon icon={solid('circle-xmark')} size='1x' color='#4c4c4c' hoverColor={hoverColor}></Icon>
+          )}
         </div>
       );
     }
@@ -152,7 +162,7 @@ const Input: React.FC<allInputProps> = props => {
         disabled={disabled}
         {...restProps}
       ></input>
-      {value && renderIcon()}
+      {(value || isDefaultIcon) && renderIcon()}
       {suffix ? <div className={`${prefixCls}-suffix`}>{suffix}</div> : ''}
     </div>
   );
@@ -169,6 +179,6 @@ Input.defaultProps = {
   autoFocus: false,
 };
 
-Input.displayName = 'Input'
+Input.displayName = 'Input';
 
 export default Input;

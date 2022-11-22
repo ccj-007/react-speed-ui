@@ -48,23 +48,14 @@
     transform: translateY(-50%);
   }
 
+  &-warp {
+    position: relative;
+    display: flex;
+    width: 300px;
+    height: 36px;
+  }
 }
 
 ::-webkit-input-placeholder {
   color: #ccc;
-}
-
-.speed-input-warp {
-  position: relative;
-  display: flex;
-  width: 300px;
-  height: 36px;
-}
-
-.fa-circle-xmark:hover {
-  color: #31c27c;
-}
-
-.fa-angle-down:hover {
-  color: #31c27c;
 }

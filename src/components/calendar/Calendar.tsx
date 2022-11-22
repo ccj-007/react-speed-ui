@@ -156,15 +156,15 @@ const Calendar: FC<CalendarProps> = props => {
 
   useEffect(() => {
     if (first.current) {
-      first.current = false
-      return
+      first.current = false;
+      return;
     } else {
       console.log('day', day);
       onSelect && onSelect(outDateObj);
 
       //根据范围触发
       if ((minDate && day > minDate.day) || (maxDate && day < maxDate.day)) {
-        onAreaSelect && onAreaSelect(outDateObj)
+        onAreaSelect && onAreaSelect(outDateObj);
       }
     }
   }, [day]);

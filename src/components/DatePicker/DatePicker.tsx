@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState, ReactNode, useRef } from 'react';
 import { ConfigContext } from '../Config-Provider/ConfigProvider';
-import DatePickerItem from "./DatePickerItem";
+import DatePickerItem from './DatePickerItem';
 export type LimitDateType = {
   day: number;
   month: number;
@@ -25,8 +25,14 @@ export interface DatePickerProps {
   startDate?: LimitDateType;
   /** 结束日期 */
   endDate?: LimitDateType;
+  /** input宽度 */
+  width?: Number;
   /** 是否展示范围 */
   showArea?: boolean;
+  /** 左侧input自定义icon */
+  leftCustomIcon?: React.ReactNode;
+  /** 右侧input自定义icon */
+  rightCustomIcon?: React.ReactNode;
   /** 改变的回调 */
   onChange?: (val: any) => void;
 }
@@ -46,7 +52,10 @@ const DatePicker: FC<DatePickerProps> = props => {
     disabled = false,
     showArea = false,
     startDate,
+    width = 200,
     endDate,
+    leftCustomIcon,
+    rightCustomIcon,
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   let prefixCls = getPrefixCls('datePicker', customizePrefixCls);
@@ -70,31 +79,53 @@ const DatePicker: FC<DatePickerProps> = props => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <DatePickerItem
-        disabled={disabled}
-        visible={visible}
-        maxDate={maxDate}
-        handleMinDate={handleMinDate}
-        onChange={onChange}
-        defaultValue={defaultValue}
-        prefixCls={prefixCls}
-        className={className}
-      ></DatePickerItem>
-      {showArea && (
+      {showArea ? (
+        <>
+          <DatePickerItem
+            disabled={disabled}
+            visible={visible}
+            maxDate={maxDate}
+            handleMinDate={handleMinDate}
+            onChange={onChange}
+            defaultValue={defaultValue}
+            prefixCls={prefixCls}
+            className={className}
+            customIcon={leftCustomIcon}
+            position='left'
+            width={width}
+            showArea={showArea}
+          ></DatePickerItem>
+          <DatePickerItem
+            width={width}
+            disabled={disabled}
+            visible={visible}
+            minDate={minDate}
+            handleMaxDate={handleMaxDate}
+            onChange={onChange}
+            defaultValue={defaultValue}
+            prefixCls={prefixCls}
+            className={className}
+            customIcon={rightCustomIcon}
+            position='right'
+            showArea={showArea}
+          ></DatePickerItem>
+        </>
+      ) : (
         <DatePickerItem
           disabled={disabled}
           visible={visible}
-          minDate={minDate}
-          handleMaxDate={handleMaxDate}
           onChange={onChange}
           defaultValue={defaultValue}
           prefixCls={prefixCls}
           className={className}
+          customIcon={leftCustomIcon}
+          position='left'
+          width={width}
+          showArea={false}
         ></DatePickerItem>
       )}
     </div>
   );
 };
-
 
 export default DatePicker;

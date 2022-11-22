@@ -6,7 +6,8 @@
   &-options {
     position: absolute;
     top: 50px;
-    z-index: 1000;
+    left: 0;
+    z-index: 999999;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -19,14 +20,5 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-  }
-
-  &-input {
-    width: 200px;
-    border: none;
-
-    &:hover {
-      border: none;
-    }
   }
 }

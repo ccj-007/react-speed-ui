@@ -1,5 +1,4 @@
 // .storybook/preview.js
-
 import '../src/styles/index.scss';
 
 export const parameters = {
