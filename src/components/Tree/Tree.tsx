@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import React, { FC, useContext, useState, ReactNode, ChangeEvent } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
-import { DataNode } from "./type";
-import Icon from "../Icon";
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-import { css } from '@emotion/react'
+import React, { FC, useContext, useState, ReactNode, ChangeEvent } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
+import { DataNode } from './type';
+import Icon from '../Icon';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { css } from '@emotion/react';
 
 export interface TreeProps {
   /** 样式命名隔离 */
@@ -37,122 +37,146 @@ export interface TreeProps {
 /**
  * Tree 树形控件
  */
-const Tree: FC<TreeProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, treeData, itemClass, disabled, onExpand, defaultExpandAll, showCheckBox, onCheck, onClick } = props;
+const Tree: FC<TreeProps> = props => {
+  const {
+    children,
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    treeData,
+    itemClass,
+    disabled,
+    onExpand,
+    defaultExpandAll,
+    showCheckBox,
+    onCheck,
+    onClick,
+  } = props;
   const [treeState, setTreeState] = useState(treeData);
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("tree", customizePrefixCls);
+  let prefixCls = getPrefixCls('tree', customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {});
 
   const itemCls = classNames(`${prefixCls}-item`, itemClass, {
-    [`${prefixCls}-disabled`]: disabled
+    [`${prefixCls}-disabled`]: disabled,
   });
 
   const handleTreeExpand = (tree: DataNode) => {
-    if (disabled) return
-    let cloneTree = JSON.parse(JSON.stringify(treeState))
+    if (disabled) return;
+    let cloneTree = JSON.parse(JSON.stringify(treeState));
 
     function findTreeExpand(cloneTree: any[]) {
       cloneTree.forEach((item: any, index: number) => {
         if (item.key === tree.key) {
-          item.expand = !item.expand
+          item.expand = !item.expand;
           console.log(item.expand);
-          onExpand && onExpand(item)
+          onExpand && onExpand(item);
         }
         if (item.children) {
-          findTreeExpand(item.children)
+          findTreeExpand(item.children);
         }
-      })
+      });
     }
-    findTreeExpand(cloneTree)
-    setTreeState(cloneTree)
-  }
+    findTreeExpand(cloneTree);
+    setTreeState(cloneTree);
+  };
 
   const handleDefaultAllExpand = (status: boolean) => {
-    let cloneTree = JSON.parse(JSON.stringify(treeState))
+    let cloneTree = JSON.parse(JSON.stringify(treeState));
     function findTreeExpand(cloneTree: any[]) {
       cloneTree.forEach((item: any) => {
-        item.expand = status
+        item.expand = status;
         if (item.children) {
-          findTreeExpand(item.children)
+          findTreeExpand(item.children);
         }
-      })
+      });
     }
-    findTreeExpand(cloneTree)
-    setTreeState(cloneTree)
-  }
+    findTreeExpand(cloneTree);
+    setTreeState(cloneTree);
+  };
 
   const onChangeCheckTreeNode = (e: ChangeEvent<HTMLInputElement>, child: DataNode) => {
-    onCheck && onCheck(child)
-  }
+    onCheck && onCheck(child);
+  };
 
   const clickTreeNode = (child: DataNode) => {
-    onClick && onClick(child)
-  }
+    onClick && onClick(child);
+  };
 
   React.useEffect(() => {
     if (defaultExpandAll) {
-      handleDefaultAllExpand(true)
+      handleDefaultAllExpand(true);
     }
-  }, [])
+  }, []);
 
   const renderTreeItem = (child: DataNode) => {
     return (
       //@ts-ignore
-      <div style={{ paddingLeft: `${child.key.length * 5 + 'px'}` }} key={child.key} className={itemCls} onClick={(child) => clickTreeNode(child)}>
+      <div
+        style={{ paddingLeft: `${(Array.isArray(child.key) ? child.key.length * 5 : 0) + 'px'}` }}
+        key={child.key}
+        className={itemCls}
+        onClick={() => clickTreeNode(child)}
+      >
         {/* tree content */}
-        <Icon icon={solid('angle-right')} size='1x' onClick={() => handleTreeExpand(child)} color='#4c4c4c' className={`${prefixCls}-icon`} css={css`
-      transform: ${child.expand ? 'rotate(90deg)' : ''};
-      transition: all .2s linear;
-    `}></Icon>
-        {showCheckBox && <input type='checkbox' onChange={(e) => onChangeCheckTreeNode(e, child)} className={`${prefixCls}-check`}></input>}
-        {child.title}</div>
-    )
-  }
+        <Icon
+          icon={solid('angle-right')}
+          size='1x'
+          onClick={() => handleTreeExpand(child)}
+          color='#4c4c4c'
+          className={`${prefixCls}-icon`}
+          css={css`
+            transform: ${child.expand ? 'rotate(90deg)' : ''};
+            transition: all 0.2s linear;
+          `}
+        ></Icon>
+        {showCheckBox && (
+          <input
+            type='checkbox'
+            onChange={e => onChangeCheckTreeNode(e, child)}
+            className={`${prefixCls}-check`}
+          ></input>
+        )}
+        {child.title}
+      </div>
+    );
+  };
   const renderTree = (parent: DataNode) => {
     return (
-      parent.children && parent.children.map((child: DataNode) => {
+      parent.children &&
+      parent.children.map((child: DataNode) => {
         return (
-          <div >
-            {
-              renderTreeItem(child)
-            }
-            {
-              child.expand && renderTree(child)
-            }
+          <div>
+            {renderTreeItem(child)}
+            {child.expand && renderTree(child)}
           </div>
-        )
+        );
       })
-    )
-  }
+    );
+  };
 
   return (
     <div className={cls} style={style}>
-      < >
-        {
-          treeState && treeState.map((tree) => {
+      <>
+        {treeState &&
+          treeState.map(tree => {
             return (
               <>
-                {
-                  renderTreeItem(tree)
-                }
-                {
-                  tree.expand && renderTree(tree)
-                }
+                {renderTreeItem(tree)}
+                {tree.expand && renderTree(tree)}
               </>
-            )
-          })
-        }
+            );
+          })}
       </>
-    </div >
+    </div>
   );
 };
 
 Tree.defaultProps = {
   disabled: false,
-  showCheckBox: false
+  showCheckBox: false,
 };
 
 export default Tree;

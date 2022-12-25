@@ -1,6 +1,9 @@
+/// <reference types="@emotion/react/types/css-prop" />
+/** @jsxImportSource @emotion/react */
 import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes, useContext } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import { ThemeProvider, useTheme } from '@emotion/react';
 
 //先明确需求，定义类型
 export type ButtonSize = 'lg' | 'sm';
@@ -19,22 +22,38 @@ interface BaseButtonProps {
   btnType?: ButtonType;
   children?: React.ReactNode;
   href?: string;
-  htmlType?: string
+  htmlType?: string;
 }
 
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 // a 链接属性
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
-export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
+// function ButtonTheme(props: any) {
+//   const theme = useTheme();
+//   //@ts-ignore
+//   return <div css={{ color: theme.color }} {...props} />;
+// }
 /**
  * Button  按钮组件
  */
 const Button: FC<ButtonProps> = props => {
-  const { className, size, disabled, btnType = 'primary', prefixCls: customizePrefixCls, children, href, htmlType, ...restProps } = props;
+  const {
+    className,
+    size,
+    disabled,
+    btnType = 'primary',
+    prefixCls: customizePrefixCls,
+    children,
+    href,
+    htmlType,
+    ...restProps
+  } = props;
 
   const configInfo = useContext(ConfigContext);
-  let prefixCls = configInfo.getPrefixCls("button", customizePrefixCls);
+  let theme = configInfo.isOpenEmotion ? configInfo.emotionTheme.Button : {};
+  let prefixCls = configInfo.getPrefixCls('button', customizePrefixCls);
 
   const classes = classNames(prefixCls, className, {
     [`${prefixCls}-${btnType}`]: btnType,
@@ -51,25 +70,34 @@ const Button: FC<ButtonProps> = props => {
     };
   }
 
-  if (btnType === 'link' && href) {
-    return (
-      <a data-testid='button' className={classes} href={href} {...restProps}>
-        {children}
-      </a>
-    );
-  } else {
-    return (
-      <button data-testid='button' disabled={disabled} style={themeStyles} className={classes}  {...restProps} >
-        {children}
-      </button>
-    );
-  }
+  return (
+    <ThemeProvider theme={theme}>
+      {btnType === 'link' && href ? (
+        <a data-testid='button' className={classes} href={href} {...restProps}>
+          {children}
+        </a>
+      ) : (
+        <button
+          data-testid='button'
+          disabled={disabled}
+          style={themeStyles}
+          className={classes}
+          {...restProps}
+          css={(theme: any) => ({
+            ...theme.button,
+          })}
+        >
+          {children}
+        </button>
+      )}
+    </ThemeProvider>
+  );
 };
 
 Button.defaultProps = {
   btnType: 'primary',
 };
 
-Button.displayName = 'Button'
+Button.displayName = 'Button';
 
 export default Button;

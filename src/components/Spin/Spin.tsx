@@ -1,9 +1,9 @@
-import React, { FC, useContext, useState, ReactNode, useEffect } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
-import Icon from "../Icon";
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { SizeProp } from "@fortawesome/fontawesome-svg-core";
+import React, { FC, useContext, useState, ReactNode, useEffect } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
+import Icon from '../Icon';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 export interface SpinProps {
   /** 样式命名隔离 */
@@ -31,26 +31,16 @@ export interface SpinProps {
 /**
  * Spin 加载中的状态
  */
-const Spin: FC<SpinProps> = (props) => {
-  const {
-    children,
-    className,
-    prefixCls: customizePrefixCls,
-    style,
-    iconJSX,
-    spinning,
-    tip,
-    size,
-    delay,
-  } = props;
+const Spin: FC<SpinProps> = props => {
+  const { children, className, prefixCls: customizePrefixCls, style, iconJSX, spinning, tip, size, delay } = props;
   const [state, setState] = useState(null);
   const { getPrefixCls, themeOptions } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("spin", customizePrefixCls);
+  let prefixCls = getPrefixCls('spin', customizePrefixCls);
   const cls = classNames(prefixCls, className, {});
   const [spinnings, setSpinnings] = useState(spinning);
 
   const spinCls = classNames({
-    "fa-spin": spinnings,
+    'fa-spin': spinnings,
   });
 
   useEffect(() => {
@@ -67,9 +57,9 @@ const Spin: FC<SpinProps> = (props) => {
         iconJSX
       ) : (
         <Icon
-          icon={solid("spinner")}
+          icon={solid('spinner')}
           size={size}
-          color="blue"
+          color='blue'
           // className="fa-spin"
           className={spinCls}
         ></Icon>
@@ -81,7 +71,7 @@ const Spin: FC<SpinProps> = (props) => {
 
 Spin.defaultProps = {
   spinning: true,
-  size: "1x",
+  size: '1x',
 };
 
 export default Spin;

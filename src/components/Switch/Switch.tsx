@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import React, { FC, useContext, useState, ReactNode } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
-import { css } from "@emotion/react";
+import React, { FC, useContext, useState, ReactNode } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
+import { css } from '@emotion/react';
 
 export interface SwitchProps {
   /** 样式命名隔离 */
@@ -22,27 +22,18 @@ export interface SwitchProps {
   /** 点击时的回调 */
   onClick?: () => void;
   /** size */
-  size?: "small" | "default";
+  size?: 'small' | 'default';
 }
 
 /**
  * Switch 组件模板
  */
-const Switch: FC<SwitchProps> = (props) => {
-  const {
-    className,
-    prefixCls: customizePrefixCls,
-    style,
-    checked,
-    disabled,
-    onChange,
-    onClick,
-    size,
-  } = props;
+const Switch: FC<SwitchProps> = props => {
+  const { className, prefixCls: customizePrefixCls, style, checked, disabled, onChange, onClick, size } = props;
   const [toggle, setToggle] = useState(checked);
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("switch", customizePrefixCls);
+  let prefixCls = getPrefixCls('switch', customizePrefixCls);
 
   const warpCls = classNames(prefixCls, className, {
     [`${prefixCls}-bg-active`]: toggle,
@@ -58,10 +49,10 @@ const Switch: FC<SwitchProps> = (props) => {
   });
 
   const handleWarpCls = () => {
-    return size === "small" ? smallWarpCls : warpCls;
+    return size === 'small' ? smallWarpCls : warpCls;
   };
   const handleCls = () => {
-    return size === "small" ? smallCirCls : cirCls;
+    return size === 'small' ? smallCirCls : cirCls;
   };
 
   React.useEffect(() => {
@@ -79,15 +70,15 @@ const Switch: FC<SwitchProps> = (props) => {
       className={handleWarpCls()}
       style={style}
       css={css`
-				cursor: ${disabled ? "not-allowed !important" : ""};
-			`}
+        cursor: ${disabled ? 'not-allowed !important' : ''};
+      `}
     >
       <div
         className={handleCls()}
         onClick={handleSwitch}
         css={css`
-					cursor: ${disabled ? "not-allowed !important" : ""};
-				`}
+          cursor: ${disabled ? 'not-allowed !important' : ''};
+        `}
       ></div>
     </div>
   );
@@ -95,7 +86,7 @@ const Switch: FC<SwitchProps> = (props) => {
 
 Switch.defaultProps = {
   checked: false,
-  size: "default",
+  size: 'default',
   disabled: false,
 };
 

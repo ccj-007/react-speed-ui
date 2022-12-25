@@ -1,18 +1,18 @@
-import React from "react";
-import Typography from "./index";
-import { TextPartProps } from "./Text";
-import { TitleProps } from "./Title";
-import PageHeader from "../PageHeader";
+import React from 'react';
+import Typography from './index';
+import { TextPartProps } from './Text';
+import { TitleProps } from './Title';
+import PageHeader from '../PageHeader';
 
 const { Title, Text } = Typography;
 
 export default {
-  title: "通用/Typography 文本",
+  title: '通用/Typography 文本',
   component: Typography,
   parameters: {
     docs: {
       description: {
-        component: "### 文本包裹器",
+        component: '### 文本包裹器',
       },
     },
   },
@@ -43,14 +43,12 @@ const textTpl = (args: TextPartProps) => {
   return (
     <>
       <PageHeader title='文本样式'></PageHeader>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-
-
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Text type={type}>Speed UI</Text>
-        <Text type={"danger"}>Speed UI</Text>
-        <Text type={"success"}>Speed UI</Text>
-        <Text type={"secondary"}>Speed UI</Text>
-        <Text type={"warning"}>Speed UI</Text>
+        <Text type={'danger'}>Speed UI</Text>
+        <Text type={'success'}>Speed UI</Text>
+        <Text type={'secondary'}>Speed UI</Text>
+        <Text type={'warning'}>Speed UI</Text>
         <Text disabled>Speed UI</Text>
         <Text keyboard>Speed UI</Text>
         <Text code>Speed UI</Text>
@@ -58,7 +56,7 @@ const textTpl = (args: TextPartProps) => {
         <Text underline>Speed UI</Text>
         <Text strong>Speed UI</Text>
         <Text italic>Speed UI</Text>
-        <Text href="https://ant.design" target="_blank">
+        <Text href='https://ant.design' target='_blank'>
           Speed UI Link
         </Text>
       </div>
@@ -69,7 +67,7 @@ const textTpl = (args: TextPartProps) => {
 export const textTypography: any = textTpl.bind({});
 textTypography.argTypes = {
   type: {
-    options: ["default", "secondary", "success", "danger", "warning"],
-    control: { type: "radio" },
+    options: ['default', 'secondary', 'success', 'danger', 'warning'],
+    control: { type: 'radio' },
   },
 };

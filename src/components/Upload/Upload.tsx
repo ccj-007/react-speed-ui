@@ -1,10 +1,10 @@
-import React, { ChangeEvent } from "react";
-import axios from "axios";
-import Button from "../Button/Button";
-import UploadList from "./UploadList";
-import Dragger from "./dragger";
+import React, { ChangeEvent } from 'react';
+import axios from 'axios';
+import Button from '../Button/Button';
+import UploadList from './UploadList';
+import Dragger from './dragger';
 
-export type UploadFileStatus = "ready" | "uploading" | "success" | "error";
+export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error';
 export interface UploadFile {
   uid: string;
   size: number;
@@ -53,7 +53,7 @@ export interface UploadProps {
 /**
  * Upload  文件上传组件
  */
-const Upload: React.FC<UploadProps> = (props) => {
+const Upload: React.FC<UploadProps> = props => {
   const {
     action,
     onProgress,
@@ -72,17 +72,12 @@ const Upload: React.FC<UploadProps> = (props) => {
     children,
     drag,
   } = props;
-  const [fileList, setFileList] = React.useState<UploadFile[]>(
-    defaultFileList || []
-  );
+  const [fileList, setFileList] = React.useState<UploadFile[]>(defaultFileList || []);
   const fileInput = React.useRef<HTMLInputElement>(null);
 
-  const updateFileList = (
-    updateFile: UploadFile,
-    updateObj: Partial<UploadFile>
-  ) => {
-    setFileList((prevList) => {
-      return prevList.map((file) => {
+  const updateFileList = (updateFile: UploadFile, updateObj: Partial<UploadFile>) => {
+    setFileList(prevList => {
+      return prevList.map(file => {
         if (file.uid === updateFile.uid) {
           return { ...file, ...updateObj };
         } else {
@@ -103,7 +98,7 @@ const Upload: React.FC<UploadProps> = (props) => {
     if (!files) return;
     uploadFiles(files);
     if (fileInput.current) {
-      fileInput.current.value = "";
+      fileInput.current.value = '';
     }
   };
 
@@ -111,13 +106,13 @@ const Upload: React.FC<UploadProps> = (props) => {
   const uploadFiles = (files: FileList) => {
     const postFiles = Array.from(files);
 
-    postFiles.forEach((file) => {
+    postFiles.forEach(file => {
       if (!beforeUpload) {
         post(file);
       } else {
         const result = beforeUpload(file);
         if (result && result instanceof Promise) {
-          result.then((processedFile) => {
+          result.then(processedFile => {
             post(processedFile);
           });
         } else if (result !== false) {
@@ -129,24 +124,24 @@ const Upload: React.FC<UploadProps> = (props) => {
 
   const post = (file: File) => {
     let _file: UploadFile = {
-      uid: Date.now() + "upload-file",
-      status: "ready",
+      uid: Date.now() + 'upload-file',
+      status: 'ready',
       name: file.name,
       size: file.size,
       percent: 0,
       raw: file,
     };
     //setFileList([_file, ...fileList])
-    setFileList((prevList) => {
+    setFileList(prevList => {
       return [_file, ...prevList];
     });
 
     const formData = new FormData();
-    formData.append(name || "file", file);
+    formData.append(name || 'file', file);
 
     //传入用户自定义上传文件的data参数
     if (data) {
-      Object.keys(data).forEach((key) => {
+      Object.keys(data).forEach(key => {
         formData.append(key, data[key]);
       });
     }
@@ -155,29 +150,29 @@ const Upload: React.FC<UploadProps> = (props) => {
       .post(action, formData, {
         headers: {
           ...headers,
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
         withCredentials,
-        onUploadProgress: (e) => {
+        onUploadProgress: e => {
           let percentage = Math.round((e.loaded * 100) / e.total || 0);
           if (percentage < 100) {
-            updateFileList(_file, { percent: percentage, status: "uploading" });
+            updateFileList(_file, { percent: percentage, status: 'uploading' });
 
             onProgress && onProgress(percentage, file);
           }
         },
       })
-      .then((res) => {
+      .then(res => {
         console.log(res);
-        updateFileList(_file, { status: "success", response: res.data });
+        updateFileList(_file, { status: 'success', response: res.data });
         onSuccess && onSuccess(res.data, file);
         if (onChange) {
           onChange(file);
         }
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
-        updateFileList(_file, { status: "error", error: err });
+        updateFileList(_file, { status: 'error', error: err });
         onError && onError(err, file);
         if (onChange) {
           onChange(file);
@@ -187,39 +182,35 @@ const Upload: React.FC<UploadProps> = (props) => {
 
   //移除列表中的一项
   const handleRemove = (file: UploadFile) => {
-    console.log("开始清除");
+    console.log('开始清除');
 
-    setFileList((prevList) => {
-      return prevList.filter((item) => item.uid !== file.uid);
+    setFileList(prevList => {
+      return prevList.filter(item => item.uid !== file.uid);
     });
     if (onRemove) {
       onRemove(file);
     }
   };
   return (
-    <div className="viking-upload-component">
-      <div
-        className="viking-upload-input"
-        style={{ display: "inline-block" }}
-        onClick={handleClick}
-      >
+    <div className='viking-upload-component'>
+      <div className='viking-upload-input' style={{ display: 'inline-block' }} onClick={handleClick}>
         {drag ? (
           <Dragger
-            onFile={(files) => {
+            onFile={files => {
               uploadFiles(files);
             }}
           >
             {children}
           </Dragger>
         ) : (
-          <Button onClick={handleClick}>{children || "Upload File"}</Button>
+          <Button onClick={handleClick}>{children || 'Upload File'}</Button>
         )}
         <input
-          type="file"
+          type='file'
           ref={fileInput}
           onChange={handleFileChange}
-          style={{ display: "none" }}
-          className="viking-file-input"
+          style={{ display: 'none' }}
+          className='viking-file-input'
           accept={accept}
           multiple={multiple}
         />
@@ -231,7 +222,7 @@ const Upload: React.FC<UploadProps> = (props) => {
 };
 
 Upload.defaultProps = {
-  name: "file",
+  name: 'file',
 };
 
 export default Upload;

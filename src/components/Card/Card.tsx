@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import React, { FC, useContext, useState, ReactNode } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
-import { css } from '@emotion/react'
+import React, { FC, useContext, useState, ReactNode } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
+import { css } from '@emotion/react';
 
 export interface CardProps {
   /** 样式命名隔离 */
@@ -32,25 +32,42 @@ export interface CardProps {
 /**
  * Card 组件模板
  */
-const Card: FC<CardProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, showFooter, showHeader, showContent, headerTitle, footerTitle, headerRightContent, float } = props;
+const Card: FC<CardProps> = props => {
+  const {
+    children,
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    showFooter,
+    showHeader,
+    showContent,
+    headerTitle,
+    footerTitle,
+    headerRightContent,
+    float,
+  } = props;
   const [state, setState] = useState(null);
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("card", customizePrefixCls);
+  let prefixCls = getPrefixCls('card', customizePrefixCls);
 
   const cls = classNames(prefixCls, className);
   return (
-    <div className={cls} style={style} css={css`
+    <div
+      className={cls}
+      style={style}
+      css={css`
         &:hover {
-          box-shadow: ${float ? '0 0 20px -5px' : ''
-      };
-        transition: all .5s linear;
+          box-shadow: ${float ? '0 0 20px -5px' : ''};
+          transition: all 0.5s linear;
         }
-`}>
-      {showHeader && <div className={`${prefixCls}-header`}><div>{headerTitle}</div> {
-        headerRightContent && <div>{headerRightContent}</div>
-      }</div>}
+      `}
+    >
+      {showHeader && (
+        <div className={`${prefixCls}-header`}>
+          <div>{headerTitle}</div> {headerRightContent && <div>{headerRightContent}</div>}
+        </div>
+      )}
       {showContent && <div className={`${prefixCls}-content`}>{children}</div>}
       {showFooter && <div className={`${prefixCls}-footer`}>{footerTitle}</div>}
     </div>
@@ -63,7 +80,7 @@ Card.defaultProps = {
   showContent: true,
   headerTitle: 'default header title',
   footerTitle: 'default footer title',
-  float: false
+  float: false,
 };
 
 export default Card;

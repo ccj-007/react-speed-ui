@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import React, { FC, useContext, useState, ReactNode } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
-import Icon from "../Icon";
-import { css } from "@emotion/react";
-import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import React, { FC, useContext, useState, ReactNode } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
+import Icon from '../Icon';
+import { css } from '@emotion/react';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export interface TagProps {
   /** 样式命名隔离 */
@@ -38,7 +38,7 @@ export interface TagProps {
 /**
  * Tag 组件模板
  */
-const Tag: FC<TagProps> = (props) => {
+const Tag: FC<TagProps> = props => {
   const {
     children,
     className,
@@ -48,9 +48,9 @@ const Tag: FC<TagProps> = (props) => {
     iconJSX,
     onClose,
     onChange,
-    color = "#000",
-    bgColor = "#eeeeeea4",
-    borderColor = "#aaa",
+    color = '#000',
+    bgColor = '#eeeeeea4',
+    borderColor = '#aaa',
     closable = false,
     checked = false,
   } = props;
@@ -58,7 +58,7 @@ const Tag: FC<TagProps> = (props) => {
   const [check, setCheck] = useState(checked);
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("tag", customizePrefixCls);
+  let prefixCls = getPrefixCls('tag', customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {});
 
@@ -74,45 +74,36 @@ const Tag: FC<TagProps> = (props) => {
 
   return (
     <>
-      {
-        visible && (
-          <div
-            className={cls}
-            style={style}
-            onClick={handleClick}
-            css={css`
-            border: ${"1px solid " + borderColor};
+      {visible && (
+        <div
+          className={cls}
+          style={style}
+          onClick={handleClick}
+          css={css`
+            border: ${'1px solid ' + borderColor};
             color: ${color};
             bgcolor: ${bgColor};
           `}
-          >
-            {iconJSX && <div className={`${prefixCls}-icon`}>{iconJSX}</div>}
-            <div>{children}</div>
-            {closable && (
-              <div className={`${prefixCls}-close`} onClick={handleClose}>
-                {closeIcon ? (
-                  closeIcon
-                ) : (
-                  <Icon
-                    icon={solid("circle-xmark")}
-                    size="1x"
-                    color="#4c4c4c"
-                  ></Icon>
-                )}
-              </div>
-            )}
-          </div>
-        )
-      }</>
+        >
+          {iconJSX && <div className={`${prefixCls}-icon`}>{iconJSX}</div>}
+          <div>{children}</div>
+          {closable && (
+            <div className={`${prefixCls}-close`} onClick={handleClose}>
+              {closeIcon ? closeIcon : <Icon icon={solid('circle-xmark')} size='1x' color='#4c4c4c'></Icon>}
+            </div>
+          )}
+        </div>
+      )}
+    </>
   );
 };
 
 Tag.defaultProps = {
   closable: false,
   checked: false,
-  borderColor: "#aaa",
-  bgColor: "#eeeeeea4",
-  color: "#000",
+  borderColor: '#aaa',
+  bgColor: '#eeeeeea4',
+  color: '#000',
 };
 
 export default Tag;

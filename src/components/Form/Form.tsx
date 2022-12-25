@@ -1,6 +1,6 @@
-import React, { FC, useContext, ReactNode, createContext } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
+import React, { FC, useContext, ReactNode, createContext } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
 
 export interface FormProps {
   /** 样式命名隔离 */
@@ -14,7 +14,7 @@ export interface FormProps {
   /* 提交表单且数据验证成功后回调事件 */
   onFinish?: () => void;
   /* 提交表单且数据验证失败后回调事件 */
-  onFinishFailed?: () => void
+  onFinishFailed?: () => void;
 }
 
 export let FormContext = createContext<FormProps>({});
@@ -22,11 +22,11 @@ export let FormContext = createContext<FormProps>({});
 /**
  * Form 表单组件
  */
-const Form: FC<FormProps> = (props) => {
+const Form: FC<FormProps> = props => {
   const { children, className, prefixCls: customizePrefixCls, style, onFinish, onFinishFailed, ...restProps } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("form", customizePrefixCls);
+  let prefixCls = getPrefixCls('form', customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {});
   return (

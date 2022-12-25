@@ -1,13 +1,13 @@
-import React from "react";
-import classNames from "classnames";
-import { IMenuItemProps } from "./MenuItem";
+import React from 'react';
+import classNames from 'classnames';
+import { IMenuItemProps } from './MenuItem';
 
 export interface IMenuProps {
   defaultIndex?: string;
   /** 设置input 禁用 */
   disabled?: boolean;
   /** 设置input 方向 */
-  mode?: "horizontal" | "vertical";
+  mode?: 'horizontal' | 'vertical';
   /** 选中下拉列表项的回调 */
   onSelect?: (selIndex: string) => void;
   className?: string;
@@ -17,7 +17,7 @@ export interface IMenuProps {
   defaultOpenSubMenus?: string[];
 }
 
-type MenuMode = "horizontal" | "vertical";
+type MenuMode = 'horizontal' | 'vertical';
 
 //在外层组件直接传入控制menuitem
 interface IMenuContext {
@@ -27,34 +27,31 @@ interface IMenuContext {
   defaultOpenSubMenus?: string[];
 }
 
-export let MenuContext = React.createContext<IMenuContext>({ index: "0" });
+export let MenuContext = React.createContext<IMenuContext>({ index: '0' });
 
 /**
  * Menu  菜单组件
  */
-const Menu: React.FC<IMenuProps> = (props) => {
+const Menu: React.FC<IMenuProps> = props => {
   let { defaultIndex, onSelect, className, style, mode, children } = props;
   const [currentActive, setActive] = React.useState(defaultIndex);
 
-  const classes = classNames("viking-menu", className, {
-    "menu-vertical": mode === "vertical",
-    "menu-horizontal": mode !== "vertical",
+  const classes = classNames('viking-menu', className, {
+    'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical',
   });
 
   //类似插槽chilren直接判断需要加载哪个组件
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
-      const childElement =
-        child as React.FunctionComponentElement<IMenuItemProps>;
+      const childElement = child as React.FunctionComponentElement<IMenuItemProps>;
       const { displayName } = childElement.type;
-      if (displayName === "MenuItem" || displayName === "SubMenu") {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index: index.toString(),
         });
       } else {
-        console.error(
-          "Warning: Menu has a child which is not a MenuItem component"
-        );
+        console.error('Warning: Menu has a child which is not a MenuItem component');
       }
     });
   };
@@ -65,21 +62,19 @@ const Menu: React.FC<IMenuProps> = (props) => {
     }
   };
   const providerMenuContext: IMenuContext = {
-    index: currentActive ? currentActive : "0",
+    index: currentActive ? currentActive : '0',
     onSelect: handleClick,
   };
 
   return (
-    <ul className={classes} style={style} data-testid="test-menu">
-      <MenuContext.Provider value={providerMenuContext}>
-        {renderChildren()}
-      </MenuContext.Provider>
+    <ul className={classes} style={style} data-testid='test-menu'>
+      <MenuContext.Provider value={providerMenuContext}>{renderChildren()}</MenuContext.Provider>
     </ul>
   );
 };
 Menu.defaultProps = {
-  defaultIndex: "0",
-  mode: "horizontal",
+  defaultIndex: '0',
+  mode: 'horizontal',
   defaultOpenSubMenus: [],
 };
 

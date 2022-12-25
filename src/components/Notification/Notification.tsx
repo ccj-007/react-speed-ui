@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import React, { FC, useContext, useState, ReactNode, useRef } from "react";
-import Icon from '../Icon'
-import { css } from '@emotion/react'
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import React, { FC, useContext, useState, ReactNode, useRef } from 'react';
+import Icon from '../Icon';
+import { css } from '@emotion/react';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
-export type NotificationPositionType = 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br'
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
+export type NotificationPositionType = 'tl' | 'tc' | 'tr' | 'bl' | 'bc' | 'br';
 
 export type NotificationDataType = {
   /** 内容 */
@@ -15,7 +15,7 @@ export type NotificationDataType = {
   title?: string;
   /** icon */
   icon?: string;
-}
+};
 export interface NotificationProps {
   /** 样式命名隔离 */
   prefixCls?: string;
@@ -44,8 +44,20 @@ export interface NotificationProps {
 /**
  * Notification 全局展示通知提醒信息
  */
-const Notification: FC<NotificationProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, open, position, data, height, duration, width, iconJSX } = props;
+const Notification: FC<NotificationProps> = props => {
+  const {
+    children,
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    open,
+    position,
+    data,
+    height,
+    duration,
+    width,
+    iconJSX,
+  } = props;
   const noticeData = useRef<NotificationDataType[]>([]);
   const [notices, setNotices] = useState<NotificationDataType[]>([]);
   const first = useRef<boolean>(true);
@@ -53,34 +65,34 @@ const Notification: FC<NotificationProps> = (props) => {
   const timer = useRef<any>(null);
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("notification", customizePrefixCls);
+  let prefixCls = getPrefixCls('notification', customizePrefixCls);
 
   const handleNotice = () => {
     return setTimeout(() => {
-      setNotices([])
-      clearTimeout(timer.current)
-      timer.current = null
+      setNotices([]);
+      clearTimeout(timer.current);
+      timer.current = null;
     }, duration);
-  }
+  };
 
   React.useEffect(() => {
     if (!first.current) {
-      setNotices([data])
+      setNotices([data]);
       if (!timer.current) {
-        timer.current = handleNotice()
+        timer.current = handleNotice();
       }
     } else {
-      first.current = false
+      first.current = false;
     }
     return () => {
-      clearTimeout(timer.current)
-      timer.current = null
-    }
-  }, [open])
+      clearTimeout(timer.current);
+      timer.current = null;
+    };
+  }, [open]);
 
   React.useEffect(() => {
-    console.log("当前", notices);
-  }, [notices])
+    console.log('当前', notices);
+  }, [notices]);
   const cls = classNames(prefixCls, className, {
     [`${prefixCls}-tc`]: position === 'tc',
     [`${prefixCls}-tl`]: position === 'tl',
@@ -95,44 +107,45 @@ const Notification: FC<NotificationProps> = (props) => {
   });
 
   const getStyles = () => {
-    let innerWidth = window.innerWidth
-    let left = innerWidth / 2 - width / 2
+    let innerWidth = window.innerWidth;
+    let left = innerWidth / 2 - width / 2;
 
     if (position === 'bc' || position === 'tc') {
-      return { 'left': left + 'px' }
+      return { left: left + 'px' };
     }
     if (style) {
-      return style
+      return style;
     }
-  }
+  };
 
   return (
-    < >
-      {
-        notices.map((notice, index) => {
-          return (
-            <div className={cls} style={getStyles()} key={index} css={css`
-            width: ${width + 'px'} !important;
-            height: ${height + 'px'} !important;
-          `} >
-              <div className={`${prefixCls}-card`}>
-                {
-                  iconJSX ? iconJSX : <Icon icon={solid('check')} size='2x' color='#18ce55'></Icon>
-                }
-                <div className={`${prefixCls}-warp`}>
-                  <h4>{notice.title}</h4>
-                  <p className={`${prefixCls}-content`}>{notice.content}</p>
-                </div>
+    <>
+      {notices.map((notice, index) => {
+        return (
+          <div
+            className={cls}
+            style={getStyles()}
+            key={index}
+            css={css`
+              width: ${width + 'px'} !important;
+              height: ${height + 'px'} !important;
+            `}
+          >
+            <div className={`${prefixCls}-card`}>
+              {iconJSX ? iconJSX : <Icon icon={solid('check')} size='2x' color='#18ce55'></Icon>}
+              <div className={`${prefixCls}-warp`}>
+                <h4>{notice.title}</h4>
+                <p className={`${prefixCls}-content`}>{notice.content}</p>
               </div>
             </div>
-          )
-        })
-      }
+          </div>
+        );
+      })}
     </>
   );
 };
 
 Notification.defaultProps = {
   duration: 5000,
-}
+};
 export default Notification;

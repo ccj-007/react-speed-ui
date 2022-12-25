@@ -47,53 +47,6 @@ exports[`test badge component basic use should render 1`] = `
 </DocumentFragment>
 `;
 
-exports[`test badge component different should render 1`] = `
-<DocumentFragment>
-  <div
-    class="speed-avatar speed-badge"
-    style="width: 30px; height: 30px; border-radius: none;"
-  >
-    <div>
-      U
-    </div>
-    <div
-      class="speed-badge-numDot"
-      style="width: 15px; color: red; height: 15px; right: -7.5px; top: -7.5px;"
-    >
-      1
-    </div>
-  </div>
-  <div
-    class="speed-avatar speed-badge"
-    style="width: 30px; height: 30px; border-radius: none;"
-  >
-    <div>
-      U
-    </div>
-    <div
-      class="speed-badge-numDot"
-      style="width: 15px; color: red; height: 15px; right: -7.5px; top: -7.5px;"
-    >
-      0
-    </div>
-  </div>
-  <div
-    class="speed-avatar speed-badge"
-    style="width: 30px; height: 30px; border-radius: none;"
-  >
-    <div>
-      U
-    </div>
-    <div
-      class="speed-badge-numDot"
-      style="width: 20px; color: red; height: 20px; right: -10px; top: -10px; background: green;"
-    >
-      10
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`test badge component different tag should render 1`] = `
 <DocumentFragment>
   <div
