@@ -2,25 +2,28 @@
 
 .speed-collapse {
   &-panel {
+    box-shadow: 0px 0px 10px rgb(202, 202, 202);
+
     &-header {
       background: #f7f7f7;
       padding: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      border-left: 1px solid #ddd;
-      border-right: 1px solid #ddd;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    &-header:hover {
+      background: rgb(228, 228, 228);
+      color: #fff;
     }
 
     &-content {
       box-sizing: border-box;
-      border-left: 1px solid #ddd;
-      border-right: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
       overflow: hidden;
-      transition: height 1s ease-in-out;
+      overflow-y: auto;
+      transition: height 0.5s ease-in;
     }
   }
 }

@@ -12,6 +12,7 @@ exports[`test autoComplete component should render 1`] = `
       <input
         class="speed-input"
         data-testid="input"
+        style="padding-right: 30px;"
         type="text"
         value=""
       />

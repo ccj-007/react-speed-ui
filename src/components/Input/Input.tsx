@@ -148,6 +148,11 @@ const Input: React.FC<allInputProps> = props => {
       );
     }
   };
+
+  const inputWarpStyle = {
+    paddingRight: '30px',
+    ...inputStyle,
+  };
   return (
     <div className={inputWarpCls} style={style}>
       {prefix ? <div className={`${prefixCls}-prefix`}>{prefix}</div> : ''}
@@ -158,7 +163,7 @@ const Input: React.FC<allInputProps> = props => {
         onChange={handleChange}
         onBlur={handleBlur}
         value={value}
-        style={inputStyle}
+        style={inputWarpStyle}
         disabled={disabled}
         {...restProps}
       ></input>

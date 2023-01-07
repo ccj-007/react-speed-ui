@@ -19,7 +19,7 @@ exports[`test Calendar component custom data in the Calendar component 1`] = `
         <div
           class="speed-calendar-detail"
         >
-          2022年12月
+          2023年1月
         </div>
         <div
           class="speed-calendar-arrow"
@@ -69,6 +69,24 @@ exports[`test Calendar component custom data in the Calendar component 1`] = `
       <div
         class="speed-calendar-day"
       >
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          26
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          27
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          28
+        </div>
         <div
           class="speed-calendar-day-disabled"
           style="color: rgb(170, 170, 170);"
@@ -133,7 +151,7 @@ exports[`test Calendar component custom data in the Calendar component 1`] = `
           6
         </div>
         <div
-          class="speed-calendar-day-item"
+          class="speed-calendar-day-item speed-calendar-day-item-active"
         >
           7
         </div>
@@ -223,7 +241,7 @@ exports[`test Calendar component custom data in the Calendar component 1`] = `
           24
         </div>
         <div
-          class="speed-calendar-day-item speed-calendar-day-item-active"
+          class="speed-calendar-day-item"
         >
           25
         </div>
@@ -263,6 +281,30 @@ exports[`test Calendar component custom data in the Calendar component 1`] = `
         >
           1
         </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          2
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          3
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          4
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          5
+        </div>
       </div>
     </div>
   </div>
@@ -288,7 +330,7 @@ exports[`test Calendar component should render base Calendar 1`] = `
         <div
           class="speed-calendar-detail"
         >
-          2022年12月
+          2023年1月
         </div>
         <div
           class="speed-calendar-arrow"
@@ -342,6 +384,24 @@ exports[`test Calendar component should render base Calendar 1`] = `
           class="speed-calendar-day-disabled"
           style="color: rgb(170, 170, 170);"
         >
+          26
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          27
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          28
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
           29
         </div>
         <div
@@ -387,7 +447,7 @@ exports[`test Calendar component should render base Calendar 1`] = `
           6
         </div>
         <div
-          class="speed-calendar-day-item"
+          class="speed-calendar-day-item speed-calendar-day-item-active"
         >
           7
         </div>
@@ -477,7 +537,7 @@ exports[`test Calendar component should render base Calendar 1`] = `
           24
         </div>
         <div
-          class="speed-calendar-day-item speed-calendar-day-item-active"
+          class="speed-calendar-day-item"
         >
           25
         </div>
@@ -516,6 +576,30 @@ exports[`test Calendar component should render base Calendar 1`] = `
           style="color: rgb(170, 170, 170);"
         >
           1
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          2
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          3
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          4
+        </div>
+        <div
+          class="speed-calendar-day-disabled"
+          style="color: rgb(170, 170, 170);"
+        >
+          5
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 exports[`test alert component should render 1`] = `
 <DocumentFragment>
   <button
-    class="speed-button speed-button-primary"
+    class="speed-button speed-button-primary css-1dis8g1-Button"
     data-testid="button"
   >
     alert

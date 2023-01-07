@@ -1,7 +1,7 @@
-import React, { FC, useContext, useState, ReactNode } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
-import Panel, { PanelProps } from "./Panel";
+import React, { FC, useContext, useState, ReactNode } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
+import Panel, { PanelProps } from './Panel';
 
 export interface CollapseProps {
   /** 样式命名隔离 */
@@ -15,39 +15,52 @@ export interface CollapseProps {
   /** 激活的key */
   defaultActiveKey?: string[];
   /** 改变回调 */
-  onChange?: (key: string) => void;
+  onChange: (key: string) => void;
+  /** 手风琴 */
+  accordion?: boolean;
 }
 
 /**
  * Collapse 下拉展示
  */
 const Collapse: FC<CollapseProps> & {
-  Panel: FC<PanelProps>
-} = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, defaultActiveKey, onChange } = props;
+  Panel: FC<PanelProps>;
+} = props => {
+  const {
+    children,
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    defaultActiveKey,
+    onChange,
+    accordion = false,
+  } = props;
   const [state, setState] = useState(null);
+  const [singleId, setSingleId] = useState('');
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("collapse", customizePrefixCls);
+  let prefixCls = getPrefixCls('collapse', customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {});
 
   const renderChild = () => {
-    let len = -1
+    let len = -1;
     React.Children.forEach(children, (item, index) => {
-      len++
-    })
+      len++;
+    });
     return React.Children.map(children, (child, index) => {
-      const childElement =
-        child as React.FunctionComponentElement<PanelProps>;
+      const childElement = child as React.FunctionComponentElement<PanelProps>;
       return React.cloneElement(childElement, {
         keyList: defaultActiveKey,
         onChange: onChange,
         order: index,
-        len: len
-      })
-    })
-  }
+        len: len,
+        accordion,
+        singleId,
+        handleAccordion: (id: string) => setSingleId(id),
+      });
+    });
+  };
   return (
     <div className={cls} style={style}>
       {renderChild()}
@@ -57,5 +70,5 @@ const Collapse: FC<CollapseProps> & {
 
 Collapse.defaultProps = {};
 
-Collapse.Panel = Panel
+Collapse.Panel = Panel;
 export default Collapse;

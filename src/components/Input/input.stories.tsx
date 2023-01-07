@@ -55,6 +55,14 @@ const defaultInputTpl: ComponentStory<typeof Input> = (args: any) => (
       <Input showCloseIcon></Input>
     </div>
     <br></br>
+
+    <PageHeader title='不同尺寸'></PageHeader>
+    <div>
+      <Input showCloseIcon style={{ width: '100px' }}></Input>
+      <br></br>
+      <Input showCloseIcon style={{ width: '500px', height: '60px' }}></Input>
+    </div>
+    <br></br>
   </>
 );
 
