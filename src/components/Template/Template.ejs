@@ -11,31 +11,29 @@ export interface <%= name %>Props {
   style ?: React.CSSProperties
   /** 组件类名 */
   className ?: string
-  }
+}
 
-  /**
-  * <%= name %> 组件模板
-    */
-    const <%= name %>: FC <<%= name %>Props> = (props) => {
-        const { children, className, prefixCls: customizePrefixCls, style,restProps } = props;
-        const [state, setState] = useState(null)
+/**
+* <%= name %> 组件模板
+*/
+const <%= name %>: FC <<%= name %>Props> = (props) => {
+    const { children, className, prefixCls: customizePrefixCls, style, ...restProps } = props;
+    const [state, setState] = useState(null)
 
-        const { getPrefixCls } = useContext(ConfigContext);
-        let prefixCls = getPrefixCls("<%= lowname %>", customizePrefixCls);
+    const { getPrefixCls } = useContext(ConfigContext);
+    let prefixCls = getPrefixCls("<%= lowname %>", customizePrefixCls);
 
-          const cls = classNames(prefixCls, className, {
+    const cls = classNames(prefixCls, className, {});
+    return (
+      <div className={cls} style={style} {...restProps}>
+        <div>
+          <%= name %>
+        </div>
+        <div className={`${prefixCls}-warp`}>{children}</div>
+      </div>
+    );
+};
 
-          });
-          return (
-          <div className={cls} style={style} {...restProps}>
-            <div>
-              <%= name %>
-            </div>
-            <div className={`${prefixCls}-warp`}>{children}</div>
-          </div>
-          );
-          };
+<%= name %>.defaultProps = { };
 
-          <%= name %>.defaultProps = { };
-
-            export default <%= name %>;
+export default <%= name %>;

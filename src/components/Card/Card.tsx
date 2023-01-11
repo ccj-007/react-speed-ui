@@ -58,7 +58,7 @@ const Card: FC<CardProps> = props => {
       style={style}
       css={css`
         &:hover {
-          box-shadow: ${float ? '0 0 20px -5px' : ''};
+          box-shadow: ${float ? '0 0 20px -5px #b4b4b4' : ''};
           transition: all 0.5s linear;
         }
       `}

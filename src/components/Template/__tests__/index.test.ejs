@@ -1,0 +1,22 @@
+import { render } from '@testing-library/react';
+import <%= name %> from '../<%= name %>';
+import '@testing-library/jest-dom/extend-expect';
+
+describe('test button component', () => {
+  it('should render a <<%= name %>/> components', () => {
+    const { asFragment } = render(
+      <>
+       
+      </>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should use speed-ui classNames', () => {
+    const { container } = render(
+      <>
+      </>,
+    );
+    expect(container.firstChild).toHaveClass('speed-<%= lowname %>');
+  });
+});
