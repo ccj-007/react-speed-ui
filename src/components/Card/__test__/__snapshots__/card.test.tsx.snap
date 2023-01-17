@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Card component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-card css-1lj97fx-Card"
+  >
+    <div
+      class="speed-card-header"
+    >
+      <div>
+        default header title
+      </div>
+       
+    </div>
+    <div
+      class="speed-card-content"
+    />
+    <div
+      class="speed-card-footer"
+    >
+      default footer title
+    </div>
+  </div>
+</DocumentFragment>
+`;

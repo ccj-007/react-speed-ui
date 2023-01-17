@@ -151,7 +151,7 @@ exports[`test Calendar component custom data in the Calendar component 1`] = `
           6
         </div>
         <div
-          class="speed-calendar-day-item speed-calendar-day-item-active"
+          class="speed-calendar-day-item"
         >
           7
         </div>
@@ -201,7 +201,7 @@ exports[`test Calendar component custom data in the Calendar component 1`] = `
           16
         </div>
         <div
-          class="speed-calendar-day-item"
+          class="speed-calendar-day-item speed-calendar-day-item-active"
         >
           17
         </div>
@@ -447,7 +447,7 @@ exports[`test Calendar component should render base Calendar 1`] = `
           6
         </div>
         <div
-          class="speed-calendar-day-item speed-calendar-day-item-active"
+          class="speed-calendar-day-item"
         >
           7
         </div>
@@ -497,7 +497,7 @@ exports[`test Calendar component should render base Calendar 1`] = `
           16
         </div>
         <div
-          class="speed-calendar-day-item"
+          class="speed-calendar-day-item speed-calendar-day-item-active"
         >
           17
         </div>

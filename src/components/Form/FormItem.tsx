@@ -1,18 +1,18 @@
-import React, { FC, useContext, useState, ReactNode } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import { FormContext } from "./Form";
-import classNames from "classnames";
+import React, { FC, useContext, useState, ReactNode } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import { FormContext } from './Form';
+import classNames from 'classnames';
 
 type FormItemRule = {
   /** 是否必填 */
-  required?: boolean
+  required?: boolean;
   /** 错误信息 */
-  message: string
+  message: string;
   /** 最小的字符串长度 */
-  minLen?: number
+  minLen?: number;
   /** 最大的字符串长度 */
-  maxLen?: number
-}
+  maxLen?: number;
+};
 
 export interface FormItemProps {
   /** 样式命名隔离 */
@@ -29,93 +29,96 @@ export interface FormItemProps {
   value?: any;
   /** label */
   label?: any;
-  rules: FormItemRule[]
+  rules: FormItemRule[];
 }
 
 /**
  * Form 组件模板
  */
-const FormItem: FC<FormItemProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, type, label, value, rules = [], ...restProps } = props;
+const FormItem: FC<FormItemProps> = props => {
+  const {
+    children,
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    type,
+    label,
+    value,
+    rules = [],
+    ...restProps
+  } = props;
   const [errorInfo, setErrorInfo] = useState('');
 
   const { getPrefixCls } = useContext(ConfigContext);
   const { onFinish, onFinishFailed } = useContext(FormContext);
-  let required = rules.some(rule => rule.required) //必填
+  let required = rules.some(rule => rule.required); //必填
 
-  let prefixCls = getPrefixCls("formItem", customizePrefixCls);
+  let prefixCls = getPrefixCls('formItem', customizePrefixCls);
 
   const cls = classNames(prefixCls, className, {
     [`${prefixCls}-input`]: type === 'input',
-    [`${prefixCls}-button`]: type === 'submit' || type === 'button'
+    [`${prefixCls}-button`]: type === 'submit' || type === 'button',
   });
 
   const noInput = React.useMemo(() => {
-    return type === 'button' || type === 'submit'
-  }, [type])
+    return type === 'button' || type === 'submit';
+  }, [type]);
 
   const handleClick = (e: any) => {
     console.log(e);
-  }
+  };
 
   const showError = (val: string) => {
     if (rules) {
       rules.forEach(rule => {
         if (rule.required && rule.message) {
           if (val) {
-            setErrorInfo('')
+            setErrorInfo('');
           } else {
-            setErrorInfo(rule.message)
+            setErrorInfo(rule.message);
           }
         }
         if (rule.maxLen && val.length >= rule.maxLen) {
-          setErrorInfo(rule.message)
+          setErrorInfo(rule.message);
         }
         if (rule.minLen && val.length <= rule.minLen) {
-          setErrorInfo(rule.message)
+          setErrorInfo(rule.message);
         }
-      })
+      });
     }
-  }
+  };
   const handleChange = (e: any) => {
-    let val = e.target.value
-    showError(val)
-  }
+    let val = e.target.value;
+    showError(val);
+  };
   const handleClear = () => {
-    showError('')
-  }
+    showError('');
+  };
 
   const rulesRender = () => {
     return React.Children.map(children, (child, index) => {
-      const childElement =
-        child as React.FunctionComponentElement<any>;
+      const childElement = child as React.FunctionComponentElement<any>;
       console.log(childElement.type.displayName);
       return React.cloneElement(childElement, {
         onChange: handleChange,
-        onClear: handleClear
-      })
-    })
-  }
+        onClear: handleClear,
+      });
+    });
+  };
   return (
-    <div >
+    <div>
       <div style={{ display: 'flex' }}>
-        {
-          required && <div className={`${prefixCls}-error-required`}>*</div>
-        }
+        {required && <div className={`${prefixCls}-error-required`}>*</div>}
         {label && <label>{label}</label>}
       </div>
       {rulesRender()}
-      {
-        <div className={`${prefixCls}-error-info`}>
-          {errorInfo}
-        </div>
-      }
+      {<div className={`${prefixCls}-error-info`}>{errorInfo}</div>}
     </div>
   );
 };
 
 FormItem.defaultProps = {
-  rules: []
+  rules: [],
 };
 
 export default FormItem;

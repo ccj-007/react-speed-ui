@@ -47,20 +47,23 @@
     "vite": "^3.0.9"
   },
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
+    "eject": "react-scripts eject",
     "tpl": "node src/generator.js",
     "clear-storybook": "rimraf node_modules/.cache/storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "build-storybook -s public",
     "storybook": "start-storybook -p 6012 -s public ",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
     "lib": "rollup --config rollup.config.build.js",
-    "eject": "react-scripts eject",
     "build:types": "tsc --emitDeclarationOnly",
     "clean": "rimraf types lib esm dist",
     "rimraf": "rimraf ./node_modules",
-    "gulp": "npm run clean && gulp"
+    "gulp": "npm run clean && gulp",
+    "prepare": "husky install",
+    "lint": "npm run test:coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -134,6 +137,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-uglify": "^3.0.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "prop-types": "^15.8.1",
     "react-app-rewired": "^2.2.1",
     "rimraf": "^3.0.2",
