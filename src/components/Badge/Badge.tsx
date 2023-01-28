@@ -1,6 +1,6 @@
-import React, { FC, useContext, ReactNode } from "react";
-import { ConfigContext } from "../Config-Provider/ConfigProvider";
-import classNames from "classnames";
+import React, { FC, useContext, ReactNode } from 'react';
+import { ConfigContext } from '../Config-Provider/ConfigProvider';
+import classNames from 'classnames';
 
 export interface BadgeProps {
   /** 样式命名隔离 */
@@ -26,38 +26,60 @@ export interface BadgeProps {
 /**
  * Badge 组件模板
  */
-const Badge: FC<BadgeProps> = (props) => {
-  const { children, className, prefixCls: customizePrefixCls, style, count = 1, showZero = true, dot = false, dotColor = 'red', dotSize = 15 } = props;
+const Badge: FC<BadgeProps> = props => {
+  const {
+    children,
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    count = 1,
+    showZero = true,
+    dot = false,
+    dotColor = '#fff',
+    dotSize = 15,
+  } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
-  let prefixCls = getPrefixCls("badge", customizePrefixCls);
+  let prefixCls = getPrefixCls('badge', customizePrefixCls);
 
   const childBox = () => {
     if (React.isValidElement(children)) {
-      return (
-        React.Children.map(children, (child) => {
-          return React.cloneElement(child, {
+      return React.Children.map(children, child => {
+        return React.cloneElement(
+          child,
+          {
             className: classNames(prefixCls, className),
-          }, count === 0 && !showZero ? <></> : <div className={`${prefixCls}-numDot`} style={{ width: dotSize + 'px', color: dotColor, height: dotSize + 'px', right: -(dotSize * .5) + 'px', top: -(dotSize * .5) + 'px', ...style }}>{dot ? '' : count}</div>)
-        })
-      )
+          },
+          count === 0 && !showZero ? (
+            <></>
+          ) : (
+            <div
+              className={`${prefixCls}-numDot`}
+              style={{
+                width: dotSize + 'px',
+                color: dotColor || '#fff',
+                height: dotSize + 'px',
+                right: -(dotSize * 0.5) + 'px',
+                top: -(dotSize * 0.5) + 'px',
+                ...style,
+              }}
+            >
+              {dot ? '' : count}
+            </div>
+          ),
+        );
+      });
     }
-  }
-  return (
-    <>
-      {
-        childBox()
-      }
-    </>
-  );
+  };
+  return <>{childBox()}</>;
 };
 
 Badge.defaultProps = {
   count: 1,
   showZero: true,
   dot: false,
-  dotColor: 'red',
-  dotSize: 15
+  dotColor: '#fff',
+  dotSize: 15,
 };
 
 export default Badge;

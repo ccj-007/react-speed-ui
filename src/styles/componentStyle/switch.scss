@@ -1,4 +1,4 @@
-@import "../commonStyle/variables.scss";
+@import '../commonStyle/variables.scss';
 
 .speed-switch {
   position: relative;
@@ -20,7 +20,7 @@
     left: 2px;
     background: $gray-100;
     border-radius: 15px;
-    transition: all .3s linear;
+    transition: all 0.3s linear;
   }
 
   &-circle:hover {
@@ -29,7 +29,7 @@
 
   &-circle-active {
     transform: translateX(22px);
-    transition: all .5s linear;
+    transition: all 0.5s linear;
   }
 }
 
@@ -53,12 +53,12 @@
     left: 1px;
     background: $gray-100;
     border-radius: 7px;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     cursor: pointer;
   }
 
   &-circle-active {
-    transform: translateX(13px);
-    transition: all .2s linear;
+    transform: translateX(14px);
+    transition: all 0.2s linear;
   }
 }
