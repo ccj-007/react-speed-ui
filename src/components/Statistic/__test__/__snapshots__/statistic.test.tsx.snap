@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Statistic component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-statistic"
+  >
+    <div
+      class="speed-container speed-container-column speed-container-between"
+    >
+      <div
+        class="speed-statistic-title"
+      />
+      <div
+        class="speed-statistic-value"
+      >
+        undefined
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

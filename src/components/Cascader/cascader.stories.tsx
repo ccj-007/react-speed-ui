@@ -21,7 +21,7 @@ interface Option {
   children?: Option[];
 }
 
-const options: Option[] = [
+export const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -62,7 +62,6 @@ const options: Option[] = [
               },
             ],
           },
-
         ],
       },
     ],
@@ -73,7 +72,7 @@ const options: Option[] = [
  * 展示面板
  */
 const defaultCascaderTpl: ComponentStory<typeof Cascader> = args => {
-  const onChange = (val: number) => {
+  const onChange = (val: any) => {
     console.log(val);
   };
   return (

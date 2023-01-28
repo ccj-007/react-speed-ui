@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Carousel component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-carousel"
+  >
+    <svg
+      aria-hidden="true"
+      class="svg-inline--fa fa-angle-left fa-2x speed-icon speed-carousel-arrowl speed-carousel-arrow"
+      color="#4c4c4c"
+      data-icon="angle-left"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      viewBox="0 0 320 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+        fill="currentColor"
+      />
+    </svg>
+    <div
+      class="speed-carousel-imgs"
+    >
+      <img
+        alt=""
+        class="speed-carousel-imgs-item"
+        src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fgss0.baidu.com%2F9vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F11385343fbf2b211827ce1cdc88065380dd78ee6.jpg&refer=http%3A%2F%2Fgss0.baidu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666797389&t=b4baa6d9f31506accc67f784dce14c54"
+      />
+    </div>
+    <div
+      class="speed-carousel-group speed-carousel-group-bottom"
+    >
+      <div
+        class="speed-carousel-cir css-qyiwlz-Carousel"
+      />
+      <div
+        class="speed-carousel-cir css-jhwe78-Carousel"
+      />
+      <div
+        class="speed-carousel-cir css-jhwe78-Carousel"
+      />
+    </div>
+    <svg
+      aria-hidden="true"
+      class="svg-inline--fa fa-angle-right fa-2x speed-icon speed-carousel-arrowr speed-carousel-arrow"
+      color="#4c4c4c"
+      data-icon="angle-right"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      viewBox="0 0 320 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;

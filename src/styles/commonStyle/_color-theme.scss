@@ -2,16 +2,16 @@
  * 这里定义了map，对应多个主题面板，通过mixin函数获取对应的map的值，在对应的标签内使用@include 使用覆盖函数
  */
 $themes: (
-	light: (
-		global-background: #fff,
-		global-color: #37474f,
-	),
-	dark: (
-		global-background: #37474f,
-		global-color: #fff,
-	),
-	blue: (
-		global-background: #10618a,
-		global-color: #fff,
-	),
+  light: (
+    global-background: #fff,
+    global-color: #37474f,
+  ),
+  dark: (
+    global-background: #37474f,
+    global-color: #fff,
+  ),
+  blue: (
+    global-background: #10618a,
+    global-color: #fff,
+  ),
 );

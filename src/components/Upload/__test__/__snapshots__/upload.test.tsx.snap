@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Upload component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="viking-upload-component"
+  >
+    <div
+      class="viking-upload-input"
+      style="display: inline-block;"
+    >
+      <button
+        class="speed-button speed-button-primary css-1dis8g1-Button"
+        data-testid="button"
+      >
+        Upload File
+      </button>
+      <input
+        class="viking-file-input"
+        style="display: none;"
+        type="file"
+      />
+    </div>
+    <ul />
+  </div>
+</DocumentFragment>
+`;

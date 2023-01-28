@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Menu component should render 1`] = `
+<DocumentFragment>
+  <ul
+    class="viking-menu menu-horizontal"
+    data-testid="test-menu"
+  />
+</DocumentFragment>
+`;

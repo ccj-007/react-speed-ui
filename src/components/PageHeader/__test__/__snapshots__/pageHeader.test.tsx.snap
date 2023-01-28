@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test PageHeader component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-pageHeader-warp"
+  >
+    <span
+      class="speed-pageHeader"
+    >
+      test title
+    </span>
+    <span
+      class="speed-pageHeader-subtitle"
+    />
+  </div>
+</DocumentFragment>
+`;

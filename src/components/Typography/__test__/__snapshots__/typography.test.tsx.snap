@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Typography component should render 1`] = `
+<DocumentFragment>
+  <span
+    class="text text-default"
+  />
+  <h6 />
+</DocumentFragment>
+`;

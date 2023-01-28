@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Progress component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-progress-bar"
+  >
+    <div
+      class="speed-progress-bar-outer"
+      style="height: 15px;"
+    >
+      <div
+        class="speed-progress-bar-inner color-primary speed-progress-bar-inner-right css-16krv3a-Progress"
+        style="width: 0%;"
+      >
+        <span
+          class="inner-text"
+        >
+          0%
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

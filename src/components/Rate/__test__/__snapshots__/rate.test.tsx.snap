@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Rate component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-rate"
+  >
+    <div
+      class="iconfont speed-rate-item icon-star"
+      style="font-size: 32px;"
+    />
+    <div
+      class="iconfont speed-rate-item icon-star"
+      style="font-size: 32px;"
+    />
+    <div
+      class="iconfont speed-rate-item icon-star"
+      style="font-size: 32px;"
+    />
+    <div
+      class="iconfont speed-rate-item icon-star"
+      style="font-size: 32px;"
+    />
+    <div
+      class="iconfont speed-rate-item icon-star"
+      style="font-size: 32px;"
+    />
+    <div
+      class="speed-rate-text"
+    />
+  </div>
+</DocumentFragment>
+`;

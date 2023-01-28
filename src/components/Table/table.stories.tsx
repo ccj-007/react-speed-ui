@@ -136,7 +136,6 @@ const customTableTpl: ComponentStory<typeof Table> = args => {
       dataIndex: 'edit',
       key: 'edit',
       render: source => {
-
         return (
           <>
             <Modal visible={isModalVisible} onConfirm={handleConfirm} onCancel={handleCancel}>

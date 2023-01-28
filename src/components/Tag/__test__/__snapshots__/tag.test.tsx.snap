@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Tag component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-tag css-1eldxbe-Tag"
+  >
+    <div />
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Radio component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-radio"
+  >
+    <input
+      class="speed-radio-input"
+      id="speed-radio-undefined"
+      type="radio"
+    />
+    <label
+      class="speed-radio-label"
+      for="speed-radio-undefined"
+    />
+  </div>
+</DocumentFragment>
+`;

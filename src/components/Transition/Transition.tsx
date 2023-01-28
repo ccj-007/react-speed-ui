@@ -6,13 +6,14 @@ type AnimationName = 'zoom-in-top' | 'zoom-in-left' | 'zoom-in-bottom' | 'zoom-i
 type TransitionProps = CSSTransitionProps & {
   animation?: AnimationName;
   wrapper?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  restProps?: any;
 };
 
 const Transition: React.FC<TransitionProps> = props => {
   const { children, classNames, animation, wrapper, ...restProps } = props;
   return (
-    <CSSTransition classNames={classNames ? classNames : animation} {...restProps}>
+    <CSSTransition classNames={classNames ? classNames : animation} {...restProps} addEndListener={() => {}}>
       {children}
     </CSSTransition>
   );

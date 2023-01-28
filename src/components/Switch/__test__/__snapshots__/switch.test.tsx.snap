@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Switch component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-switch css-11ly021-Switch"
+  >
+    <div
+      class="speed-switch-circle css-163r71z-Switch"
+    />
+  </div>
+</DocumentFragment>
+`;

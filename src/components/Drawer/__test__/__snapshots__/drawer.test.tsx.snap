@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Drawer component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-drawer speed-drawer-left css-7zjjat-Drawer"
+    style="left: -200px; width: 200px; min-height: 100vh;"
+  >
+    <div
+      class="speed-drawer-header"
+    >
+      <div
+        class="speed-drawer-close"
+      >
+        X
+      </div>
+    </div>
+    <div
+      class="speed-drawer-content"
+    />
+    <div
+      class="speed-drawer-footer"
+    >
+      <button
+        class="speed-button speed-button-primary css-1dis8g1-Button"
+        data-testid="button"
+      >
+        确认
+      </button>
+      <button
+        class="speed-button speed-button-primary css-1dis8g1-Button"
+        data-testid="button"
+      >
+        取消
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

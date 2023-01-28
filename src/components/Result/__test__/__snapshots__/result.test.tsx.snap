@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Result component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-result"
+  >
+    <div
+      class="speed-result-icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-check fa-5x speed-icon"
+        color="#52c41a"
+        data-icon="check"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <strong
+      class="speed-result-title"
+    />
+    <div
+      class="speed-result-subTitle"
+    />
+    <div
+      class="speed-result-extra"
+    >
+      <div
+        class="speed-space css-1ak7c1s-Space"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

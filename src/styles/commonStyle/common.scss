@@ -1,16 +1,16 @@
 body {
-  @include theme-aware("background", "global-background");
-  @include theme-aware("color", "global-color");
+  @include theme-aware('background', 'global-background');
+  @include theme-aware('color', 'global-color');
 }
 
-//在css内部针对性修改
+// // 在css内部针对性修改
 // button {
-// 	.theme-light & {
-// 		background: #f30000;
-// 	}
-// 	.theme-dark & {
-// 		background: #ee0fd0;
-// 	}
+//   .theme-light & {
+//     background: #f30000;
+//   }
+//   .theme-dark & {
+//     background: #ee0fd0;
+//   }
 // }
 
 ul,

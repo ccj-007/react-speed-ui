@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Divider component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="divider divider-solid divider-horizontal"
+  />
+</DocumentFragment>
+`;

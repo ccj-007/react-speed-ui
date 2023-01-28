@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Skeleton component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-skeleton"
+  >
+    <svg
+      aria-labelledby="ml3udb-aria-"
+      viewBox="0 0 380 70"
+    >
+      <title
+        id="ml3udb-aria-"
+      >
+        Loading...
+      </title>
+      <rect
+        clip-path="url(#ml3udb-diff-)"
+        fill="#f2f2f2"
+        height="100%"
+        width="100%"
+        x="0"
+        y="0"
+      />
+      <defs>
+        <clippath
+          id="ml3udb-diff-"
+        >
+          <rect
+            height="70"
+            rx="5"
+            ry="5"
+            width="70"
+            x="0"
+            y="0"
+          />
+          <rect
+            height="15"
+            rx="5"
+            ry="5"
+            width="300"
+            x="80"
+            y="0"
+          />
+          <rect
+            height="15"
+            rx="5"
+            ry="5"
+            width="200"
+            x="80"
+            y="20"
+          />
+          <rect
+            height="15"
+            rx="5"
+            ry="5"
+            width="100"
+            x="80"
+            y="40"
+          />
+        </clippath>
+        <lineargradient
+          id="ml3udb-animated-diff-"
+        >
+          <stop
+            offset="0%"
+            stop-color="#f5f6f7"
+            stop-opacity="1"
+          >
+            <animate
+              attributeName="offset"
+              dur="4s"
+              keyTimes="0; 0.25; 1"
+              repeatCount="indefinite"
+              values="-2; -2; 1"
+            />
+          </stop>
+          <stop
+            offset="50%"
+            stop-color="#ccc"
+            stop-opacity="1"
+          >
+            <animate
+              attributeName="offset"
+              dur="4s"
+              keyTimes="0; 0.25; 1"
+              repeatCount="indefinite"
+              values="-1; -1; 2"
+            />
+          </stop>
+          <stop
+            offset="100%"
+            stop-color="#f5f6f7"
+            stop-opacity="1"
+          >
+            <animate
+              attributeName="offset"
+              dur="4s"
+              keyTimes="0; 0.25; 1"
+              repeatCount="indefinite"
+              values="0; 0; 3"
+            />
+          </stop>
+        </lineargradient>
+      </defs>
+    </svg>
+  </div>
+</DocumentFragment>
+`;

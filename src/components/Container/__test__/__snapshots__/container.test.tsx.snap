@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Container component should render 1`] = `
+<DocumentFragment>
+  <div
+    class="speed-container speed-container-row speed-container-center"
+  />
+</DocumentFragment>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test Dropdown component should render 1`] = `
+<DocumentFragment>
+  <button
+    class="speed-button speed-dropdown-warp speed-button-primary css-1dis8g1-Button"
+    data-testid="button"
+  >
+    <div>
+      <div />
+      <div
+        class="speed-menu speed-dropdown-b"
+      />
+    </div>
+  </button>
+</DocumentFragment>
+`;
